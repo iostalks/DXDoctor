@@ -8,21 +8,19 @@
 
 ## 页面效果展示
 
-1. 首页病情分类栏字体颜色自然过度
+- 首页病情分类栏字体颜色自然过度
 ![image](https://github.com/iostalks/DXDoctor/blob/master/ImageSource/moveAnimation.gif)
 
 
-2. 实现下拉刷新控件可控的放大和缩小(gif的录制效果不太好)
+- 实现下拉刷新控件可控的放大和缩小(gif的录制效果不太好)
 ![image](https://github.com/iostalks/DXDoctor/blob/master/ImageSource/pull_down_refresh.gif)
 
 ![image](https://github.com/iostalks/DXDoctor/blob/master/ImageSource/pull_up_refresh.gif)
 
-3. 界面效果
+
+- 界面效果
 
 ![image](https://github.com/iostalks/DXDoctor/blob/master/ImageSource/searchPage.png)
-
-![image](https://github.com/iostalks/DXDoctor/blob/master/ImageSource/MessagePage.png)
-
 
 
 
