@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Search Content View Controller-->
+        <scene sceneID="Qrc-rD-9JN">
+            <objects>
+                <viewController storyboardIdentifier="DXSearchContentViewController" id="Ff5-aj-UgU" customClass="DXSearchContentViewController" customModule="DXDoctor" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2VR-g5-Jmz"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="9Lg-Vj-pyf" id="Lgb-Zb-dTY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qWJ-Oo-rap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="9Lg-Vj-pyf">
+                    <connections>
+                        <outlet property="delegate" destination="Ff5-aj-UgU" id="wVL-Hw-f3w"/>
+                        <outlet property="searchContentsController" destination="Ff5-aj-UgU" id="94R-oo-PEb"/>
+                        <outlet property="searchResultsDataSource" destination="Ff5-aj-UgU" id="AvT-G8-oUs"/>
+                        <outlet property="searchResultsDelegate" destination="Ff5-aj-UgU" id="pdR-lR-f3k"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="860" y="346"/>
+        </scene>
+    </scenes>
+</document>

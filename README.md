@@ -15,7 +15,6 @@
 
 
 
-![image](https://github.com/iostalks/iOSTalkDemo/blob/master/微信公众号iOSTalk.png)
 
 ## 系统支持
 iOS8及以上系统

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="KGk-i7-Jjw" customClass="DXOtherCell" customModule="DXDoctor" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7y-uj-SAk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                        <connections>
+                            <action selector="otherCellOnTouched:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cnT-eR-4Tm"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="突发胸痛！心梗袭来到底应该怎么办？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVb-es-sYu">
+                        <rect key="frame" x="14" y="20" width="238" height="36"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="other_cell_2" translatesAutoresizingMaskIntoConstraints="NO" id="piE-gi-BZn">
+                        <rect key="frame" x="274" y="17" width="85" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="HTh-hP-8bw"/>
+                            <constraint firstAttribute="height" constant="55" id="lSd-iW-vho"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAY-rd-hjk" userLabel="Bottom Line">
+                        <rect key="frame" x="0.0" y="87" width="375" height="1"/>
+                        <color key="backgroundColor" red="0.9346554487179487" green="0.93141573692451041" blue="0.92169660154419542" alpha="0.59816810344827576" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Pvl-IU-EO7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.9783453525641026" green="0.9783453525641026" blue="0.9783453525641026" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="U7y-uj-SAk" secondAttribute="trailing" id="DWS-IY-2uO"/>
+                    <constraint firstAttribute="trailing" secondItem="cAY-rd-hjk" secondAttribute="trailing" id="EW5-PG-fmc"/>
+                    <constraint firstAttribute="bottom" secondItem="cAY-rd-hjk" secondAttribute="bottom" constant="0.5" id="HJ2-VU-atk"/>
+                    <constraint firstItem="U7y-uj-SAk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Nv6-Ix-0Hu"/>
+                    <constraint firstItem="piE-gi-BZn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UhZ-1B-fNp"/>
+                    <constraint firstItem="U7y-uj-SAk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YVH-oH-COZ"/>
+                    <constraint firstAttribute="bottom" secondItem="U7y-uj-SAk" secondAttribute="bottom" constant="0.5" id="aor-db-gw9"/>
+                    <constraint firstItem="QVb-es-sYu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="d1j-z7-2FS"/>
+                    <constraint firstItem="QVb-es-sYu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="dvF-WE-ES4"/>
+                    <constraint firstItem="cAY-rd-hjk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hS8-Dg-jmc"/>
+                    <constraint firstItem="piE-gi-BZn" firstAttribute="leading" secondItem="QVb-es-sYu" secondAttribute="trailing" constant="22" id="sVh-hX-eJu"/>
+                    <constraint firstAttribute="trailing" secondItem="piE-gi-BZn" secondAttribute="trailing" constant="16" id="viJ-Uz-LZQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconImageView" destination="piE-gi-BZn" id="aPq-cx-joT"/>
+                <outlet property="titleLab" destination="QVb-es-sYu" id="GZb-vm-X21"/>
+            </connections>
+            <point key="canvasLocation" x="560.5" y="359.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="other_cell_2" width="295" height="163"/>
+    </resources>
+</document>

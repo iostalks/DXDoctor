@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>otherCellData</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>烫伤了不能乱抹东西！这5个急救动作千万要牢记</string>
+			<key>imagName</key>
+			<string>other_cell_0</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>烧心、反酸怎么治？馒头可以当药吃</string>
+			<key>imagName</key>
+			<string>other_cell_1</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>朋友圈「健康食品」的五大宣传陷阱，你中招了吗？</string>
+			<key>imagName</key>
+			<string>other_cell_2</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>权衡利弊，小心防范：医疗辐射没那么可怕</string>
+			<key>imagName</key>
+			<string>other_cell_3</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>酵素减肥、碱性体质、排毒养颜、「珍珠」有害，这些谣言你都遇到过吗？</string>
+			<key>imagName</key>
+			<string>other_cell_4</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>可乐从什么时候掌握了杀精子的技能？</string>
+			<key>imagName</key>
+			<string>other_cell_5</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>晚吃姜，似砒霜？安啦，没那么可怕</string>
+			<key>imagName</key>
+			<string>other_cell_6</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>突发胸痛！心梗袭来到底应该怎么办？</string>
+			<key>imagName</key>
+			<string>other_cell_7</string>
+		</dict>
+	</array>
+</dict>
+</plist>
