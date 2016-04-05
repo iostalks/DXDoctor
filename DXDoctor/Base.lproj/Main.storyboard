@@ -119,6 +119,9 @@
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_header_fellow" translatesAutoresizingMaskIntoConstraints="NO" id="kyT-Tz-pWE">
                             <rect key="frame" x="160" y="21" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="2QC-M7-fwc"/>
+                            </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的关注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juO-D7-hFQ">
                             <rect key="frame" x="157" y="72.5" width="56" height="17"/>
@@ -134,6 +137,10 @@
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_header_medicinbox" translatesAutoresizingMaskIntoConstraints="NO" id="ROZ-q1-fAx">
                             <rect key="frame" x="285" y="21" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="5dd-eY-ikL"/>
+                                <constraint firstAttribute="width" constant="50" id="wpD-ot-4hs"/>
+                            </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的药箱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0f-cJ-XEc">
                             <rect key="frame" x="282" y="72" width="56" height="17"/>
@@ -142,6 +149,10 @@
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_header_favorate" translatesAutoresizingMaskIntoConstraints="NO" id="mRh-87-Opr">
                             <rect key="frame" x="37" y="20" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Fz8-74-TJl"/>
+                                <constraint firstAttribute="width" constant="50" id="d4n-zZ-nBM"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>

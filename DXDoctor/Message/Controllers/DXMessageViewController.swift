@@ -10,6 +10,7 @@ import UIKit
 
 class DXMessageViewController: DXBaseViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let kDefaultRowHeight: CGFloat = 85
     let kNewMessageCellIdentifier = "kNewMessageCellIdentifier"
     let kMessageCellIdentifier = "kMessageCellIdentifier"
     
@@ -36,6 +37,7 @@ class DXMessageViewController: DXBaseViewController, UITableViewDelegate, UITabl
         buttonItem.setImage(UIImage(named: "message_icon"), forState: .Normal)
         buttonItem.layer.cornerRadius = 15
         buttonItem.layer.masksToBounds = true
+        buttonItem.adjustsImageWhenHighlighted = false
         buttonItem.addTarget(self, action: #selector(DXMessageViewController.barButtonItemOnTapped), forControlEvents: .TouchUpInside)
         let leftItem = UIBarButtonItem.init(customView: buttonItem)
         navigationItem.leftBarButtonItem = leftItem
@@ -47,7 +49,6 @@ class DXMessageViewController: DXBaseViewController, UITableViewDelegate, UITabl
         tableView.tableFooterView = UIView()
         tableViewHeaderView.backgroundColor = UIColor.lightGrayColor()
         tableView.registerNib(UINib.init(nibName: "DXNewMessageTableViewCell", bundle: nil), forCellReuseIdentifier: kNewMessageCellIdentifier)
-//        tableView.allowsSelection =  false
 
         tableView.registerNib(UINib(nibName: "DXMessageTableViewCell", bundle: nil), forCellReuseIdentifier: kMessageCellIdentifier)
     }
@@ -60,7 +61,10 @@ class DXMessageViewController: DXBaseViewController, UITableViewDelegate, UITabl
     
     // MARK: Action
     func barButtonItemOnTapped() {
-        
+        let meStroryBoard = UIStoryboard.init(name: "Message", bundle: nil)
+        let meVC = meStroryBoard.instantiateViewControllerWithIdentifier("DXSettingViewController")
+        meVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(meVC, animated: true)
     }
     
     override func askDoctorButtonItemOnTapped(sender: UIButton) {
@@ -126,7 +130,7 @@ extension DXMessageViewController {
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-            return 85
+            return kDefaultRowHeight
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

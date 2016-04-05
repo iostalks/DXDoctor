@@ -52,6 +52,7 @@
 		FE2DC0921CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */; };
 		FE2DC0941CA6A6F700D0DAD7 /* DXOtherCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */; };
 		FE2DC0961CA6A7AA00D0DAD7 /* OtherCellData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE2DC0951CA6A7AA00D0DAD7 /* OtherCellData.plist */; };
+		FE50AFD71CB354ED008E614B /* DXMeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE50AFD61CB354ED008E614B /* DXMeData.swift */; };
 		FEB429801CA02E6500157E5F /* DXAskDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429701CA02E6500157E5F /* DXAskDoctorViewController.swift */; };
 		FEB429811CA02E6500157E5F /* TestWebVeiwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429711CA02E6500157E5F /* TestWebVeiwController.swift */; };
 		FEB429821CA02E6500157E5F /* DXWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429721CA02E6500157E5F /* DXWebViewController.swift */; };
@@ -75,6 +76,9 @@
 		FEB429DA1CA0EE7B00157E5F /* load_success.caf in Resources */ = {isa = PBXBuildFile; fileRef = FEB429D61CA0EE7B00157E5F /* load_success.caf */; };
 		FEB429DB1CA0EE7B00157E5F /* refreshing.caf in Resources */ = {isa = PBXBuildFile; fileRef = FEB429D71CA0EE7B00157E5F /* refreshing.caf */; };
 		FEB429DC1CA0EE7B00157E5F /* tapped.caf in Resources */ = {isa = PBXBuildFile; fileRef = FEB429D81CA0EE7B00157E5F /* tapped.caf */; };
+		FED1054F1CB16EDE00B24E4D /* DXSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED1054E1CB16EDE00B24E4D /* DXSettingViewController.swift */; };
+		FED105511CB16EF600B24E4D /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED105501CB16EF600B24E4D /* Message.storyboard */; };
+		FED105531CB16FDB00B24E4D /* DXSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED105521CB16FDB00B24E4D /* DXSettingTableViewCell.swift */; };
 		FEDEC1621CA159DB005D8AE9 /* DXMessageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDEC1611CA159DB005D8AE9 /* DXMessageHeaderView.swift */; };
 		FEDEC1641CA159E9005D8AE9 /* DXMessageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDEC1631CA159E9005D8AE9 /* DXMessageHeaderView.xib */; };
 		FEDEC1671CA16679005D8AE9 /* DXNewMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDEC1651CA16679005D8AE9 /* DXNewMessageTableViewCell.swift */; };
@@ -155,6 +159,7 @@
 		FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXOtherTableDataSoruce.swift; sourceTree = "<group>"; };
 		FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXOtherCellData.swift; sourceTree = "<group>"; };
 		FE2DC0951CA6A7AA00D0DAD7 /* OtherCellData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OtherCellData.plist; sourceTree = "<group>"; };
+		FE50AFD61CB354ED008E614B /* DXMeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXMeData.swift; sourceTree = "<group>"; };
 		FEB429701CA02E6500157E5F /* DXAskDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXAskDoctorViewController.swift; sourceTree = "<group>"; };
 		FEB429711CA02E6500157E5F /* TestWebVeiwController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWebVeiwController.swift; sourceTree = "<group>"; };
 		FEB429721CA02E6500157E5F /* DXWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXWebViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +183,9 @@
 		FEB429D61CA0EE7B00157E5F /* load_success.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = load_success.caf; sourceTree = "<group>"; };
 		FEB429D71CA0EE7B00157E5F /* refreshing.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = refreshing.caf; sourceTree = "<group>"; };
 		FEB429D81CA0EE7B00157E5F /* tapped.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tapped.caf; sourceTree = "<group>"; };
+		FED1054E1CB16EDE00B24E4D /* DXSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXSettingViewController.swift; sourceTree = "<group>"; };
+		FED105501CB16EF600B24E4D /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		FED105521CB16FDB00B24E4D /* DXSettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXSettingTableViewCell.swift; sourceTree = "<group>"; };
 		FEDEC1611CA159DB005D8AE9 /* DXMessageHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXMessageHeaderView.swift; sourceTree = "<group>"; };
 		FEDEC1631CA159E9005D8AE9 /* DXMessageHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXMessageHeaderView.xib; sourceTree = "<group>"; };
 		FEDEC1651CA16679005D8AE9 /* DXNewMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXNewMessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -433,6 +441,7 @@
 		FEB429991CA02EBE00157E5F /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				FED105501CB16EF600B24E4D /* Message.storyboard */,
 				FEB4299A1CA02EBE00157E5F /* Controllers */,
 				FEB4299B1CA02EBE00157E5F /* Models */,
 				FEB4299C1CA02EBE00157E5F /* Views */,
@@ -444,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				FEDEC16D1CA166A0005D8AE9 /* DXMessageViewController.swift */,
+				FED1054E1CB16EDE00B24E4D /* DXSettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -452,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				FEDEC1731CA18596005D8AE9 /* DXMessageModel.swift */,
+				FE50AFD61CB354ED008E614B /* DXMeData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -465,6 +476,7 @@
 				FEDEC1661CA16679005D8AE9 /* DXNewMessageTableViewCell.xib */,
 				FEDEC1691CA1668B005D8AE9 /* DXMessageTableViewCell.swift */,
 				FEDEC16A1CA1668B005D8AE9 /* DXMessageTableViewCell.xib */,
+				FED105521CB16FDB00B24E4D /* DXSettingTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -668,6 +680,7 @@
 				FEB429DA1CA0EE7B00157E5F /* load_success.caf in Resources */,
 				FE2DC0771CA65B3000D0DAD7 /* DropDownRefreshLine2@3x.png in Resources */,
 				FEDEC16C1CA1668B005D8AE9 /* DXMessageTableViewCell.xib in Resources */,
+				FED105511CB16EF600B24E4D /* Message.storyboard in Resources */,
 				FE2DC0731CA65B3000D0DAD7 /* DropDownRefreshCenter@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -701,15 +714,18 @@
 				FEB429871CA02E6500157E5F /* DXSegmentView.swift in Sources */,
 				FE15CB331C131CF800FDBAA0 /* AppDelegate.swift in Sources */,
 				FE2DC02C1CA6559100D0DAD7 /* StringExtension.swift in Sources */,
+				FED1054F1CB16EDE00B24E4D /* DXSettingViewController.swift in Sources */,
 				FE2DC0361CA6559E00D0DAD7 /* DXLoadingHUD.swift in Sources */,
 				FE21C4221CA7A34B0029A9BB /* DXTabBarController.swift in Sources */,
 				FE2DC08A1CA670EF00D0DAD7 /* DXRecomTableDataSource.swift in Sources */,
 				FE2DC0341CA6559E00D0DAD7 /* DXLoadingComponent.swift in Sources */,
+				FED105531CB16FDB00B24E4D /* DXSettingTableViewCell.swift in Sources */,
 				FE2DC0941CA6A6F700D0DAD7 /* DXOtherCellData.swift in Sources */,
 				FEB429841CA02E6500157E5F /* DXAskDoctorView.swift in Sources */,
 				FE2DC0921CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift in Sources */,
 				FE2A91301CA6CDD400219E46 /* DXSearchViewController.swift in Sources */,
 				FEDEC16E1CA166A0005D8AE9 /* DXMessageViewController.swift in Sources */,
+				FE50AFD71CB354ED008E614B /* DXMeData.swift in Sources */,
 				FEDEC1741CA18596005D8AE9 /* DXMessageModel.swift in Sources */,
 				FEB429801CA02E6500157E5F /* DXAskDoctorViewController.swift in Sources */,
 				FEB429821CA02E6500157E5F /* DXWebViewController.swift in Sources */,
