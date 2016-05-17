@@ -13,13 +13,13 @@
 
 #### 首页病情分类栏字体颜色自然过度
  
-![image](https://github.com/iostalks/DXDoctor/blob/master/ImageSource/moveAnimation.gif)
+![image](https://github.com/iostalks/DXDoctor/blob/master/ImageSource/2016-05-17_move.gif)
 
 
 
 #### 实现下拉刷新控件可控的放大和缩小(gif的录制效果不太好)
  
-![image](https://github.com/iostalks/DXDoctor/blob/master/ImageSource/pull_down_refresh.gif)
+![image](https://github.com/iostalks/DXDoctor/blob/master/ImageSource/2016-05-17_pullDown.gif)
 
 
 

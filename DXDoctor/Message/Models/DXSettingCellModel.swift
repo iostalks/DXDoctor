@@ -12,12 +12,23 @@ class DXMeData: NSObject {
 
     static let cellTitleName = DXMeData()
     
+    var unloginArray: NSArray!
     var baseArray: NSArray!
     var recomArray: NSArray!
     var audioArray: NSArray!
     var otherArray: NSArray!
     var logOutArray: NSArray!
     
+    var status: Bool? {
+    
+        didSet {
+            if (status != nil) {
+                baseArray = ["头像", "昵称", "性别", "生日"]
+            }else {
+                baseArray = ["立即登录"]
+            }
+        }
+    }
     
     struct ProperyKey {
         static let baseDataKey = "baseDataKey"
@@ -36,4 +47,6 @@ class DXMeData: NSObject {
         otherArray = ["去好评", "隐私保护", "关于我们"]
         logOutArray = ["退出登录"]
     }
+    
+    
 }
