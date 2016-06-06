@@ -47,7 +47,6 @@ extension TestWebVeiwController {
     
     func webViewDidFinishLoad(webView: UIWebView) {
 //        self.hideLoadingHUD(animation: false)
-        
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {

@@ -50,6 +50,8 @@ extension DXRecomTableDataSource {
         
         let cell: DXRecommendCell = (tableView.dequeueReusableCellWithIdentifier(kRecomdCellIdentifier, forIndexPath: indexPath) as? DXRecommendCell)!;
         cell.delegate = cellDelegate
+        
+        
         let array: NSArray = dataArray.objectAtIndex(indexPath.row) as! NSArray
         let dataModel = DXRecommendCellData(dataArray: array)
         cell.configureCell(dataModel)

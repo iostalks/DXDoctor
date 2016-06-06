@@ -35,6 +35,8 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     var specialDataSource: DXSpecialTableDataSource!
     var otherDataSource: DXOtherTableDataSoruce!
     
+    //
+    var recommendDataList: NSMutableArray = []
     
     override func loadView() {
         super.loadView()
@@ -55,6 +57,10 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         
         // simulate Loading animation
         simulateLoading()
+        
+        
+        requestRecommend()
+ 
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,6 +74,15 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         navigationController?.navigationBar.showBottomHairline()
     }
     
+    // Mark: Request
+    private func requestRecommend() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+            DXNetworkManager.shareManager.requestRecommendList { (items, error) in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
+        }
+    }
+
     // 初始化 TableView 数据源
     func configDataSourceForTableView() {
         recommendDataSource = DXRecomTableDataSource() // 不可使用 lazy
@@ -301,19 +316,20 @@ extension DXHomeViewController {
 // MARK: DXSegmentViewDelegate
 extension DXHomeViewController {
     
-    
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
         guard scrollView == containerScrollView else {
             return
         }
         
-        let curPage: Int = Int(scrollView.contentOffset.x / view.width)
-        segmentView?.topicItemTappedAtIndex(curPage)
+        if (!scrollView.tracking) {
+            let curPage: Int = Int(scrollView.contentOffset.x / view.width)
+            segmentView?.topicItemTappedAtIndex(curPage)
+        }
     }
     
     func segmentItemOnClickedAtIndex(index: Int) {
-        containerScrollView?.setContentOffset(CGPointMake(CGFloat(index) * view.width, 0), animated: false)
+        containerScrollView?.setContentOffset(CGPointMake(CGFloat(index) * view.width, 0), animated: true)
     }
 
 }
