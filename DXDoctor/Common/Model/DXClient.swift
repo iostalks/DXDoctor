@@ -8,6 +8,10 @@
 
 import UIKit
 
-class DXClient: NSObject {
 
+
+class DXClient: NSObject {
+    
+    var isLogin: Bool?
+    
 }
