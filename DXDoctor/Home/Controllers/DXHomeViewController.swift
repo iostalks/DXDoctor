@@ -20,14 +20,14 @@ let kSpecialCellIdentifier = "kSpecialCellIdentifier"
 let kOtherCellIdentifier = "kOtherCellIdentifier"
 
 
-class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrollViewDelegate, UITableViewDelegate, DXRecommendCellDelegate, DXSpecialCellDelegate, DXOtherCelDelegate {
+class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrollViewDelegate, UITableViewDelegate, DXRecommendCellDelegate, DXSpecialCellDelegate, DXOtherCelDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     private let kRecommendCellHeight: CGFloat = 630
     private let kSpecialCellHeight: CGFloat = 224
     private let kOtherCellHeight: CGFloat = 89
     
     private let SEGMENT_HEI: CGFloat = 30.0;
-    private var containerScrollView: UIScrollView?
+    private var containerScrollView: UIScrollView!
     private var segmentView: DXSegmentView?
     private var topicItems: [String] = []
     
@@ -35,8 +35,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     var specialDataSource: DXSpecialTableDataSource!
     var otherDataSource: DXOtherTableDataSoruce!
     
-    //
-    var recommendDataList: NSMutableArray = []
+    var recommendDataList: [DXItemModel?]?
     
     override func loadView() {
         super.loadView()
@@ -58,7 +57,6 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         // simulate Loading animation
         simulateLoading()
         
-        
         requestRecommend()
  
     }
@@ -78,8 +76,10 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     private func requestRecommend() {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
             DXNetworkManager.shareManager.requestRecommendList { (items, error) in
+                if ((error) != nil) { return }
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-
+                self.recommendDataList = items
+                self.collectionView.reloadData()
         }
     }
 
@@ -114,24 +114,51 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         view.addSubview(segmentView!)
     }
     
-    // 初始化滚动内容视图
+    // 初始化左右滚动内容视图
     func setupScrollView() {
         
         let originY = (segmentView?.height)! + (segmentView?.y)!
         containerScrollView = UIScrollView.init(frame: CGRectZero)
-        containerScrollView?.frame           = CGRectMake(0, originY, view.width, view.height - originY - 49)
-        containerScrollView?.contentSize     = CGSizeMake(CGFloat(topicItems.count) * view.width, (containerScrollView?.height)!);
-        containerScrollView?.backgroundColor = UIColor(colorLiteralRed: 247 / 255.0, green: 247 / 255.0, blue: 247 / 255.0, alpha: 1.0)
-        containerScrollView?.pagingEnabled   = true;
-        containerScrollView?.bounces         = false
-        containerScrollView?.delegate        = self;
-        containerScrollView?.showsVerticalScrollIndicator = false
-        containerScrollView?.showsHorizontalScrollIndicator = false
-        view.addSubview(containerScrollView!)
+        containerScrollView.frame           = CGRectMake(0, originY, view.width, view.height - originY - 49)
+        containerScrollView.contentSize     = CGSizeMake(CGFloat(topicItems.count) * view.width, (containerScrollView.height));
+        containerScrollView.backgroundColor = DXSettingManager.manager.beigeWhiteColor
+        containerScrollView.pagingEnabled   = true;
+        containerScrollView.bounces         = false
+        containerScrollView.delegate        = self;
+        containerScrollView.showsVerticalScrollIndicator = false
+        containerScrollView.showsHorizontalScrollIndicator = false
+        view.addSubview(containerScrollView)
         
     }
     
-    // Set Up Table views
+    // Recommend CollectionView - First
+    private var _collectionView: UICollectionView!
+    private var collectionView: UICollectionView  {
+        get {
+            if (_collectionView != nil) {return _collectionView! }
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumLineSpacing = 0.25
+            layout.minimumInteritemSpacing = 0.5
+            _collectionView = UICollectionView.init(frame: containerScrollView.bounds, collectionViewLayout: layout)
+            _collectionView.dataSource = self // datasource class no effect
+            _collectionView.delegate = self;
+            _collectionView.backgroundColor = UIColor.redColor()
+//            _collectionView.registerClass(DXRecomImageCell.self, forCellWithReuseIdentifier: "DXRecomImageCell")
+            
+            let recomImageCell = UINib.init(nibName: "DXRecomImageCell", bundle: nil)
+            _collectionView.registerNib(recomImageCell, forCellWithReuseIdentifier: "DXRecomImageCell")
+            
+            let recomImageNoneCell = UINib.init(nibName: "DXRecomImageNoneCell", bundle: nil)
+            _collectionView.registerNib(recomImageNoneCell, forCellWithReuseIdentifier: "DXRecomImageNoneCell")
+            
+            let recomSmallImageNoneCell = UINib.init(nibName: "DXRecomSmallImageNoneCell", bundle: nil)
+            _collectionView.registerNib(recomSmallImageNoneCell, forCellWithReuseIdentifier: "DXRecomSmallImageNoneCell")
+            
+            return _collectionView;
+        }
+    }
+    
+    // Set Up Table views - Second ...
     func setupTableViews() {
         
         for index in 0 ..< topicItems.count {
@@ -142,41 +169,48 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
                 switch type {
                     
                 case .Recommend:
+                    self.collectionView.frame = CGRectMake(0, 0, containerScrollView.width, containerScrollView.height)
+                    containerScrollView.addSubview(self.collectionView)
                     
-                    tableView.dataSource = recommendDataSource
-                    tableView.registerNib(UINib.init(nibName: "DXRecommendCell", bundle: nil), forCellReuseIdentifier: kRecomdCellIdentifier)
+//                    tableView.dataSource = recommendDataSource
+//                    tableView.registerNib(UINib.init(nibName: "DXRecommendCell", bundle: nil), forCellReuseIdentifier: kRecomdCellIdentifier)
                     
                     
                 case .Special:
                     
-                    tableView.dataSource = specialDataSource
-                    tableView.registerNib(UINib.init(nibName: "DXSpecialCell", bundle: nil), forCellReuseIdentifier: kSpecialCellIdentifier)
+                    tableView!.dataSource = specialDataSource
+                    tableView!.registerNib(UINib.init(nibName: "DXSpecialCell", bundle: nil), forCellReuseIdentifier: kSpecialCellIdentifier)
                     
                 default:
                     
-                    tableView.dataSource = otherDataSource
-                    tableView.registerNib(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
+                    tableView!.dataSource = otherDataSource
+                    tableView!.registerNib(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
                 }
             }else {
                 // 第四项
-                tableView.dataSource = otherDataSource
-                tableView.registerNib(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
+                tableView!.dataSource = otherDataSource
+                tableView!.registerNib(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
 
             }
         }
     }
     
+
     
     // Init table view
-    func createTableView(index index: Int) -> UITableView {
+    func createTableView(index index: Int) -> UITableView? {
+        if (index == 0) {
+            return nil
+        }
         
-        let tableView = UITableView.init(frame: CGRectMake(CGFloat(index) * view.width, 0, (containerScrollView?.width)!, (containerScrollView?.height)!))
+        
+        let tableView = UITableView.init(frame: CGRectMake(CGFloat(index) * view.width, 0, containerScrollView.width, (containerScrollView.height)))
         tableView.delegate = self
         tableView.tag = index
         tableView.separatorStyle = .None
-        tableView.backgroundColor = DXSettingManager.beigeWhiteColor
+        tableView.backgroundColor = DXSettingManager.manager.beigeWhiteColor
         tableView.allowsSelection = false
-        containerScrollView?.addSubview(tableView)
+        containerScrollView.addSubview(tableView)
         
         // 初始化下拉刷新控件
         let pullRefreshView = DXPullToRefresh.init(scrollView: tableView, hasNavigationBar: false)
@@ -329,7 +363,53 @@ extension DXHomeViewController {
     }
     
     func segmentItemOnClickedAtIndex(index: Int) {
-        containerScrollView?.setContentOffset(CGPointMake(CGFloat(index) * view.width, 0), animated: true)
+        containerScrollView.setContentOffset(CGPointMake(CGFloat(index) * view.width, 0), animated: true)
     }
 
+}
+
+// MARK: UICollectionView delegate and data source
+extension DXHomeViewController {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let itemHeight:CGFloat = 210.0
+        if let item = recommendDataList![indexPath.row] {
+            switch item.showType {
+            case .SmallImageNone:
+                return CGSizeMake((collectionView.width-1)/2, itemHeight)
+            default:
+                return CGSizeMake(collectionView.width, itemHeight)
+            }
+        }else {
+            return CGSizeZero
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (recommendDataList?.count) ?? 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell: UICollectionViewCell!
+        let indexItem = recommendDataList![indexPath.row] as DXItemModel!
+            switch indexItem.showType {
+            case .Image:
+                cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomImageCell", forIndexPath: indexPath)
+            case .ImageNone:
+                cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomImageNoneCell", forIndexPath: indexPath)
+            case .SmallImageNone:
+                cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomSmallImageNoneCell", forIndexPath: indexPath)
+            }
+      
+        cell.contentView.backgroundColor = UIColor.redColor()
+        return cell
+    }
 }

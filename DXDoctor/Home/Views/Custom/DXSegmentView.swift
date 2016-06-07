@@ -61,7 +61,7 @@ class DXSegmentView: UIView {
     // 创建下层Label
     func createBottomLabels() {
         for index in 0 ..< titles.count {
-            let tempLabel = self.createLabelWithIndex(index, textColor: DXSettingManager.themeColor)
+            let tempLabel = self.createLabelWithIndex(index, textColor: DXSettingManager.manager.themeColor)
             addSubview(tempLabel)
         }
     }

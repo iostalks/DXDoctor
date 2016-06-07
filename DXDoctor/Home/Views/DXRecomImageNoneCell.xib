@@ -1,18 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DXRecomImageNoneCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DXRecomImageNoneCell" customModule="DXDoctor" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JzY-fy-iFH" userLabel="Bottom View">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手术麻醉都有哪些不同方法？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrX-nw-RKE">
+                                <rect key="frame" x="16" y="30" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;麻醉方式主要分三种：局部麻醉、区域阻塞、全身麻醉、这些麻醉方式通过不同的途径和药物，都能影响神经系统的功能&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XH-As-tOG">
+                                <rect key="frame" x="16" y="70" width="343" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="丁香园旗下科普咨询平台" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5p-3g-30C">
+                                <rect key="frame" x="176" y="177" width="143" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_doctor_icon" translatesAutoresizingMaskIntoConstraints="NO" id="qdV-cf-TOx">
+                                <rect key="frame" x="327" y="153" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="oKx-JD-Iyw"/>
+                                    <constraint firstAttribute="width" constant="40" id="zMi-8P-fxS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="丁香医生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xE-LK-UbJ">
+                                <rect key="frame" x="267" y="153" width="52" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="qdV-cf-TOx" firstAttribute="bottom" secondItem="D5p-3g-30C" secondAttribute="bottom" id="1Np-F9-O3F"/>
+                            <constraint firstItem="qdV-cf-TOx" firstAttribute="leading" secondItem="4xE-LK-UbJ" secondAttribute="trailing" constant="8" id="3M6-3a-FoN"/>
+                            <constraint firstItem="hrX-nw-RKE" firstAttribute="top" secondItem="JzY-fy-iFH" secondAttribute="top" constant="30" id="D2y-zo-KPw"/>
+                            <constraint firstAttribute="trailing" secondItem="5XH-As-tOG" secondAttribute="trailing" constant="16" id="DgX-eo-Dm1"/>
+                            <constraint firstItem="qdV-cf-TOx" firstAttribute="leading" secondItem="D5p-3g-30C" secondAttribute="trailing" constant="8" id="EXH-TO-qRL"/>
+                            <constraint firstAttribute="trailing" secondItem="hrX-nw-RKE" secondAttribute="trailing" constant="16" id="S5s-QE-TzI"/>
+                            <constraint firstAttribute="bottom" secondItem="qdV-cf-TOx" secondAttribute="bottom" constant="17" id="SAp-wS-bZx"/>
+                            <constraint firstAttribute="trailing" secondItem="qdV-cf-TOx" secondAttribute="trailing" constant="8" id="bKZ-UB-6A4"/>
+                            <constraint firstItem="5XH-As-tOG" firstAttribute="leading" secondItem="JzY-fy-iFH" secondAttribute="leading" constant="16" id="cPv-Z0-xwX"/>
+                            <constraint firstItem="hrX-nw-RKE" firstAttribute="leading" secondItem="JzY-fy-iFH" secondAttribute="leading" constant="16" id="dCj-mU-HgX"/>
+                            <constraint firstAttribute="height" constant="210" id="lXf-qM-w4Y"/>
+                            <constraint firstItem="5XH-As-tOG" firstAttribute="top" secondItem="hrX-nw-RKE" secondAttribute="bottom" constant="16" id="qMj-Zn-rOF"/>
+                            <constraint firstItem="qdV-cf-TOx" firstAttribute="top" secondItem="4xE-LK-UbJ" secondAttribute="top" id="ser-tP-QrT"/>
+                        </constraints>
+                    </view>
+                </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="JzY-fy-iFH" secondAttribute="bottom" id="GVX-go-KAD"/>
+                <constraint firstAttribute="trailing" secondItem="JzY-fy-iFH" secondAttribute="trailing" id="VQV-fY-ZSx"/>
+                <constraint firstItem="JzY-fy-iFH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="c5I-er-pLj"/>
+                <constraint firstItem="JzY-fy-iFH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sFl-8b-pUQ"/>
+            </constraints>
+            <size key="customSize" width="342" height="120"/>
+            <point key="canvasLocation" x="377" y="318"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="home_doctor_icon" width="100" height="100"/>
+    </resources>
 </document>
