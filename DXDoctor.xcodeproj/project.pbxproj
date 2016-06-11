@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003EB29F51190CC596A0D808 /* Pods_DXDoctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502442EBED4F61A66A83B341 /* Pods_DXDoctor.framework */; };
 		FE15CB331C131CF800FDBAA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15CB321C131CF800FDBAA0 /* AppDelegate.swift */; };
 		FE15CB3A1C131CF800FDBAA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE15CB391C131CF800FDBAA0 /* Assets.xcassets */; };
 		FE15CB3D1C131CF800FDBAA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE15CB3B1C131CF800FDBAA0 /* LaunchScreen.storyboard */; };
@@ -52,7 +53,18 @@
 		FE2DC0921CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */; };
 		FE2DC0941CA6A6F700D0DAD7 /* DXOtherCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */; };
 		FE2DC0961CA6A7AA00D0DAD7 /* OtherCellData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE2DC0951CA6A7AA00D0DAD7 /* OtherCellData.plist */; };
-		FE50AFD71CB354ED008E614B /* DXMeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE50AFD61CB354ED008E614B /* DXMeData.swift */; };
+		FE50AFD71CB354ED008E614B /* DXSettingCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE50AFD61CB354ED008E614B /* DXSettingCellModel.swift */; };
+		FE794DFF1CB4E169009B6166 /* DXClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE794DFE1CB4E169009B6166 /* DXClient.swift */; };
+		FE91469D1D05133F0041FB99 /* DXItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE91469C1D05133F0041FB99 /* DXItemModel.swift */; };
+		FE9146A31D0567B10041FB99 /* DXNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9146A21D0567B10041FB99 /* DXNetworkManager.swift */; };
+		FE9146B51D05B72A0041FB99 /* DXRecomCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9146B41D05B72A0041FB99 /* DXRecomCollectionViewDataSource.swift */; };
+		FE9146B91D05BD160041FB99 /* FFTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9146B81D05BD160041FB99 /* FFTableViewExtension.swift */; };
+		FE9147731D06FE630041FB99 /* DXRecomImageNoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9147711D06FE630041FB99 /* DXRecomImageNoneCell.swift */; };
+		FE9147741D06FE630041FB99 /* DXRecomImageNoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9147721D06FE630041FB99 /* DXRecomImageNoneCell.xib */; };
+		FE9147771D06FF280041FB99 /* DXRecomImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9147751D06FF280041FB99 /* DXRecomImageCell.swift */; };
+		FE9147781D06FF280041FB99 /* DXRecomImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9147761D06FF280041FB99 /* DXRecomImageCell.xib */; };
+		FE91477B1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9147791D06FFB10041FB99 /* DXRecomSmallImageNoneCell.swift */; };
+		FE91477C1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE91477A1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.xib */; };
 		FEB429801CA02E6500157E5F /* DXAskDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429701CA02E6500157E5F /* DXAskDoctorViewController.swift */; };
 		FEB429811CA02E6500157E5F /* TestWebVeiwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429711CA02E6500157E5F /* TestWebVeiwController.swift */; };
 		FEB429821CA02E6500157E5F /* DXWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429721CA02E6500157E5F /* DXWebViewController.swift */; };
@@ -108,6 +120,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38F51B013A099D3A569CDA8B /* Pods-DXDoctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DXDoctor.release.xcconfig"; path = "Pods/Target Support Files/Pods-DXDoctor/Pods-DXDoctor.release.xcconfig"; sourceTree = "<group>"; };
+		502442EBED4F61A66A83B341 /* Pods_DXDoctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DXDoctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A75BEBA619B3D1B3701956 /* Pods-DXDoctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DXDoctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DXDoctor/Pods-DXDoctor.debug.xcconfig"; sourceTree = "<group>"; };
 		FE15CB2F1C131CF800FDBAA0 /* DXDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DXDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE15CB321C131CF800FDBAA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE15CB391C131CF800FDBAA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,7 +174,18 @@
 		FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXOtherTableDataSoruce.swift; sourceTree = "<group>"; };
 		FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXOtherCellData.swift; sourceTree = "<group>"; };
 		FE2DC0951CA6A7AA00D0DAD7 /* OtherCellData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OtherCellData.plist; sourceTree = "<group>"; };
-		FE50AFD61CB354ED008E614B /* DXMeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXMeData.swift; sourceTree = "<group>"; };
+		FE50AFD61CB354ED008E614B /* DXSettingCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXSettingCellModel.swift; sourceTree = "<group>"; };
+		FE794DFE1CB4E169009B6166 /* DXClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXClient.swift; sourceTree = "<group>"; };
+		FE91469C1D05133F0041FB99 /* DXItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXItemModel.swift; sourceTree = "<group>"; };
+		FE9146A21D0567B10041FB99 /* DXNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXNetworkManager.swift; sourceTree = "<group>"; };
+		FE9146B41D05B72A0041FB99 /* DXRecomCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecomCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		FE9146B81D05BD160041FB99 /* FFTableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFTableViewExtension.swift; sourceTree = "<group>"; };
+		FE9147711D06FE630041FB99 /* DXRecomImageNoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecomImageNoneCell.swift; sourceTree = "<group>"; };
+		FE9147721D06FE630041FB99 /* DXRecomImageNoneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXRecomImageNoneCell.xib; sourceTree = "<group>"; };
+		FE9147751D06FF280041FB99 /* DXRecomImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecomImageCell.swift; sourceTree = "<group>"; };
+		FE9147761D06FF280041FB99 /* DXRecomImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXRecomImageCell.xib; sourceTree = "<group>"; };
+		FE9147791D06FFB10041FB99 /* DXRecomSmallImageNoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecomSmallImageNoneCell.swift; sourceTree = "<group>"; };
+		FE91477A1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXRecomSmallImageNoneCell.xib; sourceTree = "<group>"; };
 		FEB429701CA02E6500157E5F /* DXAskDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXAskDoctorViewController.swift; sourceTree = "<group>"; };
 		FEB429711CA02E6500157E5F /* TestWebVeiwController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWebVeiwController.swift; sourceTree = "<group>"; };
 		FEB429721CA02E6500157E5F /* DXWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXWebViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003EB29F51190CC596A0D808 /* Pods_DXDoctor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +249,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71213052415E68E96F9E961A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1A75BEBA619B3D1B3701956 /* Pods-DXDoctor.debug.xcconfig */,
+				38F51B013A099D3A569CDA8B /* Pods-DXDoctor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E82B1FB8F9CAF2F6FAAC869A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				502442EBED4F61A66A83B341 /* Pods_DXDoctor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FE0F48DA1C131F5E004910C4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +283,8 @@
 				FE15CB461C131CF800FDBAA0 /* DXDoctorTests */,
 				FE15CB511C131CF800FDBAA0 /* DXDoctorUITests */,
 				FE15CB301C131CF800FDBAA0 /* Products */,
+				71213052415E68E96F9E961A /* Pods */,
+				E82B1FB8F9CAF2F6FAAC869A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -321,6 +367,7 @@
 				FE2DC0291CA6559100D0DAD7 /* SwiftHEXColors.swift */,
 				FE2DC02A1CA6559100D0DAD7 /* UIBarExtension.swift */,
 				FE2DC02B1CA6559100D0DAD7 /* UIViewExtension.swift */,
+				FE9146B81D05BD160041FB99 /* FFTableViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -362,6 +409,38 @@
 			path = LoadingRes;
 			sourceTree = "<group>";
 		};
+		FE794DFD1CB4E169009B6166 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE794DFE1CB4E169009B6166 /* DXClient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE9146B11D05B2B20041FB99 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				FE2DC0891CA670EF00D0DAD7 /* DXRecomTableDataSource.swift */,
+				FE2DC08F1CA67F3800D0DAD7 /* DXSpecialTableDataSource.swift */,
+				FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */,
+				FE9146B41D05B72A0041FB99 /* DXRecomCollectionViewDataSource.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		FE9147701D06B8810041FB99 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FE9147751D06FF280041FB99 /* DXRecomImageCell.swift */,
+				FE9147761D06FF280041FB99 /* DXRecomImageCell.xib */,
+				FE9147711D06FE630041FB99 /* DXRecomImageNoneCell.swift */,
+				FE9147721D06FE630041FB99 /* DXRecomImageNoneCell.xib */,
+				FE9147791D06FFB10041FB99 /* DXRecomSmallImageNoneCell.swift */,
+				FE91477A1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		FEB4296E1CA02E6500157E5F /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,11 +465,10 @@
 		FEB429731CA02E6500157E5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FE2DC0891CA670EF00D0DAD7 /* DXRecomTableDataSource.swift */,
-				FE2DC08F1CA67F3800D0DAD7 /* DXSpecialTableDataSource.swift */,
-				FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */,
+				FE9146B11D05B2B20041FB99 /* DataSource */,
 				FEB429741CA02E6500157E5F /* DXRecommendCellData.swift */,
 				FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */,
+				FE91469C1D05133F0041FB99 /* DXItemModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -398,6 +476,7 @@
 		FEB429751CA02E6500157E5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FE9147701D06B8810041FB99 /* Cell */,
 				FEB429761CA02E6500157E5F /* Custom */,
 				FEB4297B1CA02E6500157E5F /* DXRecommendCell.swift */,
 				FEB4297C1CA02E6500157E5F /* DXRecommendCell.xib */,
@@ -462,7 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				FEDEC1731CA18596005D8AE9 /* DXMessageModel.swift */,
-				FE50AFD61CB354ED008E614B /* DXMeData.swift */,
+				FE50AFD61CB354ED008E614B /* DXSettingCellModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -504,6 +583,7 @@
 		FEB429AE1CA02ECC00157E5F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FE794DFD1CB4E169009B6166 /* Model */,
 				FE2DC0271CA6559100D0DAD7 /* Extension */,
 				FE2DC0261CA6557000D0DAD7 /* CustomView */,
 			);
@@ -515,6 +595,7 @@
 			children = (
 				FEB429BC1CA02EE400157E5F /* DXAudioManager.swift */,
 				FEB429BD1CA02EE400157E5F /* DXSettingManager.swift */,
+				FE9146A21D0567B10041FB99 /* DXNetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -546,9 +627,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE15CB571C131CF800FDBAA0 /* Build configuration list for PBXNativeTarget "DXDoctor" */;
 			buildPhases = (
+				6869E07EF6DA00EA59FA238C /* [CP] Check Pods Manifest.lock */,
 				FE15CB2B1C131CF800FDBAA0 /* Sources */,
 				FE15CB2C1C131CF800FDBAA0 /* Frameworks */,
 				FE15CB2D1C131CF800FDBAA0 /* Resources */,
+				34C6FE31FC0BAEAE9F5C5700 /* [CP] Embed Pods Frameworks */,
+				F2B0EC96AF30D28DCBEC06FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -653,6 +737,7 @@
 				FE2A912D1CA6CD4F00219E46 /* Search.storyboard in Resources */,
 				FE2DC0741CA65B3000D0DAD7 /* DropDownRefreshLine1@2x.png in Resources */,
 				FE2DC0351CA6559E00D0DAD7 /* DXLoadingComponent.xib in Resources */,
+				FE91477C1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.xib in Resources */,
 				FE2DC0821CA65B3000D0DAD7 /* DropDownRefreshOval4@2x.png in Resources */,
 				FE2DC0751CA65B3000D0DAD7 /* DropDownRefreshLine1@3x.png in Resources */,
 				FEB429DB1CA0EE7B00157E5F /* refreshing.caf in Resources */,
@@ -665,6 +750,8 @@
 				FEB429DC1CA0EE7B00157E5F /* tapped.caf in Resources */,
 				FE15CB3A1C131CF800FDBAA0 /* Assets.xcassets in Resources */,
 				FE2DC0721CA65B3000D0DAD7 /* DropDownRefreshCenter@2x.png in Resources */,
+				FE9147781D06FF280041FB99 /* DXRecomImageCell.xib in Resources */,
+				FE9147741D06FE630041FB99 /* DXRecomImageNoneCell.xib in Resources */,
 				FE2DC07B1CA65B3000D0DAD7 /* DropDownRefreshLine4@3x.png in Resources */,
 				FE2DC0961CA6A7AA00D0DAD7 /* OtherCellData.plist in Resources */,
 				FE2DC08E1CA67C9D00D0DAD7 /* DXOtherCell.xib in Resources */,
@@ -701,6 +788,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		34C6FE31FC0BAEAE9F5C5700 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DXDoctor/Pods-DXDoctor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6869E07EF6DA00EA59FA238C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F2B0EC96AF30D28DCBEC06FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DXDoctor/Pods-DXDoctor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FE15CB2B1C131CF800FDBAA0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -714,8 +849,10 @@
 				FEB429871CA02E6500157E5F /* DXSegmentView.swift in Sources */,
 				FE15CB331C131CF800FDBAA0 /* AppDelegate.swift in Sources */,
 				FE2DC02C1CA6559100D0DAD7 /* StringExtension.swift in Sources */,
+				FE9147731D06FE630041FB99 /* DXRecomImageNoneCell.swift in Sources */,
 				FED1054F1CB16EDE00B24E4D /* DXSettingViewController.swift in Sources */,
 				FE2DC0361CA6559E00D0DAD7 /* DXLoadingHUD.swift in Sources */,
+				FE91469D1D05133F0041FB99 /* DXItemModel.swift in Sources */,
 				FE21C4221CA7A34B0029A9BB /* DXTabBarController.swift in Sources */,
 				FE2DC08A1CA670EF00D0DAD7 /* DXRecomTableDataSource.swift in Sources */,
 				FE2DC0341CA6559E00D0DAD7 /* DXLoadingComponent.swift in Sources */,
@@ -725,11 +862,12 @@
 				FE2DC0921CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift in Sources */,
 				FE2A91301CA6CDD400219E46 /* DXSearchViewController.swift in Sources */,
 				FEDEC16E1CA166A0005D8AE9 /* DXMessageViewController.swift in Sources */,
-				FE50AFD71CB354ED008E614B /* DXMeData.swift in Sources */,
+				FE50AFD71CB354ED008E614B /* DXSettingCellModel.swift in Sources */,
 				FEDEC1741CA18596005D8AE9 /* DXMessageModel.swift in Sources */,
 				FEB429801CA02E6500157E5F /* DXAskDoctorViewController.swift in Sources */,
 				FEB429821CA02E6500157E5F /* DXWebViewController.swift in Sources */,
 				FEB429851CA02E6500157E5F /* DXPullToRefresh.swift in Sources */,
+				FE794DFF1CB4E169009B6166 /* DXClient.swift in Sources */,
 				FEB429C71CA041D300157E5F /* DXSearchTableViewCell.swift in Sources */,
 				FEB429CB1CA046C300157E5F /* DXSearchItem.swift in Sources */,
 				FEB429861CA02E6500157E5F /* DXPullToRefreshFooter.swift in Sources */,
@@ -737,12 +875,17 @@
 				FEB429CD1CA047CA00157E5F /* DXSearchItems.swift in Sources */,
 				FEDEC16B1CA1668B005D8AE9 /* DXMessageTableViewCell.swift in Sources */,
 				FEB429BF1CA02EE400157E5F /* DXSettingManager.swift in Sources */,
+				FE9146B91D05BD160041FB99 /* FFTableViewExtension.swift in Sources */,
 				FE2DC0881CA670BC00D0DAD7 /* DXHomeViewController.swift in Sources */,
 				FEDEC1621CA159DB005D8AE9 /* DXMessageHeaderView.swift in Sources */,
 				FEB429881CA02E6500157E5F /* DXRecommendCell.swift in Sources */,
+				FE9147771D06FF280041FB99 /* DXRecomImageCell.swift in Sources */,
 				FEDEC1671CA16679005D8AE9 /* DXNewMessageTableViewCell.swift in Sources */,
+				FE91477B1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.swift in Sources */,
+				FE9146A31D0567B10041FB99 /* DXNetworkManager.swift in Sources */,
 				FEB429831CA02E6500157E5F /* DXRecommendCellData.swift in Sources */,
 				FEB4298B1CA02E6500157E5F /* DXSpecialCell.swift in Sources */,
+				FE9146B51D05B72A0041FB99 /* DXRecomCollectionViewDataSource.swift in Sources */,
 				FE2DC02D1CA6559100D0DAD7 /* SwiftHEXColors.swift in Sources */,
 				FE2DC08D1CA67C9D00D0DAD7 /* DXOtherCell.swift in Sources */,
 				FE21C4211CA7A34B0029A9BB /* DXBaseViewController.swift in Sources */,
@@ -885,6 +1028,7 @@
 		};
 		FE15CB581C131CF800FDBAA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1A75BEBA619B3D1B3701956 /* Pods-DXDoctor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -898,6 +1042,7 @@
 		};
 		FE15CB591C131CF800FDBAA0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38F51B013A099D3A569CDA8B /* Pods-DXDoctor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
