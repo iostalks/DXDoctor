@@ -10,9 +10,16 @@ import UIKit
 
 class DXRecomImageNoneCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    
+    @IBOutlet weak var autherImageView: UIImageView!
+    @IBOutlet weak var auther: UILabel!
+    @IBOutlet weak var autherRemarks: UILabel!
+    
+    
+    func configWithModel(model: DXItemModel) {
+        
     }
-
 }

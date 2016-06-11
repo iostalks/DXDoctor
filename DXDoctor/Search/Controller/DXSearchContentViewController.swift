@@ -16,30 +16,30 @@ class DXSearchContentViewController: UIViewController, UISearchResultsUpdating, 
         super.viewDidLoad()
         
 //        
-//        self.searchController = UISearchController.init(searchResultsController: nil)
-//        
-//        self.searchController.searchResultsUpdater = self
-//        self.searchController.delegate = self
-//        self.searchController.searchBar.delegate = self
-//        
-//        self.searchController.hidesNavigationBarDuringPresentation = false
-//        self.searchController.dimsBackgroundDuringPresentation = true
+        self.searchController = UISearchController.init(searchResultsController: nil)
+        
+        self.searchController.searchResultsUpdater = self
+        self.searchController.delegate = self
+        self.searchController.searchBar.delegate = self
+        
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = true
+
 //
-//    
 //        self.navigationItem.titleView = searchController.searchBar
 //        
 //        self.definesPresentationContext = true
         // Do any additional setup after loading the view.
         
         
-        searchBar = UISearchBar()
-        searchBar.barTintColor = UIColor.redColor()
-        searchBar.tintColor = UIColor.blueColor()
-        searchBar.barStyle = .Default
-        searchBar.delegate = self
-        searchBar.tintColor = DXSettingManager.themeColor
-//
-        self.navigationItem.titleView = searchBar
+//        searchBar = UISearchBar()
+//        searchBar.barTintColor = UIColor.redColor()
+//        searchBar.tintColor = UIColor.blueColor()
+//        searchBar.barStyle = .Default
+//        searchBar.delegate = self
+//        searchBar.tintColor = DXSettingManager.themeColor
+////
+//        self.navigationItem.titleView = searchBar
     }
 
     override func didReceiveMemoryWarning() {

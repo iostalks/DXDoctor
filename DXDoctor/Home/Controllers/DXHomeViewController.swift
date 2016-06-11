@@ -132,17 +132,18 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     }
     
     // Recommend CollectionView - First
+    private let middleGap: CGFloat = 0.5;
     private var _collectionView: UICollectionView!
     private var collectionView: UICollectionView  {
         get {
             if (_collectionView != nil) {return _collectionView! }
             let layout = UICollectionViewFlowLayout()
-            layout.minimumLineSpacing = 0.25
-            layout.minimumInteritemSpacing = 0.5
+            layout.minimumLineSpacing = middleGap
+            layout.minimumInteritemSpacing = middleGap
             _collectionView = UICollectionView.init(frame: containerScrollView.bounds, collectionViewLayout: layout)
             _collectionView.dataSource = self // datasource class no effect
             _collectionView.delegate = self;
-            _collectionView.backgroundColor = UIColor.redColor()
+            _collectionView.backgroundColor = UIColor ( red: 0.8255, green: 0.8215, blue: 0.8295, alpha: 1.0)
 //            _collectionView.registerClass(DXRecomImageCell.self, forCellWithReuseIdentifier: "DXRecomImageCell")
             
             let recomImageCell = UINib.init(nibName: "DXRecomImageCell", bundle: nil)
@@ -376,7 +377,7 @@ extension DXHomeViewController {
         if let item = recommendDataList![indexPath.row] {
             switch item.showType {
             case .SmallImageNone:
-                return CGSizeMake((collectionView.width-1)/2, itemHeight)
+                return CGSizeMake((collectionView.width-middleGap)/2, itemHeight)
             default:
                 return CGSizeMake(collectionView.width, itemHeight)
             }
@@ -399,16 +400,31 @@ extension DXHomeViewController {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell!
+        
+        
         let indexItem = recommendDataList![indexPath.row] as DXItemModel!
             switch indexItem.showType {
             case .Image:
+             
                 cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomImageCell", forIndexPath: indexPath)
+                if let _cell = cell as? DXRecomImageCell {
+                    _cell.configWithModel(indexItem)
+                }
+                
             case .ImageNone:
+                
                 cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomImageNoneCell", forIndexPath: indexPath)
+                if let _cell = cell as? DXRecomImageNoneCell {
+                    _cell.configWithModel(indexItem)
+                }
+
             case .SmallImageNone:
+                
                 cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomSmallImageNoneCell", forIndexPath: indexPath)
+                if let _cell = cell as? DXRecomSmallImageNoneCell {
+                    _cell.configWithModel(indexItem)
+                }
             }
-      
         cell.contentView.backgroundColor = UIColor.redColor()
         return cell
     }

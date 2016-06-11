@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,17 +7,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DXRecomImageCell" customModule="DXDoctor" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DXRecomImageCell" id="gTV-IL-0wX" customClass="DXRecomImageCell" customModule="DXDoctor" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cell_0" translatesAutoresizingMaskIntoConstraints="NO" id="Ssx-ZQ-hij" userLabel="Top Image">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ssx-ZQ-hij" userLabel="Top Image">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" constant="210" id="25V-Dg-6ir"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_place_cover" translatesAutoresizingMaskIntoConstraints="NO" id="Imv-B7-h4i" userLabel="Top Image">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="210" id="LU0-Nz-Zcg"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邹世恩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOf-N5-Iay">
@@ -59,19 +66,30 @@
                 <constraint firstItem="uwx-3q-2Hf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="9R2-u0-yVc"/>
                 <constraint firstItem="uwx-3q-2Hf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="Lcf-Sl-YBi"/>
                 <constraint firstAttribute="bottom" secondItem="Ssx-ZQ-hij" secondAttribute="bottom" id="UC4-vq-brZ"/>
+                <constraint firstItem="Imv-B7-h4i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aaG-ei-8oy"/>
                 <constraint firstItem="RrF-5A-PkE" firstAttribute="bottom" secondItem="Ase-fT-qjR" secondAttribute="bottom" id="eH8-Pb-0nN"/>
                 <constraint firstItem="RrF-5A-PkE" firstAttribute="leading" secondItem="QOf-N5-Iay" secondAttribute="trailing" constant="8" id="fjA-2b-hnz"/>
+                <constraint firstAttribute="trailing" secondItem="Imv-B7-h4i" secondAttribute="trailing" id="kZj-B5-uyf"/>
                 <constraint firstItem="Ssx-ZQ-hij" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nem-QD-aAl"/>
                 <constraint firstItem="Ssx-ZQ-hij" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="njt-ko-zsP"/>
                 <constraint firstItem="RrF-5A-PkE" firstAttribute="leading" secondItem="Ase-fT-qjR" secondAttribute="trailing" constant="8" id="r6P-eI-hrB"/>
                 <constraint firstItem="RrF-5A-PkE" firstAttribute="top" secondItem="QOf-N5-Iay" secondAttribute="top" id="vgM-Kt-G9S"/>
+                <constraint firstAttribute="bottom" secondItem="Imv-B7-h4i" secondAttribute="bottom" id="wJQ-Ci-wID"/>
+                <constraint firstItem="Imv-B7-h4i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wuB-bL-vNh"/>
                 <constraint firstAttribute="bottom" secondItem="RrF-5A-PkE" secondAttribute="bottom" constant="8" id="xbK-LP-urv"/>
                 <constraint firstAttribute="trailing" secondItem="Ssx-ZQ-hij" secondAttribute="trailing" id="yVw-uz-WIt"/>
             </constraints>
+            <connections>
+                <outlet property="auther" destination="QOf-N5-Iay" id="ddH-L4-IqP"/>
+                <outlet property="autherImageView" destination="RrF-5A-PkE" id="TuJ-Bc-XEa"/>
+                <outlet property="autherRemarksLabel" destination="Ase-fT-qjR" id="K8Q-UA-1qS"/>
+                <outlet property="backgroundImageView" destination="Ssx-ZQ-hij" id="5iU-33-VVw"/>
+                <outlet property="titleLabel" destination="uwx-3q-2Hf" id="h49-py-gQQ"/>
+            </connections>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="home_cell_0" width="334" height="184"/>
         <image name="home_doctor_icon" width="100" height="100"/>
+        <image name="home_place_cover" width="320" height="140"/>
     </resources>
 </document>

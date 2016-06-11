@@ -10,9 +10,12 @@ import UIKit
 
 class DXRecomSmallImageNoneCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var tagLabel: UILabel!
+    
+    func configWithModel(model: DXItemModel) {
+        
     }
 
 }

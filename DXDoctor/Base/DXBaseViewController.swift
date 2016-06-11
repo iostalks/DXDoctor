@@ -40,13 +40,14 @@ class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
         
         self.askDoctorView = _askDoctorView
     }
-        
+    
+    // MARK: HUD
     func showLoadingHUD() {
         
         self.hideLoadingHUD(animation: false)
         
         let _loadView = DXLoadingHUD.init(frame: view.bounds)
-        _loadView.backgroundColor = DXSettingManager.beigeWhiteColor
+        _loadView.backgroundColor = DXSettingManager.manager.beigeWhiteColor
         self.view.addSubview(_loadView)
         self.loadingView = _loadView
         self.loadingView?.alpha = 1.0
@@ -57,7 +58,7 @@ class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
         if _animation {
             UIView.animateWithDuration(1, animations: { () -> Void in
                 
-                                self.loadingView?.alpha = 0
+                self.loadingView?.alpha = 0
                 
             }) { (_) -> Void in
                 

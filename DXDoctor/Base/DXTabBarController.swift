@@ -13,7 +13,7 @@ class DXTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBar.tintColor = DXSettingManager.themeColor;
+        self.tabBar.tintColor = DXSettingManager.manager.themeColor;
         
         let homeVC = DXHomeViewController()
         homeVC.tabBarItem.title = "首页"
@@ -38,7 +38,7 @@ class DXTabBarController: UITabBarController {
     private func createNavigationController(rootViewController: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.barTintColor = UIColor.whiteColor()
-        navigationController.navigationBar.tintColor = DXSettingManager.themeColor
+        navigationController.navigationBar.tintColor = DXSettingManager.manager.themeColor
         navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]
         return navigationController
     }

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class DXMeData: NSObject {
+class DXSettingCellModel: NSObject {
 
-    static let cellTitleName = DXMeData()
+    static let cellTitleName = DXSettingCellModel()
     
     var unloginArray: NSArray!
     var baseArray: NSArray!
@@ -19,10 +19,10 @@ class DXMeData: NSObject {
     var otherArray: NSArray!
     var logOutArray: NSArray!
     
-    var status: Bool? {
+    var status: Bool {
     
         didSet {
-            if (status != nil) {
+            if (status == false) {
                 baseArray = ["头像", "昵称", "性别", "生日"]
             }else {
                 baseArray = ["立即登录"]
@@ -39,6 +39,8 @@ class DXMeData: NSObject {
     }
     
     override init() {
+        status = false
+        
         super.init()
         
         baseArray = ["头像", "昵称", "性别", "生日"]

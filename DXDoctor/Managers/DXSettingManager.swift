@@ -8,12 +8,34 @@
 
 import UIKit
 
-class DXSettingManager: NSObject {
+protocol DXColorProtocol {
+    var themeColor: UIColor { get }
+    var beigeWhiteColor: UIColor { get }
+}
 
-    static let themeColor = UIColor(colorLiteralRed: 72 / 255.00, green: 180 / 255.00, blue: 166 / 255.00, alpha: 1.0)
-    static let beigeWhiteColor = UIColor(colorLiteralRed: 247.00 / 255.00, green: 247 / 255.00, blue: 247 / 255.00, alpha: 1.0)
+
+class DXSettingManager: NSObject, DXColorProtocol {
+
+
+    var themeColor : UIColor {
+        get {
+            return colorWithRGBA(r: 72, g: 180, b: 166)
+        }
+    }
+    
+    var beigeWhiteColor: UIColor {
+        get {
+           return colorWithRGBA(r: 247, g: 247, b: 247)
+        }
+    }
+    
     static let manager = DXSettingManager()
     
     // This prevents others form using default '()' initializer for this class
     private override init() {}
+    
+    
+    func colorWithRGBA(r red: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
+        return UIColor(red: red/255.0, green: g/255.0, blue: b/255.0, alpha: 255.0)
+    }
 }

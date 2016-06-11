@@ -52,8 +52,10 @@ class DXSearchViewController: DXBaseViewController, UITableViewDelegate, UITable
 
     @IBAction func searchButtonOnTouched(sender: AnyObject) {
         print("Search")
-//        let searchVC = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewControllerWithIdentifier("DXSearchContentViewController")
-//        searchVC.hidesBottomBarWhenPushed = true
+        let searchVC = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewControllerWithIdentifier("DXSearchContentViewController")
+        searchVC.hidesBottomBarWhenPushed = true
+        searchVC.view.backgroundColor = UIColor.whiteColor()
+        navigationController?.pushViewController(searchVC, animated: true);
         
     }
     @IBAction func qrSacnButtonOnTouched(sender: AnyObject) {
