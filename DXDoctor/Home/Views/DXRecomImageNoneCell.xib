@@ -16,58 +16,58 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JzY-fy-iFH" userLabel="Bottom View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手术麻醉都有哪些不同方法？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrX-nw-RKE">
-                                <rect key="frame" x="16" y="30" width="343" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手术麻醉都有哪些不同方法？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrX-nw-RKE">
+                                <rect key="frame" x="16" y="30" width="343" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;麻醉方式主要分三种：局部麻醉、区域阻塞、全身麻醉、这些麻醉方式通过不同的途径和药物，都能影响神经系统的功能&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XH-As-tOG">
-                                <rect key="frame" x="16" y="70" width="343" height="50.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="丁香园旗下科普咨询平台" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5p-3g-30C">
-                                <rect key="frame" x="176" y="170" width="143" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="183" y="175.5" width="132" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.37880608974358976" green="0.37880608974358976" blue="0.37880608974358976" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_doctor_icon" translatesAutoresizingMaskIntoConstraints="NO" id="qdV-cf-TOx">
-                                <rect key="frame" x="327" y="146" width="40" height="40"/>
+                                <rect key="frame" x="327" y="154" width="36" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="oKx-JD-Iyw"/>
-                                    <constraint firstAttribute="width" constant="40" id="zMi-8P-fxS"/>
+                                    <constraint firstAttribute="height" constant="36" id="awc-HH-ke8"/>
+                                    <constraint firstAttribute="width" constant="36" id="xS2-RL-ubj"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
+                                        <integer key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="丁香医生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xE-LK-UbJ">
-                                <rect key="frame" x="267" y="146" width="52" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <rect key="frame" x="263" y="154" width="52" height="16"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;麻醉方式主要分三种：局部麻醉、区域阻塞、全身麻醉、这些麻醉方式通过不同的途径和药物，都能影响神经系统的功能&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XH-As-tOG">
+                                <rect key="frame" x="16" y="69" width="343" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="qdV-cf-TOx" firstAttribute="bottom" secondItem="D5p-3g-30C" secondAttribute="bottom" id="1Np-F9-O3F"/>
-                            <constraint firstItem="qdV-cf-TOx" firstAttribute="leading" secondItem="4xE-LK-UbJ" secondAttribute="trailing" constant="8" id="3M6-3a-FoN"/>
+                            <constraint firstItem="D5p-3g-30C" firstAttribute="trailing" secondItem="4xE-LK-UbJ" secondAttribute="trailing" id="9Ha-YZ-zls"/>
                             <constraint firstItem="hrX-nw-RKE" firstAttribute="top" secondItem="JzY-fy-iFH" secondAttribute="top" constant="30" id="D2y-zo-KPw"/>
                             <constraint firstAttribute="trailing" secondItem="5XH-As-tOG" secondAttribute="trailing" constant="16" id="DgX-eo-Dm1"/>
-                            <constraint firstItem="qdV-cf-TOx" firstAttribute="leading" secondItem="D5p-3g-30C" secondAttribute="trailing" constant="8" id="EXH-TO-qRL"/>
+                            <constraint firstItem="D5p-3g-30C" firstAttribute="bottom" secondItem="qdV-cf-TOx" secondAttribute="bottom" id="IWI-rs-dds"/>
                             <constraint firstAttribute="trailing" secondItem="hrX-nw-RKE" secondAttribute="trailing" constant="16" id="S5s-QE-TzI"/>
-                            <constraint firstAttribute="bottom" secondItem="qdV-cf-TOx" secondAttribute="bottom" constant="24" id="SAp-wS-bZx"/>
-                            <constraint firstAttribute="trailing" secondItem="qdV-cf-TOx" secondAttribute="trailing" constant="8" id="bKZ-UB-6A4"/>
+                            <constraint firstItem="qdV-cf-TOx" firstAttribute="top" secondItem="4xE-LK-UbJ" secondAttribute="top" id="WU0-34-FaT"/>
+                            <constraint firstItem="qdV-cf-TOx" firstAttribute="leading" secondItem="4xE-LK-UbJ" secondAttribute="trailing" constant="12" id="X7a-yf-R9P"/>
                             <constraint firstItem="5XH-As-tOG" firstAttribute="leading" secondItem="JzY-fy-iFH" secondAttribute="leading" constant="16" id="cPv-Z0-xwX"/>
                             <constraint firstItem="hrX-nw-RKE" firstAttribute="leading" secondItem="JzY-fy-iFH" secondAttribute="leading" constant="16" id="dCj-mU-HgX"/>
                             <constraint firstAttribute="height" constant="210" id="lXf-qM-w4Y"/>
                             <constraint firstItem="5XH-As-tOG" firstAttribute="top" secondItem="hrX-nw-RKE" secondAttribute="bottom" constant="16" id="qMj-Zn-rOF"/>
-                            <constraint firstItem="qdV-cf-TOx" firstAttribute="top" secondItem="4xE-LK-UbJ" secondAttribute="top" id="ser-tP-QrT"/>
+                            <constraint firstAttribute="bottom" secondItem="qdV-cf-TOx" secondAttribute="bottom" constant="20" id="xn6-XA-1KH"/>
+                            <constraint firstAttribute="trailing" secondItem="qdV-cf-TOx" secondAttribute="trailing" constant="12" id="z30-Ba-9cw"/>
                         </constraints>
                     </view>
                 </subviews>

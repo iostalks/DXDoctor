@@ -33,8 +33,14 @@ struct DXAuthor {
         self.identifier = iden
         self.name = name
         self.url = url
-        self.avatarURL = avatarURL
         self.remarks = remarks
+        let http = "http:";  // fix
+        if !avatarURL.hasPrefix(http) {
+            let avatorUrl = http.stringByAppendingString(avatarURL)
+            self.avatarURL = avatorUrl
+        }else {
+            self.avatarURL = avatarURL
+        }
     }
 }
 

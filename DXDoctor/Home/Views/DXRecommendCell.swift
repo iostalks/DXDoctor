@@ -4,7 +4,8 @@
 //
 //  Created by Jone on 16/3/17.
 //  Copyright © 2016年 Jone. All rights reserved.
-// 推荐
+
+/// Deprecated
 
 import UIKit
 

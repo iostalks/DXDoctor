@@ -33,9 +33,10 @@ public struct DXNetworkManager {
                 do {
                     let object = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
                     if let dict = object as? [String: AnyObject] {
-                        let resuts = DXItemModel.parseItemModelResult(dict);
+                        let results = DXItemModel.parseItemModelResult(dict);
                         dispatch_async(dispatch_get_main_queue(), {
-                            result?(items: resuts, error: nil)
+                            result?(items: results, error: nil)
+                            print("data: \(results)")
                         });
                     }
                 } catch _ {

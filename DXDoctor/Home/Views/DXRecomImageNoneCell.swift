@@ -20,6 +20,22 @@ class DXRecomImageNoneCell: UICollectionViewCell {
     
     
     func configWithModel(model: DXItemModel) {
+        titleLabel.attributedText = model.title.attributed;
+        contentLabel.attributedText = model.content?.attributed
+        auther.attributedText = model.author?.name.attributed
+        autherRemarks.attributedText = model.author?.remarks.attributed
         
+        
+        if let author = model.author {
+            if let avaterUrl = NSURL.init(string: author.avatarURL) {
+                autherImageView.setImageWithURL(avaterUrl, placeholder: nil)
+            }else {
+                autherImageView.image = UIImage.init(named: "home_doctor_icon")
+            }
+        }else {
+            // 无作者
+            print("no author")
+        }
+
     }
 }

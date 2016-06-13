@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tabBarViewController = DXTabBarController()
         self.window?.rootViewController = tabBarViewController
-        tabBarViewController.tabBar.translucent = false
+//        tabBarViewController.tabBar.translucent = false
         
         return true
     }

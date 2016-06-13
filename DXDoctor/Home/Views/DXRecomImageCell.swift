@@ -22,12 +22,12 @@ class DXRecomImageCell: UICollectionViewCell {
     var url: NSURL?
     
     func configWithModel(model: DXItemModel) {
-        titleLabel.text = model.title;
-        auther.text = model.author?.name;
-        autherRemarksLabel.text = model.author?.remarks;
+        titleLabel.attributedText = model.title.attributed
+        auther.attributedText = model.author?.name.attributed
+        autherRemarksLabel.attributedText = model.author?.remarks.attributed;
         
         if let url = NSURL.init(string: model.cover!) {
-            backgroundImageView.setImageWithURL(url, placeholder: UIImage.init(named: "home_cell_0"))
+            backgroundImageView.setImageWithURL(url, placeholder: nil)
         }else {
             
         }

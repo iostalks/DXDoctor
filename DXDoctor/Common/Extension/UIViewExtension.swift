@@ -11,24 +11,24 @@ import UIKit
 
 extension UIView {
     
-    var size: CGSize {
-        get {
-            return self.frame.size
-        }
-    }
-    
-    var width: CGFloat {
-        get {
-            return self.frame.size.width
-        }
-    }
-    
-    var height: CGFloat {
-        get {
-            return self.frame.size.height
-        }
-    }
-    
+//    var size: CGSize {
+//        get {
+//            return self.frame.size
+//        }
+//    }
+//    
+//    var width: CGFloat {
+//        get {
+//            return self.frame.size.width
+//        }
+//    }
+//    
+//    var height: CGFloat {
+//        get {
+//            return self.frame.size.height
+//        }
+//    }
+//    
     var x: CGFloat {
         get {
             return self.frame.origin.x
@@ -40,15 +40,15 @@ extension UIView {
             return self.frame.origin.y
         }
     }
-    var centerX: CGFloat {
-        get {
-            return self.center.x
-        }
-    }
-    
-    var centerY: CGFloat {
-        get {
-            return self.center.y
-        }
-    }
+//    var centerX: CGFloat {
+//        get {
+//            return self.center.x
+//        }
+//    }
+//    
+//    var centerY: CGFloat {
+//        get {
+//            return self.center.y
+//        }
+//    }
 }

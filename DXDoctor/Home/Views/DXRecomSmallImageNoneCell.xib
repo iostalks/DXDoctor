@@ -17,18 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="187" height="210"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="什么事乳胶过敏？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tec-aw-yCI">
-                                <rect key="frame" x="16" y="30" width="134.5" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <rect key="frame" x="16" y="30" width="149" height="45.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVc-rj-b2L" userLabel="Tag">
-                                <rect key="frame" x="16" y="127" width="57" height="18"/>
+                                <rect key="frame" x="16" y="152.5" width="57" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="健康词条" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCg-Hx-vew">
                                         <rect key="frame" x="1.5" y="0.0" width="55" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -51,23 +51,23 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人的身体度天然橡胶乳蛋白的一种反应。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nac-GC-F0X">
-                                <rect key="frame" x="16" y="86" width="148" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="105.5" width="155" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="tec-aw-yCI" secondAttribute="trailing" constant="37" id="2xX-uv-Gnf"/>
+                            <constraint firstAttribute="trailing" secondItem="tec-aw-yCI" secondAttribute="trailing" constant="22" id="2xX-uv-Gnf"/>
                             <constraint firstAttribute="trailing" secondItem="F1U-bJ-59x" secondAttribute="trailing" id="MvX-l1-ZZD"/>
                             <constraint firstAttribute="bottom" secondItem="F1U-bJ-59x" secondAttribute="bottom" id="PRq-W9-Z1x"/>
                             <constraint firstItem="tec-aw-yCI" firstAttribute="top" secondItem="TBp-YZ-ayA" secondAttribute="top" constant="30" id="Ti7-CM-9XY"/>
-                            <constraint firstAttribute="trailing" secondItem="nac-GC-F0X" secondAttribute="trailing" constant="23.5" id="cSQ-Fp-Cz8"/>
+                            <constraint firstAttribute="trailing" secondItem="nac-GC-F0X" secondAttribute="trailing" constant="16" id="cSQ-Fp-Cz8"/>
                             <constraint firstItem="uVc-rj-b2L" firstAttribute="leading" secondItem="TBp-YZ-ayA" secondAttribute="leading" constant="16" id="ckL-8v-ZT5"/>
                             <constraint firstItem="F1U-bJ-59x" firstAttribute="leading" secondItem="TBp-YZ-ayA" secondAttribute="leading" id="cxE-vG-sNJ"/>
-                            <constraint firstItem="nac-GC-F0X" firstAttribute="top" secondItem="tec-aw-yCI" secondAttribute="bottom" constant="8" id="iWn-0q-kRM"/>
+                            <constraint firstItem="nac-GC-F0X" firstAttribute="top" secondItem="tec-aw-yCI" secondAttribute="bottom" constant="30" id="iWn-0q-kRM"/>
                             <constraint firstItem="nac-GC-F0X" firstAttribute="leading" secondItem="TBp-YZ-ayA" secondAttribute="leading" constant="16" id="uY6-GQ-WCi"/>
                             <constraint firstItem="uVc-rj-b2L" firstAttribute="top" secondItem="nac-GC-F0X" secondAttribute="bottom" constant="8" id="vqt-sh-PIn"/>
                             <constraint firstItem="tec-aw-yCI" firstAttribute="leading" secondItem="TBp-YZ-ayA" secondAttribute="leading" constant="16" id="zLT-Ih-BVq"/>
