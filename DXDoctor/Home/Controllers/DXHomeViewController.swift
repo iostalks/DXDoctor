@@ -140,7 +140,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
             if (_collectionView != nil) {return _collectionView! }
             let layout = UICollectionViewFlowLayout()
             layout.minimumLineSpacing = middleGap
-            layout.minimumInteritemSpacing = middleGap
+            layout.minimumInteritemSpacing = 0
             _collectionView = UICollectionView.init(frame: containerScrollView.bounds, collectionViewLayout: layout)
             _collectionView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
             _collectionView.dataSource = self // datasource class no effect
@@ -373,6 +373,19 @@ extension DXHomeViewController {
 // MARK: 推荐页数据源和代理
 extension DXHomeViewController {
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let indexItem = recommendDataList![indexPath.row] as DXItemModel!
+        
+        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let webViewController = mainStoryboard.instantiateViewControllerWithIdentifier("DXWebViewController") as! DXWebViewController;
+        webViewController.hidesBottomBarWhenPushed = true
+        webViewController.contentURL = indexItem.url
+        self.navigationController?.pushViewController(webViewController, animated: true)
+        
+        
+    }
+    
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let itemHeight:CGFloat = 210.0
         if let item = recommendDataList![indexPath.row] {
@@ -380,17 +393,13 @@ extension DXHomeViewController {
             case .Image:
                 return CGSizeMake(collectionView.width, itemHeight)
             case .ImageNone:
-                return CGSizeMake(collectionView.width, itemHeight + 20)
+                return CGSizeMake(collectionView.width, itemHeight)
             case .SmallImageNone:
-                return CGSizeMake((collectionView.width-middleGap)/2, itemHeight)
+                return CGSizeMake((collectionView.width)/2, itemHeight)
             }
         }else {
             return CGSizeZero
         }
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -403,8 +412,6 @@ extension DXHomeViewController {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell!
-        
-        
         let indexItem = recommendDataList![indexPath.row] as DXItemModel!
             switch indexItem.showType {
             case .Image:
@@ -415,7 +422,6 @@ extension DXHomeViewController {
                 }
                 
             case .ImageNone:
-                
                 cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomImageNoneCell", forIndexPath: indexPath)
                 if let _cell = cell as? DXRecomImageNoneCell {
                     _cell.configWithModel(indexItem)

@@ -73,14 +73,24 @@
                             <constraint firstItem="tec-aw-yCI" firstAttribute="leading" secondItem="TBp-YZ-ayA" secondAttribute="leading" constant="16" id="zLT-Ih-BVq"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOJ-cO-u9C" userLabel="Middle Line">
+                        <rect key="frame" x="186" y="0.0" width="1" height="210"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="0.14999999999999999" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="5zS-aU-hhR"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="SOJ-cO-u9C" secondAttribute="bottom" id="CdJ-qR-wfT"/>
                 <constraint firstItem="TBp-YZ-ayA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="J4i-gr-3Uv"/>
                 <constraint firstItem="TBp-YZ-ayA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Vqh-ZK-rjT"/>
+                <constraint firstItem="SOJ-cO-u9C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lx1-81-1M2"/>
                 <constraint firstAttribute="bottom" secondItem="TBp-YZ-ayA" secondAttribute="bottom" id="qn1-Gz-vfg"/>
                 <constraint firstAttribute="trailing" secondItem="TBp-YZ-ayA" secondAttribute="trailing" id="s9T-wf-j4V"/>
+                <constraint firstAttribute="trailing" secondItem="SOJ-cO-u9C" secondAttribute="trailing" id="tL3-GC-1u3"/>
             </constraints>
             <connections>
                 <outlet property="contentLabel" destination="nac-GC-F0X" id="9wx-gY-8Qx"/>
