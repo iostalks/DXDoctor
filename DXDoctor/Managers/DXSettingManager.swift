@@ -15,8 +15,6 @@ protocol DXColorProtocol {
 
 
 class DXSettingManager: NSObject, DXColorProtocol {
-
-
     var themeColor : UIColor {
         get {
             return colorWithRGBA(r: 72, g: 180, b: 166)

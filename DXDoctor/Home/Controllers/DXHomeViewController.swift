@@ -14,13 +14,11 @@ enum DXHomeTableViewType: Int{
     case Other
 }
 
-
 let kRecomdCellIdentifier = "kRecomdCellIdentifier"
 let kSpecialCellIdentifier = "kSpecialCellIdentifier"
 let kOtherCellIdentifier = "kOtherCellIdentifier"
 
-
-class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrollViewDelegate, UITableViewDelegate, DXRecommendCellDelegate, DXSpecialCellDelegate, DXOtherCelDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrollViewDelegate, UITableViewDelegate,DXRecommendCellDelegate,DXSpecialCellDelegate, DXOtherCelDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     private let kRecommendCellHeight: CGFloat = 630
     private let kSpecialCellHeight: CGFloat = 224
@@ -54,7 +52,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         configDataSourceForTableView()
         setupTableViews()
         
-        // 请求推荐页
+        // 请求推荐页数据
         requestRecommend()
  
     }
@@ -98,6 +96,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     }
     
     // MARK: View
+    
     // 设置导航栏
     func setupNaviBar() {
         let titleImageView = UIImageView.init(image: UIImage.init(named: "home_dxy_logo"))
@@ -176,26 +175,15 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         
         for index in 0 ..< topicItems.count {
             let tableView = createTableView(index: index)
-            
             if let type = DXHomeTableViewType(rawValue: index) {
-            
                 switch type {
-                    
                 case .Recommend:
                     self.collectionView.frame = CGRectMake(0, 0, containerScrollView.width, containerScrollView.height)
                     containerScrollView.addSubview(self.collectionView)
-                    
-//                    tableView.dataSource = recommendDataSource
-//                    tableView.registerNib(UINib.init(nibName: "DXRecommendCell", bundle: nil), forCellReuseIdentifier: kRecomdCellIdentifier)
-                    
-                    
                 case .Special:
-                    
                     tableView!.dataSource = specialDataSource
                     tableView!.registerNib(UINib.init(nibName: "DXSpecialCell", bundle: nil), forCellReuseIdentifier: kSpecialCellIdentifier)
-                    
                 default:
-                    
                     tableView!.dataSource = otherDataSource
                     tableView!.registerNib(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
                 }
@@ -203,19 +191,15 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
                 // 第四项
                 tableView!.dataSource = otherDataSource
                 tableView!.registerNib(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
-
             }
         }
     }
-    
-
     
     // Init table view
     func createTableView(index index: Int) -> UITableView? {
         if (index == 0) {
             return nil
         }
-        
         
         let tableView = UITableView.init(frame: CGRectMake(CGFloat(index) * view.width, 0, containerScrollView.width, (containerScrollView.height)))
         tableView.delegate = self
@@ -230,8 +214,6 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         pullRefreshView.addRefreshingBlock({ () -> (Void) in
             
             // 下拉刷新操作
-            //...
-            
             let delayInSeconds: UInt64 = 2
             let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * delayInSeconds));
             
@@ -240,12 +222,8 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
             })
         })
         
-        
         let pullRefreshFooterView = DXPullToRefreshFooter.init(scrollView: tableView, hasNavigationBar: false)
         pullRefreshFooterView.addRefreshingBlock({ () -> (Void) in
-            
-            // 上拉刷新操作
-            //...模拟数据
             
             let delayInSeconds: UInt64 = 2
             let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * delayInSeconds));
@@ -255,7 +233,6 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
                 tableView.reloadData()
             })
         })
-        
         return tableView
     }
     
@@ -381,8 +358,6 @@ extension DXHomeViewController {
         webViewController.hidesBottomBarWhenPushed = true
         webViewController.contentURL = indexItem.url
         self.navigationController?.pushViewController(webViewController, animated: true)
-        
-        
     }
     
     

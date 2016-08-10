@@ -46,13 +46,16 @@
 		FE2DC0831CA65B3000D0DAD7 /* DropDownRefreshOval4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE2DC0701CA65B3000D0DAD7 /* DropDownRefreshOval4@3x.png */; };
 		FE2DC0861CA65BD300D0DAD7 /* Networkloading.png in Resources */ = {isa = PBXBuildFile; fileRef = FE2DC0851CA65BD300D0DAD7 /* Networkloading.png */; };
 		FE2DC0881CA670BC00D0DAD7 /* DXHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC0871CA670BC00D0DAD7 /* DXHomeViewController.swift */; };
-		FE2DC08A1CA670EF00D0DAD7 /* DXRecomTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC0891CA670EF00D0DAD7 /* DXRecomTableDataSource.swift */; };
 		FE2DC08D1CA67C9D00D0DAD7 /* DXOtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC08B1CA67C9D00D0DAD7 /* DXOtherCell.swift */; };
 		FE2DC08E1CA67C9D00D0DAD7 /* DXOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2DC08C1CA67C9D00D0DAD7 /* DXOtherCell.xib */; };
 		FE2DC0901CA67F3800D0DAD7 /* DXSpecialTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC08F1CA67F3800D0DAD7 /* DXSpecialTableDataSource.swift */; };
 		FE2DC0921CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */; };
 		FE2DC0941CA6A6F700D0DAD7 /* DXOtherCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */; };
 		FE2DC0961CA6A7AA00D0DAD7 /* OtherCellData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE2DC0951CA6A7AA00D0DAD7 /* OtherCellData.plist */; };
+		FE2F68161D5B07C00032FB44 /* DXRecommendCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2F68151D5B07C00032FB44 /* DXRecommendCellData.swift */; };
+		FE2F68181D5B07E70032FB44 /* DXRecomTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2F68171D5B07E70032FB44 /* DXRecomTableDataSource.swift */; };
+		FE2F681B1D5B0A750032FB44 /* DXRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2F68191D5B0A750032FB44 /* DXRecommendCell.swift */; };
+		FE2F681C1D5B0A750032FB44 /* DXRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2F681A1D5B0A750032FB44 /* DXRecommendCell.xib */; };
 		FE50AFD71CB354ED008E614B /* DXSettingCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE50AFD61CB354ED008E614B /* DXSettingCellModel.swift */; };
 		FE794DFF1CB4E169009B6166 /* DXClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE794DFE1CB4E169009B6166 /* DXClient.swift */; };
 		FE91469D1D05133F0041FB99 /* DXItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE91469C1D05133F0041FB99 /* DXItemModel.swift */; };
@@ -68,13 +71,10 @@
 		FEB429801CA02E6500157E5F /* DXAskDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429701CA02E6500157E5F /* DXAskDoctorViewController.swift */; };
 		FEB429811CA02E6500157E5F /* TestWebVeiwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429711CA02E6500157E5F /* TestWebVeiwController.swift */; };
 		FEB429821CA02E6500157E5F /* DXWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429721CA02E6500157E5F /* DXWebViewController.swift */; };
-		FEB429831CA02E6500157E5F /* DXRecommendCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429741CA02E6500157E5F /* DXRecommendCellData.swift */; };
 		FEB429841CA02E6500157E5F /* DXAskDoctorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429771CA02E6500157E5F /* DXAskDoctorView.swift */; };
 		FEB429851CA02E6500157E5F /* DXPullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429781CA02E6500157E5F /* DXPullToRefresh.swift */; };
 		FEB429861CA02E6500157E5F /* DXPullToRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB429791CA02E6500157E5F /* DXPullToRefreshFooter.swift */; };
 		FEB429871CA02E6500157E5F /* DXSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB4297A1CA02E6500157E5F /* DXSegmentView.swift */; };
-		FEB429881CA02E6500157E5F /* DXRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB4297B1CA02E6500157E5F /* DXRecommendCell.swift */; };
-		FEB429891CA02E6500157E5F /* DXRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB4297C1CA02E6500157E5F /* DXRecommendCell.xib */; };
 		FEB4298B1CA02E6500157E5F /* DXSpecialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB4297E1CA02E6500157E5F /* DXSpecialCell.swift */; };
 		FEB4298C1CA02E6500157E5F /* DXSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB4297F1CA02E6500157E5F /* DXSpecialCell.xib */; };
 		FEB429981CA02EB500157E5F /* RecommentData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEB429971CA02EB500157E5F /* RecommentData.plist */; };
@@ -167,13 +167,16 @@
 		FE2DC0701CA65B3000D0DAD7 /* DropDownRefreshOval4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DropDownRefreshOval4@3x.png"; sourceTree = "<group>"; };
 		FE2DC0851CA65BD300D0DAD7 /* Networkloading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Networkloading.png; sourceTree = "<group>"; };
 		FE2DC0871CA670BC00D0DAD7 /* DXHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXHomeViewController.swift; sourceTree = "<group>"; };
-		FE2DC0891CA670EF00D0DAD7 /* DXRecomTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecomTableDataSource.swift; sourceTree = "<group>"; };
 		FE2DC08B1CA67C9D00D0DAD7 /* DXOtherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXOtherCell.swift; sourceTree = "<group>"; };
 		FE2DC08C1CA67C9D00D0DAD7 /* DXOtherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXOtherCell.xib; sourceTree = "<group>"; };
 		FE2DC08F1CA67F3800D0DAD7 /* DXSpecialTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXSpecialTableDataSource.swift; sourceTree = "<group>"; };
 		FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXOtherTableDataSoruce.swift; sourceTree = "<group>"; };
 		FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXOtherCellData.swift; sourceTree = "<group>"; };
 		FE2DC0951CA6A7AA00D0DAD7 /* OtherCellData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OtherCellData.plist; sourceTree = "<group>"; };
+		FE2F68151D5B07C00032FB44 /* DXRecommendCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecommendCellData.swift; sourceTree = "<group>"; };
+		FE2F68171D5B07E70032FB44 /* DXRecomTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecomTableDataSource.swift; sourceTree = "<group>"; };
+		FE2F68191D5B0A750032FB44 /* DXRecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecommendCell.swift; sourceTree = "<group>"; };
+		FE2F681A1D5B0A750032FB44 /* DXRecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXRecommendCell.xib; sourceTree = "<group>"; };
 		FE50AFD61CB354ED008E614B /* DXSettingCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXSettingCellModel.swift; sourceTree = "<group>"; };
 		FE794DFE1CB4E169009B6166 /* DXClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXClient.swift; sourceTree = "<group>"; };
 		FE91469C1D05133F0041FB99 /* DXItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXItemModel.swift; sourceTree = "<group>"; };
@@ -189,13 +192,10 @@
 		FEB429701CA02E6500157E5F /* DXAskDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXAskDoctorViewController.swift; sourceTree = "<group>"; };
 		FEB429711CA02E6500157E5F /* TestWebVeiwController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWebVeiwController.swift; sourceTree = "<group>"; };
 		FEB429721CA02E6500157E5F /* DXWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXWebViewController.swift; sourceTree = "<group>"; };
-		FEB429741CA02E6500157E5F /* DXRecommendCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecommendCellData.swift; sourceTree = "<group>"; };
 		FEB429771CA02E6500157E5F /* DXAskDoctorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXAskDoctorView.swift; sourceTree = "<group>"; };
 		FEB429781CA02E6500157E5F /* DXPullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXPullToRefresh.swift; sourceTree = "<group>"; };
 		FEB429791CA02E6500157E5F /* DXPullToRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXPullToRefreshFooter.swift; sourceTree = "<group>"; };
 		FEB4297A1CA02E6500157E5F /* DXSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXSegmentView.swift; sourceTree = "<group>"; };
-		FEB4297B1CA02E6500157E5F /* DXRecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecommendCell.swift; sourceTree = "<group>"; };
-		FEB4297C1CA02E6500157E5F /* DXRecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXRecommendCell.xib; sourceTree = "<group>"; };
 		FEB4297E1CA02E6500157E5F /* DXSpecialCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXSpecialCell.swift; sourceTree = "<group>"; };
 		FEB4297F1CA02E6500157E5F /* DXSpecialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXSpecialCell.xib; sourceTree = "<group>"; };
 		FEB429971CA02EB500157E5F /* RecommentData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RecommentData.plist; sourceTree = "<group>"; };
@@ -420,7 +420,7 @@
 		FE9146B11D05B2B20041FB99 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				FE2DC0891CA670EF00D0DAD7 /* DXRecomTableDataSource.swift */,
+				FE2F68171D5B07E70032FB44 /* DXRecomTableDataSource.swift */,
 				FE2DC08F1CA67F3800D0DAD7 /* DXSpecialTableDataSource.swift */,
 				FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */,
 				FE9146B41D05B72A0041FB99 /* DXRecomCollectionViewDataSource.swift */,
@@ -466,9 +466,9 @@
 			isa = PBXGroup;
 			children = (
 				FE9146B11D05B2B20041FB99 /* DataSource */,
-				FEB429741CA02E6500157E5F /* DXRecommendCellData.swift */,
 				FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */,
 				FE91469C1D05133F0041FB99 /* DXItemModel.swift */,
+				FE2F68151D5B07C00032FB44 /* DXRecommendCellData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -478,12 +478,12 @@
 			children = (
 				FE9147701D06B8810041FB99 /* Cell */,
 				FEB429761CA02E6500157E5F /* Custom */,
-				FEB4297B1CA02E6500157E5F /* DXRecommendCell.swift */,
-				FEB4297C1CA02E6500157E5F /* DXRecommendCell.xib */,
 				FEB4297E1CA02E6500157E5F /* DXSpecialCell.swift */,
 				FEB4297F1CA02E6500157E5F /* DXSpecialCell.xib */,
 				FE2DC08B1CA67C9D00D0DAD7 /* DXOtherCell.swift */,
 				FE2DC08C1CA67C9D00D0DAD7 /* DXOtherCell.xib */,
+				FE2F68191D5B0A750032FB44 /* DXRecommendCell.swift */,
+				FE2F681A1D5B0A750032FB44 /* DXRecommendCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -739,6 +739,7 @@
 				FE2DC0351CA6559E00D0DAD7 /* DXLoadingComponent.xib in Resources */,
 				FE91477C1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.xib in Resources */,
 				FE2DC0821CA65B3000D0DAD7 /* DropDownRefreshOval4@2x.png in Resources */,
+				FE2F681C1D5B0A750032FB44 /* DXRecommendCell.xib in Resources */,
 				FE2DC0751CA65B3000D0DAD7 /* DropDownRefreshLine1@3x.png in Resources */,
 				FEB429DB1CA0EE7B00157E5F /* refreshing.caf in Resources */,
 				FE2DC0831CA65B3000D0DAD7 /* DropDownRefreshOval4@3x.png in Resources */,
@@ -757,7 +758,6 @@
 				FE2DC08E1CA67C9D00D0DAD7 /* DXOtherCell.xib in Resources */,
 				FE2DC07C1CA65B3000D0DAD7 /* DropDownRefreshOval1@2x.png in Resources */,
 				FEB4298C1CA02E6500157E5F /* DXSpecialCell.xib in Resources */,
-				FEB429891CA02E6500157E5F /* DXRecommendCell.xib in Resources */,
 				FEB429C81CA041D300157E5F /* DXSearchTableViewCell.xib in Resources */,
 				FEDEC1721CA18252005D8AE9 /* MessageData.plist in Resources */,
 				FE2DC07F1CA65B3000D0DAD7 /* DropDownRefreshOval2@3x.png in Resources */,
@@ -847,6 +847,9 @@
 				FEB429811CA02E6500157E5F /* TestWebVeiwController.swift in Sources */,
 				FE2DC02E1CA6559100D0DAD7 /* UIBarExtension.swift in Sources */,
 				FEB429871CA02E6500157E5F /* DXSegmentView.swift in Sources */,
+				FE2F681B1D5B0A750032FB44 /* DXRecommendCell.swift in Sources */,
+				FE2F68161D5B07C00032FB44 /* DXRecommendCellData.swift in Sources */,
+				FE2F68181D5B07E70032FB44 /* DXRecomTableDataSource.swift in Sources */,
 				FE15CB331C131CF800FDBAA0 /* AppDelegate.swift in Sources */,
 				FE2DC02C1CA6559100D0DAD7 /* StringExtension.swift in Sources */,
 				FE9147731D06FE630041FB99 /* DXRecomImageNoneCell.swift in Sources */,
@@ -854,7 +857,6 @@
 				FE2DC0361CA6559E00D0DAD7 /* DXLoadingHUD.swift in Sources */,
 				FE91469D1D05133F0041FB99 /* DXItemModel.swift in Sources */,
 				FE21C4221CA7A34B0029A9BB /* DXTabBarController.swift in Sources */,
-				FE2DC08A1CA670EF00D0DAD7 /* DXRecomTableDataSource.swift in Sources */,
 				FE2DC0341CA6559E00D0DAD7 /* DXLoadingComponent.swift in Sources */,
 				FED105531CB16FDB00B24E4D /* DXSettingTableViewCell.swift in Sources */,
 				FE2DC0941CA6A6F700D0DAD7 /* DXOtherCellData.swift in Sources */,
@@ -878,12 +880,10 @@
 				FE9146B91D05BD160041FB99 /* FFTableViewExtension.swift in Sources */,
 				FE2DC0881CA670BC00D0DAD7 /* DXHomeViewController.swift in Sources */,
 				FEDEC1621CA159DB005D8AE9 /* DXMessageHeaderView.swift in Sources */,
-				FEB429881CA02E6500157E5F /* DXRecommendCell.swift in Sources */,
 				FE9147771D06FF280041FB99 /* DXRecomImageCell.swift in Sources */,
 				FEDEC1671CA16679005D8AE9 /* DXNewMessageTableViewCell.swift in Sources */,
 				FE91477B1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.swift in Sources */,
 				FE9146A31D0567B10041FB99 /* DXNetworkManager.swift in Sources */,
-				FEB429831CA02E6500157E5F /* DXRecommendCellData.swift in Sources */,
 				FEB4298B1CA02E6500157E5F /* DXSpecialCell.swift in Sources */,
 				FE9146B51D05B72A0041FB99 /* DXRecomCollectionViewDataSource.swift in Sources */,
 				FE2DC02D1CA6559100D0DAD7 /* SwiftHEXColors.swift in Sources */,

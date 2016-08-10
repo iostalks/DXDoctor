@@ -15,13 +15,13 @@ public struct DXDoctorRequestError {
 public struct DXNetworkManager {
 
     static let shareManager = DXNetworkManager()
-    
+    let  homeDataListUrl = "http://dxy.com/app/i/feed/index/list?ac=1d6c96d5-9a53-4fe1-9537-85a33de916f1"
     // This prevents others form using default '()' initializer for this class
     
     let session = NSURLSession.sharedSession()
     public func requestRecommendList(result: ((items: [DXItemModel?]?, error: NSError?) -> Void)?) {
         
-        guard let url = NSURL(string: "http://dxy.com/app/i/feed/index/list?ac=1d6c96d5-9a53-4fe1-9537-85a33de916f1") else {
+        guard let url = NSURL(string: homeDataListUrl) else {
             result?(items: nil, error: NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL, userInfo: nil))
             return;
         }
@@ -36,7 +36,7 @@ public struct DXNetworkManager {
                         let results = DXItemModel.parseItemModelResult(dict);
                         dispatch_async(dispatch_get_main_queue(), {
                             result?(items: results, error: nil)
-                            print("data: \(results)")
+//                            print("data: \(results)")
                         });
                     }
                 } catch _ {
