@@ -25,18 +25,18 @@ class DXSettingTableViewCell: UITableViewCell {
         selectedView.backgroundColor = UIColor(red: 243/255.00, green: 243/255.00, blue: 243/255.00, alpha: 0.9)
         self.selectedBackgroundView = selectedView;
         
-        self.logoutLabel.hidden = true
-        self.btnSwitch.hidden   = true;
-        self.iconImageView.hidden = true
-        self.valueLabel.hidden    = true
+        self.logoutLabel.isHidden = true
+        self.btnSwitch.isHidden   = true;
+        self.iconImageView.isHidden = true
+        self.valueLabel.isHidden    = true
         
-        self.accessoryType = .DisclosureIndicator
-        self.textLabel?.textColor = UIColor.darkTextColor()
-        self.textLabel?.font = UIFont.systemFontOfSize(14)
+        self.accessoryType = .disclosureIndicator
+        self.textLabel?.textColor = UIColor.darkText
+        self.textLabel?.font = UIFont.systemFont(ofSize: 14)
         
     }
     
-    @IBAction func btnSwitchOnTouched(sender: AnyObject) {
+    @IBAction func btnSwitchOnTouched(_ sender: AnyObject) {
         
     }
 }

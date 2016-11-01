@@ -9,19 +9,19 @@
 import UIKit
 
 protocol DXAskDoctorViewDelegate: class {
-    func askDoctorButtonItemOnTapped(sender: UIButton)
+    func askDoctorButtonItemOnTapped(_ sender: UIButton)
 }
 
 class DXAskDoctorView: UIView {
 
-    private var lightCircleImageView: UIImageView?
-    private var middleCircleImageView: UIImageView?
-    private var deepCircleImageView: UIImageView?
+    fileprivate var lightCircleImageView: UIImageView?
+    fileprivate var middleCircleImageView: UIImageView?
+    fileprivate var deepCircleImageView: UIImageView?
     
-    private var helpImageView: UIImageView?
+    fileprivate var helpImageView: UIImageView?
     
     
-    private var firstImageView: UIImageView?
+    fileprivate var firstImageView: UIImageView?
 //    private var secondImageView: UIImageView?
 //    private var thirdImageView: UIImageView?
     
@@ -33,24 +33,24 @@ class DXAskDoctorView: UIView {
         super.init(frame: frame)
         
         let lightCircleImageView = UIImageView.init(image: UIImage(named: "AskDoctorOvalLight"))
-        lightCircleImageView.frame = CGRectMake(-1, 12, 20, 20)
+        lightCircleImageView.frame = CGRect(x: -1, y: 12, width: 20, height: 20)
         addSubview(lightCircleImageView)
         self.lightCircleImageView = lightCircleImageView;
         
         let middleCircleImageView = UIImageView.init(image: UIImage(named: "AskDoctorOvalMiddle"))
-        middleCircleImageView.frame = CGRectMake(2, 15, 14, 14)
+        middleCircleImageView.frame = CGRect(x: 2, y: 15, width: 14, height: 14)
         addSubview(middleCircleImageView)
         self.middleCircleImageView = middleCircleImageView
         
         let askDoctorImage = UIImage(named: "AskDoctoeEarPart")
-        let btnItem = UIButton(type: .Custom)
-        btnItem .setImage(askDoctorImage, forState: .Normal)
+        let btnItem = UIButton(type: .custom)
+        btnItem .setImage(askDoctorImage, for: UIControlState())
         btnItem.frame = frame
-        btnItem .addTarget(self, action: #selector(DXAskDoctorView.askDoctorButtonItemOnClick(_:)), forControlEvents: .TouchUpInside)
+        btnItem .addTarget(self, action: #selector(DXAskDoctorView.askDoctorButtonItemOnClick(_:)), for: .touchUpInside)
         addSubview(btnItem)
         
         let deepCircleImageView = UIImageView.init(image: UIImage(named: "AskDoctorOvialDeep"))
-        deepCircleImageView.frame = CGRectMake(5, 18, 8, 8)
+        deepCircleImageView.frame = CGRect(x: 5, y: 18, width: 8, height: 8)
         addSubview(deepCircleImageView)
         self.deepCircleImageView = deepCircleImageView
         
@@ -61,8 +61,8 @@ class DXAskDoctorView: UIView {
     }
     
     
-    let duration: NSTimeInterval = 2.0
-    func groupAnimation(timeOffset timeOffset: CFTimeInterval) -> CAAnimationGroup {
+    let duration: TimeInterval = 2.0
+    func groupAnimation(timeOffset: CFTimeInterval) -> CAAnimationGroup {
         let scaleAnim = CABasicAnimation(keyPath: "transform.scale")
         scaleAnim.fromValue = 1.0
         scaleAnim.toValue   = 0.2
@@ -89,20 +89,20 @@ class DXAskDoctorView: UIView {
         groupAnima.repeatCount = 1
 //        groupAnima.timeOffset = timeOffset
         
-        groupAnima.removedOnCompletion = true
+        groupAnima.isRemovedOnCompletion = true
         groupAnima.fillMode = kCAFillModeBoth
         groupAnima.animations = [scaleAnim, opacityAnima]
         
         return groupAnima
     }
 
-    func askDoctorButtonItemOnClick(sender: UIButton) {
+    func askDoctorButtonItemOnClick(_ sender: UIButton) {
         delegate?.askDoctorButtonItemOnTapped(sender)
     }
     
     func startAnimation() {
         
-        middleCircleImageView?.transform = CGAffineTransformMakeScale(0.2, 0.2)
+        middleCircleImageView?.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
 //        firstImageView = UIImageView.init(image: UIImage(named: "AskDoctorOvalMiddle"))
 //        firstImageView?.frame = CGRectMake(2, 15, 14, 14)
 //        insertSubview(firstImageView!, aboveSubview: self.middleCircleImageView!)
@@ -127,7 +127,7 @@ class DXAskDoctorView: UIView {
         groupAnima.repeatCount = 1
         groupAnima.animations = [scaleAnim, opacityAnima]
 //        groupAnima.fillMode = kCAFillModeRemoved
-        middleCircleImageView?.layer.addAnimation(groupAnima, forKey: "firstAnimation")
+        middleCircleImageView?.layer.add(groupAnima, forKey: "firstAnimation")
         
         secondAnimation()
     }
@@ -136,10 +136,10 @@ class DXAskDoctorView: UIView {
     func secondAnimation() {
         
         let secondImageView = UIImageView.init(image: UIImage(named: "AskDoctorOvalMiddle"))
-        secondImageView.frame = CGRectMake(2, 15, 14, 14)
+        secondImageView.frame = CGRect(x: 2, y: 15, width: 14, height: 14)
         insertSubview(secondImageView, aboveSubview: middleCircleImageView!)
 //        self.addSubview(secondImageView)
-        secondImageView.transform = CGAffineTransformMakeScale(0.2, 0.2)
+        secondImageView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
         
         
         let scaleAnim = CABasicAnimation(keyPath: "transform.scale")
@@ -165,7 +165,7 @@ class DXAskDoctorView: UIView {
         groupAnima.beginTime = secondBeginTime
         groupAnima.animations = [scaleAnim, opacityAnima]
         
-        secondImageView.layer.addAnimation(groupAnima, forKey: "secondAnimation")
+        secondImageView.layer.add(groupAnima, forKey: "secondAnimation")
     }
     
     func thirdAniation() {

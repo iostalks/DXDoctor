@@ -13,7 +13,7 @@ class DXAskDoctorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "问问医生"
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
 
     }
 

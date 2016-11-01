@@ -19,7 +19,7 @@ class DXRecomImageNoneCell: UICollectionViewCell {
     @IBOutlet weak var autherRemarks: UILabel!
     
     
-    func configWithModel(model: DXItemModel) {
+    func configWithModel(_ model: DXItemModel) {
         titleLabel.attributedText = model.title.attributed;
         contentLabel.attributedText = model.content?.attributed
         auther.attributedText = model.author?.name.attributed
@@ -27,8 +27,8 @@ class DXRecomImageNoneCell: UICollectionViewCell {
         
         
         if let author = model.author {
-            if let avaterUrl = NSURL.init(string: author.avatarURL) {
-                autherImageView.setImageWithURL(avaterUrl, placeholder: nil)
+            if let avaterUrl = URL.init(string: author.avatarURL) {
+                autherImageView.setImageWith(avaterUrl, placeholder: nil)
             }else {
                 autherImageView.image = UIImage.init(named: "home_doctor_icon")
             }

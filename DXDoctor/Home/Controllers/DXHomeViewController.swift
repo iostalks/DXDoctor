@@ -9,9 +9,9 @@
 import UIKit
 
 enum DXHomeTableViewType: Int{
-    case Recommend = 0
-    case Special
-    case Other
+    case recommend = 0
+    case special
+    case other
 }
 
 let kRecomdCellIdentifier = "kRecomdCellIdentifier"
@@ -20,14 +20,14 @@ let kOtherCellIdentifier = "kOtherCellIdentifier"
 
 class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrollViewDelegate, UITableViewDelegate,DXRecommendCellDelegate,DXSpecialCellDelegate, DXOtherCelDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    private let kRecommendCellHeight: CGFloat = 630
-    private let kSpecialCellHeight: CGFloat = 224
-    private let kOtherCellHeight: CGFloat = 89
+    fileprivate let kRecommendCellHeight: CGFloat = 630.0
+    fileprivate let kSpecialCellHeight: CGFloat = 224.0
+    fileprivate let kOtherCellHeight: CGFloat = 89.0
     
-    private let SEGMENT_HEI: CGFloat = 30.0;
-    private var containerScrollView: UIScrollView!
-    private var segmentView: DXSegmentView?
-    private var topicItems: [String] = []
+    fileprivate let SEGMENT_HEI: CGFloat = 30.0;
+    fileprivate var containerScrollView: UIScrollView!
+    fileprivate var segmentView: DXSegmentView?
+    fileprivate var topicItems: [String] = []
     
     var recommendDataSource: DXRecomTableDataSource!
     var specialDataSource: DXSpecialTableDataSource!
@@ -42,7 +42,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         title = "首页"
         
         setupNaviBar()
@@ -54,29 +54,28 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         
         // 请求推荐页数据
         requestRecommend()
- 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.hideBottomHairline()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         navigationController?.navigationBar.showBottomHairline()
     }
     
     // Mark: Request
-    @objc private func requestRecommend() {
+    @objc fileprivate func requestRecommend() {
         if (recommendDataList?.count == nil) {
              showLoadingHUD()
         }
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true;
             DXNetworkManager.shareManager.requestRecommendList { (items, error) in
                 if ((error) != nil) { return }
                 self.recommendDataList = items
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.hideLoadingHUD(animation: true)
                 self.refreshControl.endRefreshing()
                 self.collectionView.reloadData()
@@ -101,16 +100,16 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     func setupNaviBar() {
         let titleImageView = UIImageView.init(image: UIImage.init(named: "home_dxy_logo"))
         navigationItem.titleView = titleImageView;
-        navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "返回", style: .Plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: nil)
         setUpNavigationBar()
     }
     
     // 初始化选项栏
     func setupSegmentView() {
         topicItems = ["推荐", "专题", "真相", "慢病","一图读懂", "肿瘤" /*, "营养" */]
-        let frame = CGRectMake(0, 64, view.bounds.size.width, SEGMENT_HEI)
+        let frame = CGRect(x: 0, y: 64, width: view.bounds.size.width, height: SEGMENT_HEI)
         segmentView = DXSegmentView.init(titles: topicItems, iframe: frame);
-        segmentView!.backgroundColor = UIColor.whiteColor()
+        segmentView!.backgroundColor = UIColor.white
         segmentView!.delegate = self
         view.addSubview(segmentView!)
     }
@@ -118,11 +117,11 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     // 初始化左右滚动内容视图
     func setupScrollView() {
         let originY = (segmentView?.height)! + (segmentView?.y)!
-        containerScrollView = UIScrollView.init(frame: CGRectZero)
-        containerScrollView.frame           = CGRectMake(0, originY, view.width, view.height - originY)
-        containerScrollView.contentSize     = CGSizeMake(CGFloat(topicItems.count) * view.width, (containerScrollView.height));
+        containerScrollView = UIScrollView.init(frame: CGRect.zero)
+        containerScrollView.frame           = CGRect(x: 0, y: originY, width: view.width, height: view.height - originY)
+        containerScrollView.contentSize     = CGSize(width: CGFloat(topicItems.count) * view.width, height: (containerScrollView.height));
         containerScrollView.backgroundColor = DXSettingManager.manager.beigeWhiteColor
-        containerScrollView.pagingEnabled   = true;
+        containerScrollView.isPagingEnabled   = true;
         containerScrollView.bounces         = false
         containerScrollView.delegate        = self;
         containerScrollView.showsVerticalScrollIndicator = false
@@ -132,9 +131,9 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     }
     
     // 推荐页
-    private let middleGap: CGFloat = 0.5;
-    private var _collectionView: UICollectionView!
-    private var collectionView: UICollectionView  {
+    fileprivate let middleGap: CGFloat = 0.5;
+    fileprivate var _collectionView: UICollectionView!
+    fileprivate var collectionView: UICollectionView  {
         get {
             if (_collectionView != nil) {return _collectionView! }
             let layout = UICollectionViewFlowLayout()
@@ -144,28 +143,28 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
             _collectionView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
             _collectionView.dataSource = self // datasource class no effect
             _collectionView.delegate = self;
-            _collectionView.backgroundColor = UIColor.whiteColor()
+            _collectionView.backgroundColor = UIColor.white
             _collectionView.addSubview(self.refreshControl);
             
             let recomImageCell = UINib.init(nibName: "DXRecomImageCell", bundle: nil)
-            _collectionView.registerNib(recomImageCell, forCellWithReuseIdentifier: "DXRecomImageCell")
+            _collectionView.register(recomImageCell, forCellWithReuseIdentifier: "DXRecomImageCell")
             
             let recomImageNoneCell = UINib.init(nibName: "DXRecomImageNoneCell", bundle: nil)
-            _collectionView.registerNib(recomImageNoneCell, forCellWithReuseIdentifier: "DXRecomImageNoneCell")
+            _collectionView.register(recomImageNoneCell, forCellWithReuseIdentifier: "DXRecomImageNoneCell")
             
             let recomSmallImageNoneCell = UINib.init(nibName: "DXRecomSmallImageNoneCell", bundle: nil)
-            _collectionView.registerNib(recomSmallImageNoneCell, forCellWithReuseIdentifier: "DXRecomSmallImageNoneCell")
+            _collectionView.register(recomSmallImageNoneCell, forCellWithReuseIdentifier: "DXRecomSmallImageNoneCell")
             
             return _collectionView;
         }
     }
     
-    private var _refreshControl: UIRefreshControl!
-    private var refreshControl: UIRefreshControl {
+    fileprivate var _refreshControl: UIRefreshControl!
+    fileprivate var refreshControl: UIRefreshControl {
         get {
             if (_refreshControl != nil) {return _refreshControl}
             _refreshControl = UIRefreshControl()
-            _refreshControl.addTarget(self, action: #selector(DXHomeViewController.requestRecommend), forControlEvents: .ValueChanged)
+            _refreshControl.addTarget(self, action: #selector(DXHomeViewController.requestRecommend), for: .valueChanged)
             return _refreshControl
         }
     }
@@ -177,34 +176,34 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
             let tableView = createTableView(index: index)
             if let type = DXHomeTableViewType(rawValue: index) {
                 switch type {
-                case .Recommend:
-                    self.collectionView.frame = CGRectMake(0, 0, containerScrollView.width, containerScrollView.height)
+                case .recommend:
+                    self.collectionView.frame = CGRect(x: 0, y: 0, width: containerScrollView.width, height: containerScrollView.height)
                     containerScrollView.addSubview(self.collectionView)
-                case .Special:
+                case .special:
                     tableView!.dataSource = specialDataSource
-                    tableView!.registerNib(UINib.init(nibName: "DXSpecialCell", bundle: nil), forCellReuseIdentifier: kSpecialCellIdentifier)
+                    tableView!.register(UINib.init(nibName: "DXSpecialCell", bundle: nil), forCellReuseIdentifier: kSpecialCellIdentifier)
                 default:
                     tableView!.dataSource = otherDataSource
-                    tableView!.registerNib(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
+                    tableView!.register(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
                 }
             }else {
                 // 第四项
                 tableView!.dataSource = otherDataSource
-                tableView!.registerNib(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
+                tableView!.register(UINib.init(nibName: "DXOtherCell", bundle: nil), forCellReuseIdentifier: kOtherCellIdentifier)
             }
         }
     }
     
     // Init table view
-    func createTableView(index index: Int) -> UITableView? {
+    func createTableView(index: Int) -> UITableView? {
         if (index == 0) {
             return nil
         }
         
-        let tableView = UITableView.init(frame: CGRectMake(CGFloat(index) * view.width, 0, containerScrollView.width, (containerScrollView.height)))
+        let tableView = UITableView.init(frame: CGRect(x: CGFloat(index) * view.width, y: 0, width: containerScrollView.width, height: (containerScrollView.height)))
         tableView.delegate = self
         tableView.tag = index
-        tableView.separatorStyle = .None
+        tableView.separatorStyle = .none
         tableView.backgroundColor = DXSettingManager.manager.beigeWhiteColor
         tableView.allowsSelection = false
         containerScrollView.addSubview(tableView)
@@ -215,9 +214,9 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
             
             // 下拉刷新操作
             let delayInSeconds: UInt64 = 2
-            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * delayInSeconds));
+            let popTime = DispatchTime.now() + Double(Int64(NSEC_PER_SEC * delayInSeconds)) / Double(NSEC_PER_SEC);
             
-            dispatch_after(popTime, dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: popTime, execute: { () -> Void in
                 pullRefreshView.stopRefreshing()
             })
         })
@@ -226,9 +225,9 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         pullRefreshFooterView.addRefreshingBlock({ () -> (Void) in
             
             let delayInSeconds: UInt64 = 2
-            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * delayInSeconds));
+            let popTime = DispatchTime.now() + Double(Int64(NSEC_PER_SEC * delayInSeconds)) / Double(NSEC_PER_SEC);
             
-            dispatch_after(popTime, dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: popTime, execute: { () -> Void in
                 pullRefreshFooterView.stopRefreshing()
                 tableView.reloadData()
             })
@@ -237,7 +236,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     }
     
     // MARK: DXAskdoctorViewDelegate
-    override func askDoctorButtonItemOnTapped(sender: UIButton) {
+    override func askDoctorButtonItemOnTapped(_ sender: UIButton) {
         
         let askDoctorVC = DXAskDoctorViewController()
         askDoctorVC.hidesBottomBarWhenPushed = true
@@ -252,19 +251,19 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
 
 extension DXHomeViewController {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if let tableViewType = DXHomeTableViewType(rawValue: tableView.tag) {
             
             switch tableViewType {
                 
-            case .Recommend:
+            case .recommend:
                 return kRecommendCellHeight
-            case .Special:
+            case .special:
                 return kSpecialCellHeight
             default:
                 return kOtherCellHeight
@@ -281,37 +280,37 @@ extension DXHomeViewController {
 extension DXHomeViewController {
     
     // Recommend
-    func headerViewOnClick(cell: DXRecommendCell) {
+    func headerViewOnClick(_ cell: DXRecommendCell) {
         showLoadingWebView(cell)
     }
     
-    func leftViewOnClick(cell: DXRecommendCell) {
+    func leftViewOnClick(_ cell: DXRecommendCell) {
         showLoadingWebView(cell)
     }
     
-    func rightViewOnClick(cell: DXRecommendCell) {
+    func rightViewOnClick(_ cell: DXRecommendCell) {
         showLoadingWebView(cell)
     }
     
-    func footerViewOnClick(cell: DXRecommendCell) {
+    func footerViewOnClick(_ cell: DXRecommendCell) {
         showLoadingWebView(cell)
     }
     
     // Special
-    func specialCellOnClick(cell: DXSpecialCell) {
+    func specialCellOnClick(_ cell: DXSpecialCell) {
         showTestWebView()
     }
     
     // Other
-    func otherCellOnClick(cell: DXOtherCell) {
+    func otherCellOnClick(_ cell: DXOtherCell) {
         showTestWebView()
     }
     
     // Common
-    func showLoadingWebView(cell: DXRecommendCell) {
+    func showLoadingWebView(_ cell: DXRecommendCell) {
         
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let recommHeaderVC = mainStoryboard.instantiateViewControllerWithIdentifier("DXWebViewController") as! DXWebViewController;
+        let recommHeaderVC = mainStoryboard.instantiateViewController(withIdentifier: "DXWebViewController") as! DXWebViewController;
         
         recommHeaderVC.hidesBottomBarWhenPushed = true
         recommHeaderVC.contentURL = (cell.dataModel?.headerUrl)!
@@ -329,20 +328,20 @@ extension DXHomeViewController {
 // MARK: DXSegmentViewDelegate
 extension DXHomeViewController {
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         guard scrollView == containerScrollView else {
             return
         }
         
-        if (!scrollView.tracking) {
+        if (!scrollView.isTracking) {
             let curPage: Int = Int(scrollView.contentOffset.x / view.width)
             segmentView?.topicItemTappedAtIndex(curPage)
         }
     }
     
-    func segmentItemOnClickedAtIndex(index: Int) {
-        containerScrollView.setContentOffset(CGPointMake(CGFloat(index) * view.width, 0), animated: true)
+    func segmentItemOnClickedAtIndex(_ index: Int) {
+        containerScrollView.setContentOffset(CGPoint(x: CGFloat(index) * view.width, y: 0), animated: true)
     }
 
 }
@@ -350,66 +349,66 @@ extension DXHomeViewController {
 // MARK: 推荐页数据源和代理
 extension DXHomeViewController {
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let indexItem = recommendDataList![indexPath.row] as DXItemModel!
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let indexItem = recommendDataList![(indexPath as NSIndexPath).row] as DXItemModel!
         
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let webViewController = mainStoryboard.instantiateViewControllerWithIdentifier("DXWebViewController") as! DXWebViewController;
+        let webViewController = mainStoryboard.instantiateViewController(withIdentifier: "DXWebViewController") as! DXWebViewController;
         webViewController.hidesBottomBarWhenPushed = true
-        webViewController.contentURL = indexItem.url
+        webViewController.contentURL = (indexItem?.url)!
         self.navigationController?.pushViewController(webViewController, animated: true)
     }
     
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let itemHeight:CGFloat = 210.0
-        if let item = recommendDataList![indexPath.row] {
+        if let item = recommendDataList![(indexPath as NSIndexPath).row] {
             switch item.showType {
-            case .Image:
-                return CGSizeMake(collectionView.width, itemHeight)
-            case .ImageNone:
-                return CGSizeMake(collectionView.width, itemHeight)
-            case .SmallImageNone:
-                return CGSizeMake((collectionView.width)/2, itemHeight)
+            case .image:
+                return CGSize(width: collectionView.width, height: itemHeight)
+            case .imageNone:
+                return CGSize(width: collectionView.width, height: itemHeight)
+            case .smallImageNone:
+                return CGSize(width: (collectionView.width)/2, height: itemHeight)
             }
         }else {
-            return CGSizeZero
+            return CGSize.zero
         }
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (recommendDataList?.count) ?? 0
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell!
-        let indexItem = recommendDataList![indexPath.row] as DXItemModel!
-            switch indexItem.showType {
-            case .Image:
+        let indexItem = recommendDataList![(indexPath as NSIndexPath).row] as DXItemModel!
+            switch indexItem?.showType {
+            case .image:
              
-                cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomImageCell", forIndexPath: indexPath)
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DXRecomImageCell", for: indexPath)
                 if let _cell = cell as? DXRecomImageCell {
                     _cell.configWithModel(indexItem)
                 }
                 
-            case .ImageNone:
-                cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomImageNoneCell", forIndexPath: indexPath)
+            case .imageNone:
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DXRecomImageNoneCell", for: indexPath)
                 if let _cell = cell as? DXRecomImageNoneCell {
                     _cell.configWithModel(indexItem)
                 }
 
-            case .SmallImageNone:
+            case .smallImageNone:
                 
-                cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomSmallImageNoneCell", forIndexPath: indexPath)
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DXRecomSmallImageNoneCell", for: indexPath)
                 if let _cell = cell as? DXRecomSmallImageNoneCell {
                     _cell.configWithModel(indexItem)
                 }
             }
-        cell.contentView.backgroundColor = UIColor.lightGrayColor()
+        cell.contentView.backgroundColor = UIColor.lightGray
         return cell
     }
 }

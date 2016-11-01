@@ -33,7 +33,7 @@ class DXSearchViewController: DXBaseViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         self.title = "搜索"
         
         configureTableView()
@@ -45,24 +45,24 @@ class DXSearchViewController: DXBaseViewController, UITableViewDelegate, UITable
         tableView.tableHeaderView = tableViewHeaderView
         tableView.allowsSelection = false
         let nib = UINib(nibName: "DXSearchTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: kSearchCellIdentifier)
+        tableView.register(nib, forCellReuseIdentifier: kSearchCellIdentifier)
     }
     
     // MARK: Action
 
-    @IBAction func searchButtonOnTouched(sender: AnyObject) {
+    @IBAction func searchButtonOnTouched(_ sender: AnyObject) {
         print("Search")
-        let searchVC = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewControllerWithIdentifier("DXSearchContentViewController")
+        let searchVC = UIStoryboard.init(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "DXSearchContentViewController")
         searchVC.hidesBottomBarWhenPushed = true
-        searchVC.view.backgroundColor = UIColor.whiteColor()
+        searchVC.view.backgroundColor = UIColor.white
         navigationController?.pushViewController(searchVC, animated: true);
         
     }
-    @IBAction func qrSacnButtonOnTouched(sender: AnyObject) {
+    @IBAction func qrSacnButtonOnTouched(_ sender: AnyObject) {
         print("Scan")
     }
     
-    override func askDoctorButtonItemOnTapped(sender: UIButton) {
+    override func askDoctorButtonItemOnTapped(_ sender: UIButton) {
         let askDoctorVC = DXAskDoctorViewController()
         askDoctorVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(askDoctorVC, animated: true)
@@ -73,20 +73,20 @@ class DXSearchViewController: DXBaseViewController, UITableViewDelegate, UITable
 // MARK: UITableViewDataSource And UITableViewDelegate
 extension DXSearchViewController {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: DXSearchTableViewCell = tableView .dequeueReusableCellWithIdentifier(kSearchCellIdentifier, forIndexPath: indexPath) as! DXSearchTableViewCell
-        let itemData = searchItemsArray[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: DXSearchTableViewCell = tableView .dequeueReusableCell(withIdentifier: kSearchCellIdentifier, for: indexPath) as! DXSearchTableViewCell
+        let itemData = searchItemsArray[(indexPath as NSIndexPath).row]
         cell.configureCell(itemData)
         return cell
     }
     
     // Delegate
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     

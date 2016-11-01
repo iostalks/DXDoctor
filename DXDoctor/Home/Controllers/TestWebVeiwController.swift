@@ -17,16 +17,16 @@ class TestWebVeiwController: DXBaseViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
       
         webView = UIWebView.init(frame: self.view.bounds)
         webView?.delegate = self
         self.view.addSubview(webView!)
     
         
-        let url: NSURL? = NSURL.init(string: contentURL);
+        let url: URL? = URL.init(string: contentURL);
         if url != nil {
-            let request = NSURLRequest.init(URL: url!)
+            let request = URLRequest.init(url: url!)
             webView?.loadRequest(request)
             
         }
@@ -34,7 +34,7 @@ class TestWebVeiwController: DXBaseViewController, UIWebViewDelegate {
         self.showLoadingHUD()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
 }
@@ -42,13 +42,13 @@ class TestWebVeiwController: DXBaseViewController, UIWebViewDelegate {
 // MARK: UIWebViewDelegate
 extension TestWebVeiwController {
     
-    func webViewDidStartLoad(webView: UIWebView) {
+    func webViewDidStartLoad(_ webView: UIWebView) {
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
 //        self.hideLoadingHUD(animation: false)
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
     }
 }

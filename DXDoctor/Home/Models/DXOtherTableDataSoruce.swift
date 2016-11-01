@@ -20,25 +20,25 @@ class DXOtherTableDataSoruce: NSObject, UITableViewDataSource {
     }
     
     func prepareOtherData() {
-        let otherPath = NSBundle.mainBundle().pathForResource("OtherCellData", ofType: "plist")
+        let otherPath = Bundle.main.path(forResource: "OtherCellData", ofType: "plist")
         let otherPathDict = NSDictionary.init(contentsOfFile: otherPath!)
         dataArray = otherPathDict!["otherCellData"] as! NSArray
     }
 }
 
 extension DXOtherTableDataSoruce {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: DXOtherCell = (tableView.dequeueReusableCellWithIdentifier(kOtherCellIdentifier, forIndexPath: indexPath) as? DXOtherCell)!;
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: DXOtherCell = (tableView.dequeueReusableCell(withIdentifier: kOtherCellIdentifier, for: indexPath) as? DXOtherCell)!;
         
-        let dict = dataArray[indexPath.row] as! NSDictionary
+        let dict = dataArray[(indexPath as NSIndexPath).row] as! NSDictionary
         let cellData = DXOtherCellData.init(dict: dict)
         cell.configCell(data: cellData)
         cell.delegate = cellDelegate

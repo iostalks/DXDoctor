@@ -19,11 +19,11 @@ class DXTabBarController: UITabBarController {
         homeVC.tabBarItem.title = "首页"
         homeVC.tabBarItem.image = UIImage(named: "tab_home")        
         
-        let searchVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("DXSearchViewController");
+        let searchVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DXSearchViewController");
         searchVC.tabBarItem.title = "搜索"
         searchVC.tabBarItem.image = UIImage.init(named: "tab_search")
         
-        let messageVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("DXMessageViewController")
+        let messageVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DXMessageViewController")
         messageVC.tabBarItem.title = "消息"
         messageVC.tabBarItem.image = UIImage(named: "tab_message")
         
@@ -35,11 +35,11 @@ class DXTabBarController: UITabBarController {
         self.viewControllers = [homeNavigation, searchNavigation, messageNavigation]
     }
     
-    private func createNavigationController(rootViewController: UIViewController) -> UINavigationController {
+    fileprivate func createNavigationController(_ rootViewController: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: rootViewController)
-        navigationController.navigationBar.barTintColor = UIColor.whiteColor()
+        navigationController.navigationBar.barTintColor = UIColor.white
         navigationController.navigationBar.tintColor = DXSettingManager.manager.themeColor
-        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
         return navigationController
     }
 
@@ -48,7 +48,7 @@ class DXTabBarController: UITabBarController {
 // MARK: - UITabBarDelegate
 
 extension DXTabBarController {
-    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         DXAudioManager.manager.playTabBabAudio()
     }
 }

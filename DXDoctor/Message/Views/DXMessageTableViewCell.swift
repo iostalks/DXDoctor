@@ -16,7 +16,7 @@ class DXMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var tagBackgroudView: UIView!
     var dataModel: DXMessageModel?
     
-    func configureCell(data: DXMessageModel) {
+    func configureCell(_ data: DXMessageModel) {
         titleLabel.text = data.title
         tagLabel.text = data.tag
         dataModel = data
@@ -31,14 +31,14 @@ class DXMessageTableViewCell: UITableViewCell {
         
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected {
             tagBackgroudView.backgroundColor = UIColor(red: 170/255.00, green: 170/255.00, blue: 170/255.00, alpha: 0.8)
         }
     }
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated);
         if highlighted {
             tagBackgroudView.backgroundColor = UIColor(red: 170/255.00, green: 170/255.00, blue: 170/255.00, alpha: 0.8)

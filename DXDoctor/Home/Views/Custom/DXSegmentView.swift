@@ -43,18 +43,18 @@ class DXSegmentView: UIView {
     }
     
     // 获取Label frame
-    func caculateLabelFrameWithIndex(index: Int) -> CGRect {
-        return CGRectMake(CGFloat(index) * titleWidth, 0, titleWidth, titleHeight);
+    func caculateLabelFrameWithIndex(_ index: Int) -> CGRect {
+        return CGRect(x: CGFloat(index) * titleWidth, y: 0, width: titleWidth, height: titleHeight);
     }
     
     // 创建Label
-    func createLabelWithIndex(index : Int, textColor : UIColor) -> UILabel {
+    func createLabelWithIndex(_ index : Int, textColor : UIColor) -> UILabel {
         let frame = caculateLabelFrameWithIndex(index)
         let tempLabel = UILabel.init(frame: frame)
         tempLabel.text = titles[index]
         tempLabel.textColor = textColor
-        tempLabel.font = UIFont.systemFontOfSize(12.0)
-        tempLabel.textAlignment = .Center
+        tempLabel.font = UIFont.systemFont(ofSize: 12.0)
+        tempLabel.textAlignment = .center
         return tempLabel
     }
     
@@ -66,28 +66,28 @@ class DXSegmentView: UIView {
         }
     }
     
-    private var highLightContainerView: UIView?
-    private var highColorView: UIView?
-    private var topLabelsView: UIView?
+    fileprivate var highLightContainerView: UIView?
+    fileprivate var highColorView: UIView?
+    fileprivate var topLabelsView: UIView?
     
     // 创建上层Label
     func createTopLabels() {
         
-        let itemFrame = CGRectMake(0, 0, titleWidth, titleHeight)
+        let itemFrame = CGRect(x: 0, y: 0, width: titleWidth, height: titleHeight)
         highLightContainerView = UIView.init(frame: itemFrame)
         highLightContainerView?.clipsToBounds = true
         
         highColorView = UIView.init(frame: itemFrame)
-        highColorView?.frame.size = CGSizeMake(titleWidth-10, titleHeight-10)
+        highColorView?.frame.size = CGSize(width: titleWidth-10, height: titleHeight-10)
         highColorView?.center           = (highLightContainerView?.center)!
         highColorView?.backgroundColor  = UIColor(colorLiteralRed: 72/255.00, green: 180/255.00, blue: 166/255.00, alpha: 1)
         highColorView?.layer.cornerRadius = 5.0
         highLightContainerView?.addSubview(highColorView!)
         
-        topLabelsView = UIView.init(frame: CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
+        topLabelsView = UIView.init(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
         for index in 0 ..< titles.count {
-            let topLabel = self.createLabelWithIndex(index, textColor: UIColor.whiteColor())
-            topLabel.backgroundColor = UIColor.clearColor()
+            let topLabel = self.createLabelWithIndex(index, textColor: UIColor.white)
+            topLabel.backgroundColor = UIColor.clear
             topLabelsView?.addSubview(topLabel)
         }
         highLightContainerView?.addSubview(topLabelsView!)
@@ -96,36 +96,39 @@ class DXSegmentView: UIView {
     
     func createTopButton() {
         for index in 0 ..< titles.count {
-            let topButton = UIButton(type: .Custom)
+            let topButton = UIButton(type: .custom)
             topButton.frame = caculateLabelFrameWithIndex(index)
-            topButton.backgroundColor = UIColor.clearColor()
+            topButton.backgroundColor = UIColor.clear
             topButton.tag = index
-            topButton.addTarget(self, action: #selector(DXSegmentView.topButtonOnClick(_:)) , forControlEvents: .TouchUpInside)
+            topButton.addTarget(self, action: #selector(DXSegmentView.topButtonOnClick(_:)) , for: .touchUpInside)
             addSubview(topButton)
         }
     }
     
-    func topButtonOnClick(sender: UIButton) {
+    func topButtonOnClick(_ sender: UIButton) {
         topicItemTappedAtIndex(sender.tag)
     }
     
-    func topicItemTappedAtIndex(index: NSInteger) {
+    func topicItemTappedAtIndex(_ index: NSInteger) {
         let hightColorViewFrame = caculateLabelFrameWithIndex(index)
         let topLabelsViewFrame = caculateLabelFrameWithIndex(-index)
         
-        UIView.animateWithDuration(kAnimationDuration, animations: { () -> Void in
+        /**
+         相向移动蓝色背景的父视图和白色 Label 的父视图
+         */
+        UIView.animate(withDuration: kAnimationDuration, animations: { () -> Void in
             self.highLightContainerView?.frame = hightColorViewFrame
             self.topLabelsView?.frame = topLabelsViewFrame
-            }) { (finished) -> Void in
+            }, completion: { (finished) -> Void in
                 if let idelegate = self.delegate {
                     idelegate.segmentItemOnClickedAtIndex(index)
                 }
-        }
+        }) 
     }
     
 }
 
 protocol DXSegmentViewDelegate: class {
-    func segmentItemOnClickedAtIndex(index: Int)
+    func segmentItemOnClickedAtIndex(_ index: Int)
 }
 

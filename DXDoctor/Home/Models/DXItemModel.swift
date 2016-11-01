@@ -9,9 +9,9 @@
 import UIKit
 
 public enum DXItemShowType: Int{
-    case Image      = 1
-    case ImageNone  = 2
-    case SmallImageNone = 8
+    case image      = 1
+    case imageNone  = 2
+    case smallImageNone = 8
 }
 
 struct DXAuthor {
@@ -23,10 +23,10 @@ struct DXAuthor {
     
     internal init?(authorDict: [String : AnyObject]) {
         guard let iden = authorDict["id"] as? Int,
-            name = authorDict["name"] as? String,
-            url = authorDict["url"] as? String,
-            avatarURL = authorDict["avatar"] as? String,
-            remarks = authorDict["remarks"] as? String else {
+            let name = authorDict["name"] as? String,
+            let url = authorDict["url"] as? String,
+            let avatarURL = authorDict["avatar"] as? String,
+            let remarks = authorDict["remarks"] as? String else {
                 return nil
         }
         
@@ -36,7 +36,7 @@ struct DXAuthor {
         self.remarks = remarks
         let http = "http:";  // fix
         if !avatarURL.hasPrefix(http) {
-            let avatorUrl = http.stringByAppendingString(avatarURL)
+            let avatorUrl = http + avatarURL
             self.avatarURL = avatorUrl
         }else {
             self.avatarURL = avatarURL
@@ -59,10 +59,10 @@ public struct DXItemModel {
     public init?(json: [String : AnyObject]) {
         
         guard let title = json["title"] as? String,
-            url = json["url"] as? String,
-            from = json["from"] as? String,
-            showTypeIndex = json["show_type"] as? Int,
-            showType = DXItemShowType(rawValue: showTypeIndex)
+            let url = json["url"] as? String,
+            let from = json["from"] as? String,
+            let showTypeIndex = json["show_type"] as? Int,
+            let showType = DXItemShowType(rawValue: showTypeIndex)
             else {
             return nil;
         }

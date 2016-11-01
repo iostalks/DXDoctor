@@ -35,7 +35,7 @@ class DXRecommendCellData: NSObject {
     var footerDoctorPosition: String?
     var footerUrl: String?
     
-    private struct PropertyKey {
+    fileprivate struct PropertyKey {
         static let headerTitleKey = "headerTitle"
         static let headerImageNameKey = "headerImageName"
         static let headerDoctorIconKey = "headerDoctorIcon"
@@ -70,32 +70,32 @@ class DXRecommendCellData: NSObject {
         }
         
         let headerDict: NSDictionary = dataArray[0] as! NSDictionary
-        headerTitle = headerDict.valueForKey(PropertyKey.headerTitleKey) as? String
-        headerImageName = headerDict.valueForKey(PropertyKey.headerImageNameKey) as? String
-        headerDoctorIcon = headerDict.valueForKey(PropertyKey.headerDoctorIconKey) as? String
-        headerDoctorName = headerDict.valueForKey(PropertyKey.headerDoctorNameKey) as? String
-        headerDoctorPosition = headerDict.valueForKey(PropertyKey.headerDoctorPosition) as? String
-        headerUrl = headerDict.valueForKey(PropertyKey.headerUrlKey) as? String
+        headerTitle = headerDict.value(forKey: PropertyKey.headerTitleKey) as? String
+        headerImageName = headerDict.value(forKey: PropertyKey.headerImageNameKey) as? String
+        headerDoctorIcon = headerDict.value(forKey: PropertyKey.headerDoctorIconKey) as? String
+        headerDoctorName = headerDict.value(forKey: PropertyKey.headerDoctorNameKey) as? String
+        headerDoctorPosition = headerDict.value(forKey: PropertyKey.headerDoctorPosition) as? String
+        headerUrl = headerDict.value(forKey: PropertyKey.headerUrlKey) as? String
         
         
         let leftDict: NSDictionary = dataArray[1] as! NSDictionary
-        leftTitle = leftDict.valueForKey(PropertyKey.leftTitleKey) as? String
-        leftBrief = leftDict.valueForKey(PropertyKey.leftBriefKey) as? String
-        leftTag   = leftDict.valueForKey(PropertyKey.leftTagKey) as? String
-        leftUrl   = leftDict.valueForKey(PropertyKey.leftUrlKey) as? String
+        leftTitle = leftDict.value(forKey: PropertyKey.leftTitleKey) as? String
+        leftBrief = leftDict.value(forKey: PropertyKey.leftBriefKey) as? String
+        leftTag   = leftDict.value(forKey: PropertyKey.leftTagKey) as? String
+        leftUrl   = leftDict.value(forKey: PropertyKey.leftUrlKey) as? String
         
         let rightDict: NSDictionary = dataArray[2] as! NSDictionary
-        rightTitle = rightDict.valueForKey(PropertyKey.rightTitleKey) as? String
-        rightBrief = rightDict.valueForKey(PropertyKey.rightBriefKey) as? String
-        rightTag   = rightDict.valueForKey(PropertyKey.rightTagKey) as? String
-        rightUrl   = rightDict.valueForKey(PropertyKey.rightUrlKey) as? String
+        rightTitle = rightDict.value(forKey: PropertyKey.rightTitleKey) as? String
+        rightBrief = rightDict.value(forKey: PropertyKey.rightBriefKey) as? String
+        rightTag   = rightDict.value(forKey: PropertyKey.rightTagKey) as? String
+        rightUrl   = rightDict.value(forKey: PropertyKey.rightUrlKey) as? String
         
         let footerDict: NSDictionary = dataArray[3] as! NSDictionary
-        footerTitle = footerDict.valueForKey(PropertyKey.footerTitleKey) as? String
-        footerBrief = footerDict.valueForKey(PropertyKey.footerBriefKey) as? String
-        footerDoctorIcon = footerDict.valueForKey(PropertyKey.footerDoctorIconKey) as? String
-        footerDoctorName = footerDict.valueForKey(PropertyKey.footerDoctorNameKey) as? String
-        footerDoctorPosition = footerDict.valueForKey(PropertyKey.footerDoctorPositionKey) as? String
-        footerUrl = footerDict.valueForKey(PropertyKey.footerUrlKey) as? String
+        footerTitle = footerDict.value(forKey: PropertyKey.footerTitleKey) as? String
+        footerBrief = footerDict.value(forKey: PropertyKey.footerBriefKey) as? String
+        footerDoctorIcon = footerDict.value(forKey: PropertyKey.footerDoctorIconKey) as? String
+        footerDoctorName = footerDict.value(forKey: PropertyKey.footerDoctorNameKey) as? String
+        footerDoctorPosition = footerDict.value(forKey: PropertyKey.footerDoctorPositionKey) as? String
+        footerUrl = footerDict.value(forKey: PropertyKey.footerUrlKey) as? String
     }
 }

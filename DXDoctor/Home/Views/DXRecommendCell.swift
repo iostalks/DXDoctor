@@ -40,7 +40,7 @@ class DXRecommendCell: UITableViewCell {
     
     weak var delegate: DXRecommendCellDelegate?
     
-    func configureCell(dataModel: DXRecommendCellData) {
+    func configureCell(_ dataModel: DXRecommendCellData) {
         headerTitleLabel.attributedText = dataModel.headerTitle?.attributed
         headerImageView.image = UIImage(named: dataModel.headerImageName!)
         headerDoctorIcon.image = UIImage(named: dataModel.headerDoctorIcon!)
@@ -66,26 +66,26 @@ class DXRecommendCell: UITableViewCell {
     }
     
     
-    @IBAction func headerImageViewTapped(sender: AnyObject) {
+    @IBAction func headerImageViewTapped(_ sender: AnyObject) {
         if let delegate = self.delegate {
             delegate.headerViewOnClick(self)
         }
     }
     
     
-    @IBAction func leftViewTapped(sender: AnyObject) {
+    @IBAction func leftViewTapped(_ sender: AnyObject) {
         if let delegate = self.delegate {
             delegate.leftViewOnClick(self)
         }
     }
     
-    @IBAction func rightViewTapped(sender: AnyObject) {
+    @IBAction func rightViewTapped(_ sender: AnyObject) {
         if let delegate = self.delegate {
             delegate.rightViewOnClick(self)
         }
     }
  
-    @IBAction func footerViewTapped(sender: AnyObject) {
+    @IBAction func footerViewTapped(_ sender: AnyObject) {
         if let delegate = self.delegate {
             delegate.footerViewOnClick(self)
         }
@@ -98,7 +98,7 @@ class DXRecommendCell: UITableViewCell {
         
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -107,8 +107,8 @@ class DXRecommendCell: UITableViewCell {
 }
 
 protocol DXRecommendCellDelegate: class {
-    func headerViewOnClick(cell: DXRecommendCell)
-    func leftViewOnClick(cell: DXRecommendCell)
-    func rightViewOnClick(cell: DXRecommendCell)
-    func footerViewOnClick(cell: DXRecommendCell)
+    func headerViewOnClick(_ cell: DXRecommendCell)
+    func leftViewOnClick(_ cell: DXRecommendCell)
+    func rightViewOnClick(_ cell: DXRecommendCell)
+    func footerViewOnClick(_ cell: DXRecommendCell)
 }

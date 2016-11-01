@@ -23,18 +23,18 @@ class DXSpecialTableDataSource: NSObject, UITableViewDataSource {
 }
 
 extension DXSpecialTableDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: DXSpecialCell = (tableView.dequeueReusableCellWithIdentifier(kSpecialCellIdentifier, forIndexPath: indexPath) as? DXSpecialCell)!;
-        let imageName = "special_cell_\(indexPath.row)"
+        let cell: DXSpecialCell = (tableView.dequeueReusableCell(withIdentifier: kSpecialCellIdentifier, for: indexPath) as? DXSpecialCell)!;
+        let imageName = "special_cell_\((indexPath as NSIndexPath).row)"
         let image = UIImage.init(named: imageName)
         cell.overlayImageView.image = image;
         cell.delegate = cellDelegate

@@ -12,9 +12,9 @@ class DXSettingViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let kCellIdentifier = "cellIdentifier"
-    private let kDefaultRowHeight: CGFloat = 50
-    private var cellData: DXSettingCellModel!
+    fileprivate let kCellIdentifier = "cellIdentifier"
+    fileprivate let kDefaultRowHeight: CGFloat = 50
+    fileprivate var cellData: DXSettingCellModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +30,11 @@ class DXSettingViewController: UIViewController, UITableViewDelegate, UITableVie
 // MARK: - TableView delegate and data source
 extension DXSettingViewController {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
 //        let data = DXMeData.cellTitleName
 
@@ -56,38 +56,38 @@ extension DXSettingViewController {
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath) as! DXSettingTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as! DXSettingTableViewCell
         
         
-        switch indexPath.section {
+        switch (indexPath as NSIndexPath).section {
         case 0:
-            cell.nameLabel?.text = cellData.baseArray[indexPath.row] as? String
+            cell.nameLabel?.text = cellData.baseArray[(indexPath as NSIndexPath).row] as? String
             self .configBaseCell(cell, indexPath: indexPath)
         case 1:
             
-            cell.nameLabel?.text = cellData.recomArray[indexPath.row] as? String
-            if indexPath.row == 1 {
-                cell.separatorLine.hidden = true
+            cell.nameLabel?.text = cellData.recomArray[(indexPath as NSIndexPath).row] as? String
+            if (indexPath as NSIndexPath).row == 1 {
+                cell.separatorLine.isHidden = true
             }
             
         case 2:
-            cell.nameLabel?.text = cellData.audioArray[indexPath.row] as? String
-            cell.selectionStyle = .None
-            cell.accessoryType = .None
-            cell.btnSwitch.hidden = false;
-            cell.separatorLine.hidden = true
+            cell.nameLabel?.text = cellData.audioArray[(indexPath as NSIndexPath).row] as? String
+            cell.selectionStyle = .none
+            cell.accessoryType = .none
+            cell.btnSwitch.isHidden = false;
+            cell.separatorLine.isHidden = true
         case 3:
-            cell.nameLabel?.text = cellData.otherArray[indexPath.row] as? String
-            if indexPath.row == 2 {
-                cell.separatorLine.hidden = true
+            cell.nameLabel?.text = cellData.otherArray[(indexPath as NSIndexPath).row] as? String
+            if (indexPath as NSIndexPath).row == 2 {
+                cell.separatorLine.isHidden = true
             }
         case 4:
-            cell.accessoryType = .None
-            cell.logoutLabel.hidden = false
-            cell.nameLabel.hidden = true
-            cell.separatorLine.hidden = true
+            cell.accessoryType = .none
+            cell.logoutLabel.isHidden = false
+            cell.nameLabel.isHidden = true
+            cell.separatorLine.isHidden = true
         default:
             return cell
         }
@@ -95,52 +95,52 @@ extension DXSettingViewController {
         return cell
     }
     
-    func configBaseCell(cell: DXSettingTableViewCell, indexPath: NSIndexPath) {
-        switch indexPath.row {
+    func configBaseCell(_ cell: DXSettingTableViewCell, indexPath: IndexPath) {
+        switch (indexPath as NSIndexPath).row {
         case 0:
-            cell.iconImageView.hidden = false
+            cell.iconImageView.isHidden = false
             if cellData.status {
-                cell.iconImageView.hidden = true
-                cell.valueLabel.hidden = true
+                cell.iconImageView.isHidden = true
+                cell.valueLabel.isHidden = true
                 cell.textLabel?.textColor = DXSettingManager.manager.themeColor
             }
             
         case 1:
         
             cell.valueLabel?.text = "Jone"
-            cell.valueLabel.hidden = false
+            cell.valueLabel.isHidden = false
         case 2:
             cell.valueLabel?.text = "男"
-            cell.valueLabel.hidden = false
+            cell.valueLabel.isHidden = false
         case 3:
-            cell.separatorLine.hidden = true
+            cell.separatorLine.isHidden = true
         default:
-            cell.valueLabel.hidden = true
+            cell.valueLabel.isHidden = true
         }
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         
-        switch indexPath.section {
+        switch (indexPath as NSIndexPath).section {
         case 0:
-            switch indexPath.row {
+            switch (indexPath as NSIndexPath).row {
             default:
-                print("Sectino: \(indexPath.section), Row: \(indexPath.row)")
+                print("Sectino: \((indexPath as NSIndexPath).section), Row: \((indexPath as NSIndexPath).row)")
             }
         case 1:
-            print("Sectino: \(indexPath.section), Row: \(indexPath.row)")
+            print("Sectino: \((indexPath as NSIndexPath).section), Row: \((indexPath as NSIndexPath).row)")
         case 2:
-            print("Sectino: \(indexPath.section), Row: \(indexPath.row)")
+            print("Sectino: \((indexPath as NSIndexPath).section), Row: \((indexPath as NSIndexPath).row)")
         case 3:
-            print("Sectino: \(indexPath.section), Row: \(indexPath.row)")
+            print("Sectino: \((indexPath as NSIndexPath).section), Row: \((indexPath as NSIndexPath).row)")
         case 4:
-            print("Sectino: \(indexPath.section), Row: \(indexPath.row)")
+            print("Sectino: \((indexPath as NSIndexPath).section), Row: \((indexPath as NSIndexPath).row)")
             self.logout()
         default:
-            print("Sectino: \(indexPath.section), Row: \(indexPath.row)")
+            print("Sectino: \((indexPath as NSIndexPath).section), Row: \((indexPath as NSIndexPath).row)")
         }
         
         
@@ -148,7 +148,7 @@ extension DXSettingViewController {
         
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return kDefaultRowHeight
     }
 }
@@ -159,21 +159,21 @@ extension DXSettingViewController {
     // 退出登录
     func logout() {
         
-        let alertVC = UIAlertController.init(title: "提示", message: "退出后您需要再次登录才能查看个人收藏的各种信息，确定退出？", preferredStyle: .Alert)
+        let alertVC = UIAlertController.init(title: "提示", message: "退出后您需要再次登录才能查看个人收藏的各种信息，确定退出？", preferredStyle: .alert)
         alertVC.view.tintColor = DXSettingManager.manager.themeColor
         
-        let cancelAction = UIAlertAction.init(title: "取消", style: .Default) { (_) in
-            self.dismissViewControllerAnimated(true, completion: nil)
+        let cancelAction = UIAlertAction.init(title: "取消", style: .default) { (_) in
+            self.dismiss(animated: true, completion: nil)
         }
         
-        let doneAction = UIAlertAction.init(title: "确定", style: .Default) { (_) in
+        let doneAction = UIAlertAction.init(title: "确定", style: .default) { (_) in
             self.cellData.status = false
             self.tableView.reloadData()
         }
         
         alertVC.addAction(cancelAction)
         alertVC.addAction(doneAction)
-        self.presentViewController(alertVC, animated: true, completion: nil)
+        self.present(alertVC, animated: true, completion: nil)
         
     }
 }

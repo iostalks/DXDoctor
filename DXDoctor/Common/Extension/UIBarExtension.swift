@@ -14,16 +14,16 @@ extension UINavigationBar {
 
     func hideBottomHairline() {
         let navigationBarImageView = hairlineImageViewInNavigationBar(self)
-        navigationBarImageView!.hidden = true;
+        navigationBarImageView!.isHidden = true;
     }
     
     func showBottomHairline() {
         let navigationBarImageView = hairlineImageViewInNavigationBar(self)
-        navigationBarImageView!.hidden = false;
+        navigationBarImageView!.isHidden = false;
     }
     
-    private func hairlineImageViewInNavigationBar(view: UIView) -> UIImageView? {
-        if view.isKindOfClass(UIImageView) && view.bounds.height <= 1.0 {
+    fileprivate func hairlineImageViewInNavigationBar(_ view: UIView) -> UIImageView? {
+        if view.isKind(of: UIImageView.self) && view.bounds.height <= 1.0 {
             return (view as! UIImageView)
         }
         
@@ -45,16 +45,16 @@ extension UIToolbar {
     
     func hideHairline() {
         let navigationBarImageView = hairlineImageViewInToolbar(self)
-        navigationBarImageView!.hidden = true
+        navigationBarImageView!.isHidden = true
     }
     
     func showHairline() {
         let navigationBarImageView = hairlineImageViewInToolbar(self)
-        navigationBarImageView!.hidden = false
+        navigationBarImageView!.isHidden = false
     }
     
-    private func hairlineImageViewInToolbar(view: UIView) -> UIImageView? {
-        if view.isKindOfClass(UIImageView) && view.bounds.height <= 1.0 {
+    fileprivate func hairlineImageViewInToolbar(_ view: UIView) -> UIImageView? {
+        if view.isKind(of: UIImageView.self) && view.bounds.height <= 1.0 {
             return (view as! UIImageView)
         }
         

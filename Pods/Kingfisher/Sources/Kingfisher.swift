@@ -1,7 +1,10 @@
 //
-//  SnapKit
+//  Kingfisher.swift
+//  Kingfisher
 //
-//  Copyright (c) 2011-2015 SnapKit Team - https://github.com/SnapKit
+//  Created by Wei Wang on 16/9/14.
+//
+//  Copyright (c) 2016 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,28 +24,48 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#if os(iOS) || os(tvOS)
-import UIKit
+import Foundation
+import ImageIO
+
+#if os(macOS)
+    import AppKit
+    public typealias Image = NSImage
+    public typealias Color = NSColor
+    public typealias ImageView = NSImageView
+    typealias Button = NSButton
 #else
-import AppKit
+    import UIKit
+    public typealias Image = UIImage
+    public typealias Color = UIColor
+    #if !os(watchOS)
+    public typealias ImageView = UIImageView
+    typealias Button = UIButton
+    #endif
 #endif
 
-/**
-    Used to define `NSLayoutRelation`
-*/
-internal enum ConstraintRelation: Int {
-    case equal = 1, lessThanOrEqualTo, greaterThanOrEqualTo
-    
-    internal var layoutRelation: NSLayoutRelation {
-        get {
-            switch(self) {
-            case .lessThanOrEqualTo:
-                return .lessThanOrEqual
-            case .greaterThanOrEqualTo:
-                return .greaterThanOrEqual
-            default:
-                return .equal
-            }
-        }
+public final class Kingfisher<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
     }
 }
+
+/**
+ A type that has Kingfisher extensions.
+ */
+public protocol KingfisherCompatible {
+    associatedtype CompatibleType
+    var kf: CompatibleType { get }
+}
+
+public extension KingfisherCompatible {
+    public var kf: Kingfisher<Self> {
+        get { return Kingfisher(self) }
+    }
+}
+
+extension Image: KingfisherCompatible { }
+#if !os(watchOS)
+extension ImageView: KingfisherCompatible { }
+extension Button: KingfisherCompatible { }
+#endif

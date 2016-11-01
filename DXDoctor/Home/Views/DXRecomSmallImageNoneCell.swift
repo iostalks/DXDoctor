@@ -14,7 +14,7 @@ class DXRecomSmallImageNoneCell: UICollectionViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!
     
-    func configWithModel(model: DXItemModel) {
+    func configWithModel(_ model: DXItemModel) {
         titleLabel.attributedText = model.title.attributed
         contentLabel.attributedText = model.content?.attributed
         tagLabel.text = model.tagsStr

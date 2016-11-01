@@ -22,7 +22,7 @@ class DXSearchTableViewCell: UITableViewCell {
     
     
     
-    func configureCell(rowItems: DXSearchItems) {
+    func configureCell(_ rowItems: DXSearchItems) {
 
         let leftImageName = rowItems.leftItem?.imageName
         let leftSearchType = rowItems.leftItem?.searchType
@@ -42,11 +42,11 @@ class DXSearchTableViewCell: UITableViewCell {
     }
     
     
-    @IBAction func leftButtonOnTouched(sender: AnyObject) {
+    @IBAction func leftButtonOnTouched(_ sender: AnyObject) {
     }
     
-    @IBAction func middleButtonOnTouched(sender: AnyObject) {
+    @IBAction func middleButtonOnTouched(_ sender: AnyObject) {
     }
-    @IBAction func rightButtonOnTouched(sender: AnyObject) {
+    @IBAction func rightButtonOnTouched(_ sender: AnyObject) {
     }
 }

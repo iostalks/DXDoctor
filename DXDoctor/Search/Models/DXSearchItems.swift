@@ -22,7 +22,7 @@ class DXSearchItems: NSObject {
     }
 }
 
-public class SearchItem: NSObject {
+open class SearchItem: NSObject {
     var imageName: String?
     var searchType: String?
     

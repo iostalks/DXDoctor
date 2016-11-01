@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DXSpecialCellDelegate: class {
-   func specialCellOnClick(cell: DXSpecialCell)
+   func specialCellOnClick(_ cell: DXSpecialCell)
 }
 
 
@@ -28,13 +28,13 @@ class DXSpecialCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    @IBAction func specialCellOnTouched(sender: AnyObject) {
+    @IBAction func specialCellOnTouched(_ sender: AnyObject) {
         
         if (delegate != nil) {
             delegate?.specialCellOnClick(self)

@@ -30,7 +30,7 @@ class DXSettingManager: NSObject, DXColorProtocol {
     static let manager = DXSettingManager()
     
     // This prevents others form using default '()' initializer for this class
-    private override init() {}
+    fileprivate override init() {}
     
     
     func colorWithRGBA(r red: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {

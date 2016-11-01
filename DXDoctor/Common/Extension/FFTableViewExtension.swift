@@ -13,8 +13,8 @@ extension UITableView {
         return "\(self)"
     }
     
-    func regClass(cell: AnyClass) -> Void {
-        registerClass(cell, forCellReuseIdentifier: self.identifier())
+    func regClass(_ cell: AnyClass) -> Void {
+        register(cell, forCellReuseIdentifier: self.identifier())
     }
 }
 
@@ -23,8 +23,8 @@ extension UICollectionView {
         return "\(self)"
     }
     
-    func regClass(cell: AnyClass) -> Void {
+    func regClass(_ cell: AnyClass) -> Void {
         print(self.identifier())
-        registerClass(cell, forCellWithReuseIdentifier: self.identifier())
+        register(cell, forCellWithReuseIdentifier: self.identifier())
     }
 }

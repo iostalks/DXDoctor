@@ -15,31 +15,31 @@ class DXWebViewController: DXBaseViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         configWebView()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DXWebViewController.reweakLoding), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DXWebViewController.reweakLoding), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     func configWebView() {
         
-        let url: NSURL? = NSURL.init(string: contentURL);
+        let url: URL? = URL.init(string: contentURL);
         if url != nil {
             self.showLoadingHUD()
             
             let delayInSeconds: UInt64 = 1
-            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * delayInSeconds));
+            let popTime = DispatchTime.now() + Double(Int64(NSEC_PER_SEC * delayInSeconds)) / Double(NSEC_PER_SEC);
             
-            dispatch_after(popTime, dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: popTime, execute: { () -> Void in
                 
-                let request = NSURLRequest.init(URL: url!)
+                let request = URLRequest.init(url: url!)
                 self.webView?.loadRequest(request)
             })
         
@@ -55,25 +55,25 @@ class DXWebViewController: DXBaseViewController, UIWebViewDelegate {
     
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
 }
 
 // MARK: UIWebViewDelegate
 extension DXWebViewController {
     
-    func webViewDidStartLoad(webView: UIWebView) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         self.hideLoadingHUD(animation: false)
-         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         print("load fail \(error)")
         self.hideLoadingHUD(animation: false)
-         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }

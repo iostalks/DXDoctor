@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DXOtherCelDelegate: class {
-    func otherCellOnClick(cell: DXOtherCell)
+    func otherCellOnClick(_ cell: DXOtherCell)
 }
 
 class DXOtherCell: UITableViewCell {
@@ -24,7 +24,7 @@ class DXOtherCell: UITableViewCell {
         iconImageView.image = UIImage.init(named: _data.imageName!)
     }
     
-    @IBAction func otherCellOnTouched(sender: AnyObject) {
+    @IBAction func otherCellOnTouched(_ sender: AnyObject) {
         
         if (delegate != nil) {
             delegate?.otherCellOnClick(self)
@@ -36,7 +36,7 @@ class DXOtherCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

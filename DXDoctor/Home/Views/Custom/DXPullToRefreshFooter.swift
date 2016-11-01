@@ -12,15 +12,15 @@ class DXPullToRefreshFooter: UIView {
 
     var refreshingBlock: (()->(Void))?
     
-    private var pointImageView: UIImageView?
-    private var refreshImageView: UIImageView?
+    fileprivate var pointImageView: UIImageView?
+    fileprivate var refreshImageView: UIImageView?
     
-    private var associatedScrollView: UIScrollView!
-    private var pullDistance: CGFloat = 60
-    private var originOffset: CGFloat = 0.0
-    private var contentSize: CGSize = CGSizeMake(0.0, 0.0)
-    private var noTracking: Bool = false // 阻止连续刷新
-    private var animation: Bool = false
+    fileprivate var associatedScrollView: UIScrollView!
+    fileprivate var pullDistance: CGFloat = 60
+    fileprivate var originOffset: CGFloat = 0.0
+    fileprivate var contentSize: CGSize = CGSize(width: 0.0, height: 0.0)
+    fileprivate var noTracking: Bool = false // 阻止连续刷新
+    fileprivate var animation: Bool = false
     
     var progress: CGFloat? {
         
@@ -29,7 +29,7 @@ class DXPullToRefreshFooter: UIView {
             let diff = associatedScrollView.contentOffset.y - (associatedScrollView.contentSize.height - associatedScrollView.height) - pullDistance + 10.0
             if diff > 0.0 {
   
-                if !associatedScrollView.tracking && !self.hidden {
+                if !associatedScrollView.isTracking && !self.isHidden {
                     
                     if !noTracking {
                         noTracking = true
@@ -37,7 +37,7 @@ class DXPullToRefreshFooter: UIView {
                         DXAudioManager.manager.playRefreshPullAudio()
                         startAnimation()
                         
-                        UIView.animateWithDuration(0.3, animations: { () -> Void in
+                        UIView.animate(withDuration: 0.3, animations: { () -> Void in
                             self.associatedScrollView.contentInset = UIEdgeInsetsMake(self.originOffset, 0, self.pullDistance, 0)
                             }, completion: { (_) -> Void in
                                 
@@ -52,7 +52,7 @@ class DXPullToRefreshFooter: UIView {
     }
 
     convenience init(scrollView: UIScrollView, hasNavigationBar: Bool) {
-        self.init(frame: CGRectMake(scrollView.width / 2 - 200 / 2, scrollView.height, 200, 60))
+        self.init(frame: CGRect(x: scrollView.width / 2 - 200 / 2, y: scrollView.height, width: 200, height: 60))
         
         if hasNavigationBar {
             originOffset = 64
@@ -61,21 +61,21 @@ class DXPullToRefreshFooter: UIView {
         associatedScrollView = scrollView
         
         setUp()
-        associatedScrollView.addObserver(self, forKeyPath: "contentOffset", options: .New, context: nil)
-        associatedScrollView.addObserver(self, forKeyPath: "contentSize", options: .New, context: nil)
+        associatedScrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
+        associatedScrollView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
-        self.hidden = true
-        associatedScrollView.insertSubview(self, atIndex: 0)
+        self.isHidden = true
+        associatedScrollView.insertSubview(self, at: 0)
         
     }
 
     func stopRefreshing() {
         
         DXAudioManager.manager.playRefreshSuccessAudio()
-        UIView.animateWithDuration(0.1, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+        UIView.animate(withDuration: 0.1, delay: 0, options: UIViewAnimationOptions(), animations: { () -> Void in
             
             self.associatedScrollView?.contentInset = UIEdgeInsetsMake(self.originOffset, 0, 0, 0)
-            self.refreshImageView?.transform = CGAffineTransformMakeScale(0.0, 0.0)
+            self.refreshImageView?.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
             
             }) { (_) -> Void in
                 
@@ -84,7 +84,7 @@ class DXPullToRefreshFooter: UIView {
         }
     }
     
-    func addRefreshingBlock(block: () -> (Void)) {
+    func addRefreshingBlock(_ block: @escaping () -> (Void)) {
         refreshingBlock = block
     }
     
@@ -92,19 +92,19 @@ class DXPullToRefreshFooter: UIView {
     func setUp() {
         let radius: CGFloat = 8.0
         pointImageView = UIImageView(image: UIImage(named: "DropDownRefreshCenter"))
-        pointImageView?.frame = CGRectMake(self.width / 2 - radius/2, self.height / 2 - radius/2, radius, radius)
-        insertSubview(pointImageView!, atIndex: 0)
+        pointImageView?.frame = CGRect(x: self.width / 2 - radius/2, y: self.height / 2 - radius/2, width: radius, height: radius)
+        insertSubview(pointImageView!, at: 0)
         
         let width: CGFloat = 39.0
         refreshImageView = UIImageView(image: UIImage(named: "DropdownRefreshSpinner10FPS_00033"))
-        refreshImageView?.frame = CGRectMake(self.width / 2 - width / 2, self.height/2 - width / 2, width, 38)
-        refreshImageView?.transform = CGAffineTransformMakeScale(0.0, 0.0);
+        refreshImageView?.frame = CGRect(x: self.width / 2 - width / 2, y: self.height/2 - width / 2, width: width, height: 38)
+        refreshImageView?.transform = CGAffineTransform(scaleX: 0.0, y: 0.0);
         insertSubview(refreshImageView!, belowSubview: pointImageView!)
     }
     
     // MARK: Help
-    private func startAnimation() {
-        refreshImageView?.transform = CGAffineTransformIdentity
+    fileprivate func startAnimation() {
+        refreshImageView?.transform = CGAffineTransform.identity
         
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotationAnimation.toValue = 2 * M_PI
@@ -112,30 +112,30 @@ class DXPullToRefreshFooter: UIView {
         rotationAnimation.autoreverses = false
         rotationAnimation.repeatCount = HUGE
         rotationAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        refreshImageView!.layer.addAnimation(rotationAnimation, forKey: "rotationAnimation")
+        refreshImageView!.layer.add(rotationAnimation, forKey: "rotationAnimation")
         
         animation = true
     }
     
-    private func stopAnimation() {
+    fileprivate func stopAnimation() {
         refreshImageView?.layer.removeAllAnimations()
         
         animation = false
     }
     
     // MARK: KVO
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize" {
-            contentSize = (change![NSKeyValueChangeNewKey]?.CGSizeValue())!
+            contentSize = ((change![NSKeyValueChangeKey.newKey] as AnyObject).cgSizeValue)!
             if contentSize.height > 0.0 {
-                self.hidden = false
+                self.isHidden = false
             }
-            self.frame = CGRectMake(associatedScrollView.width / 2 - 200 / 2, contentSize.height, 200, 60)
+            self.frame = CGRect(x: associatedScrollView.width / 2 - 200 / 2, y: contentSize.height, width: 200, height: 60)
             
         }
         
         if keyPath == "contentOffset" {
-            let contentOffset = change![NSKeyValueChangeNewKey]?.CGPointValue
+            let contentOffset = (change![NSKeyValueChangeKey.newKey] as AnyObject).cgPointValue
             if contentOffset!.y > (contentSize.height - associatedScrollView.height) {
                 self.progress = max(0.0, min((contentOffset!.y - (contentSize.height - associatedScrollView.height)) / pullDistance, 1.0))
 //                print("progress: \(self.progress)")
@@ -144,11 +144,11 @@ class DXPullToRefreshFooter: UIView {
         }
     }
     
-    private func zoomImageView(progress: CGFloat) {
+    fileprivate func zoomImageView(_ progress: CGFloat) {
         if (progress >= 0.7 && !animation) {
             let zoomFactor: CGFloat = min((progress - 0.7) / 0.3, 1.0)
 //            print("footFactor \(zoomFactor)")
-            refreshImageView?.transform = CGAffineTransformMakeScale(zoomFactor, zoomFactor)
+            refreshImageView?.transform = CGAffineTransform(scaleX: zoomFactor, y: zoomFactor)
         }
     }
     

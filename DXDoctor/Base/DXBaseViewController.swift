@@ -10,7 +10,7 @@ import UIKit
 
 class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
 
-    private weak var loadingView: DXLoadingHUD?
+    fileprivate weak var loadingView: DXLoadingHUD?
     internal var askDoctorView: DXAskDoctorView?
     
     override func viewDidLoad() {
@@ -20,11 +20,11 @@ class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
         setUpNavigationBar()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.hideLoadingHUD(animation: false)
     }
@@ -32,7 +32,7 @@ class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
     // 问问医生图标
     func setUpNavigationBar() {
         
-        let _askDoctorView = DXAskDoctorView.init(frame: CGRectMake(0, 0, 46, 46))
+        let _askDoctorView = DXAskDoctorView.init(frame: CGRect(x: 0, y: 0, width: 46, height: 46))
         _askDoctorView.delegate = self
         
         let rightButtonItem = UIBarButtonItem.init(customView: _askDoctorView)
@@ -56,15 +56,15 @@ class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
     func hideLoadingHUD(animation _animation: Bool) {
         
         if _animation {
-            UIView.animateWithDuration(1, animations: { () -> Void in
+            UIView.animate(withDuration: 1, animations: { () -> Void in
                 
                 self.loadingView?.alpha = 0
                 
-            }) { (_) -> Void in
+            }, completion: { (_) -> Void in
                 
                 self.loadingView?.removeFromSuperview()
                 self.loadingView = nil
-            }
+            }) 
             
         }
         else {
@@ -76,7 +76,7 @@ class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
 }
 
 extension DXBaseViewController {
-    func askDoctorButtonItemOnTapped(sender: UIButton) {
+    func askDoctorButtonItemOnTapped(_ sender: UIButton) {
         // Subclass implement
     }
 }

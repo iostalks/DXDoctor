@@ -14,17 +14,17 @@ class DXRecomCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         super.init()
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let  cell = collectionView.dequeueReusableCellWithReuseIdentifier("DXRecomImageCell", forIndexPath: indexPath)
-        cell.contentView.backgroundColor = UIColor.redColor()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DXRecomImageCell", for: indexPath)
+        cell.contentView.backgroundColor = UIColor.red
         return cell
     }
 }

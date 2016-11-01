@@ -14,7 +14,7 @@ class DXAudioManager: NSObject {
     static let manager = DXAudioManager()
     
     // This prevents others form using default '()' initializer for this class
-    private override init() {}
+    fileprivate override init() {}
     
     func playRefreshPullAudio() {
         playAudio("refreshing")
@@ -32,13 +32,13 @@ class DXAudioManager: NSObject {
         playAudio("tapped")
     }
     
-    func playAudio(name: String) {
+    func playAudio(_ name: String) {
         
-        let soundURL: NSURL? = NSBundle.mainBundle().URLForResource(name, withExtension: "caf")
+        let soundURL: URL? = Bundle.main.url(forResource: name, withExtension: "caf")
         var tabSoundID: SystemSoundID = 0
         if let soundURL_ = soundURL {
             
-            AudioServicesCreateSystemSoundID(soundURL_, &tabSoundID)
+            AudioServicesCreateSystemSoundID(soundURL_ as CFURL, &tabSoundID)
             AudioServicesPlaySystemSound(tabSoundID); // Play
         }
    

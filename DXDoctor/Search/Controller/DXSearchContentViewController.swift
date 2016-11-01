@@ -48,7 +48,7 @@ class DXSearchContentViewController: UIViewController, UISearchResultsUpdating, 
     }
     
 
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         
     }
     /*

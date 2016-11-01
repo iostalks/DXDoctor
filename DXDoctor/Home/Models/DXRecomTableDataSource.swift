@@ -24,13 +24,13 @@ class DXRecomTableDataSource: NSObject, UITableViewDataSource {
     }
 
     func prepareRecommendData() {
-        let recommPath = NSBundle.mainBundle().pathForResource("RecommentData", ofType: "plist")
+        let recommPath = Bundle.main.path(forResource: "RecommentData", ofType: "plist")
         let recommDict = NSDictionary.init(contentsOfFile: recommPath!)
         
         dataArray = NSMutableArray()
         for key in (recommDict?.allKeys)! {
-            let recommValue = recommDict?.valueForKey(key as! String)
-            dataArray.addObject(recommValue!)
+            let recommValue = recommDict?.value(forKey: key as! String)
+            dataArray.add(recommValue!)
         }
     }
 }
@@ -38,21 +38,21 @@ class DXRecomTableDataSource: NSObject, UITableViewDataSource {
 
 extension DXRecomTableDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: DXRecommendCell = (tableView.dequeueReusableCellWithIdentifier(kRecomdCellIdentifier, forIndexPath: indexPath) as? DXRecommendCell)!;
+        let cell: DXRecommendCell = (tableView.dequeueReusableCell(withIdentifier: kRecomdCellIdentifier, for: indexPath) as? DXRecommendCell)!;
         cell.delegate = cellDelegate
         
         
-        let array: NSArray = dataArray.objectAtIndex(indexPath.row) as! NSArray
+        let array: NSArray = dataArray.object(at: (indexPath as NSIndexPath).row) as! NSArray
         let dataModel = DXRecommendCellData(dataArray: array)
         cell.configureCell(dataModel)
         
