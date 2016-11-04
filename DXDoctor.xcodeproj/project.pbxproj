@@ -53,9 +53,6 @@
 		FE2DC0941CA6A6F700D0DAD7 /* DXOtherCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */; };
 		FE2DC0961CA6A7AA00D0DAD7 /* OtherCellData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE2DC0951CA6A7AA00D0DAD7 /* OtherCellData.plist */; };
 		FE2F68161D5B07C00032FB44 /* DXRecommendCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2F68151D5B07C00032FB44 /* DXRecommendCellData.swift */; };
-		FE2F68181D5B07E70032FB44 /* DXRecomTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2F68171D5B07E70032FB44 /* DXRecomTableDataSource.swift */; };
-		FE2F681B1D5B0A750032FB44 /* DXRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2F68191D5B0A750032FB44 /* DXRecommendCell.swift */; };
-		FE2F681C1D5B0A750032FB44 /* DXRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2F681A1D5B0A750032FB44 /* DXRecommendCell.xib */; };
 		FE50AFD71CB354ED008E614B /* DXSettingCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE50AFD61CB354ED008E614B /* DXSettingCellModel.swift */; };
 		FE794DFF1CB4E169009B6166 /* DXClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE794DFE1CB4E169009B6166 /* DXClient.swift */; };
 		FE91469D1D05133F0041FB99 /* DXItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE91469C1D05133F0041FB99 /* DXItemModel.swift */; };
@@ -174,9 +171,6 @@
 		FE2DC0931CA6A6F700D0DAD7 /* DXOtherCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXOtherCellData.swift; sourceTree = "<group>"; };
 		FE2DC0951CA6A7AA00D0DAD7 /* OtherCellData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OtherCellData.plist; sourceTree = "<group>"; };
 		FE2F68151D5B07C00032FB44 /* DXRecommendCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecommendCellData.swift; sourceTree = "<group>"; };
-		FE2F68171D5B07E70032FB44 /* DXRecomTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecomTableDataSource.swift; sourceTree = "<group>"; };
-		FE2F68191D5B0A750032FB44 /* DXRecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXRecommendCell.swift; sourceTree = "<group>"; };
-		FE2F681A1D5B0A750032FB44 /* DXRecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXRecommendCell.xib; sourceTree = "<group>"; };
 		FE50AFD61CB354ED008E614B /* DXSettingCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXSettingCellModel.swift; sourceTree = "<group>"; };
 		FE794DFE1CB4E169009B6166 /* DXClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXClient.swift; sourceTree = "<group>"; };
 		FE91469C1D05133F0041FB99 /* DXItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXItemModel.swift; sourceTree = "<group>"; };
@@ -420,7 +414,6 @@
 		FE9146B11D05B2B20041FB99 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				FE2F68171D5B07E70032FB44 /* DXRecomTableDataSource.swift */,
 				FE2DC08F1CA67F3800D0DAD7 /* DXSpecialTableDataSource.swift */,
 				FE2DC0911CA67F4900D0DAD7 /* DXOtherTableDataSoruce.swift */,
 				FE9146B41D05B72A0041FB99 /* DXRecomCollectionViewDataSource.swift */,
@@ -482,8 +475,6 @@
 				FEB4297F1CA02E6500157E5F /* DXSpecialCell.xib */,
 				FE2DC08B1CA67C9D00D0DAD7 /* DXOtherCell.swift */,
 				FE2DC08C1CA67C9D00D0DAD7 /* DXOtherCell.xib */,
-				FE2F68191D5B0A750032FB44 /* DXRecommendCell.swift */,
-				FE2F681A1D5B0A750032FB44 /* DXRecommendCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -686,7 +677,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Jone;
 				TargetAttributes = {
 					FE15CB2E1C131CF800FDBAA0 = {
@@ -743,7 +734,6 @@
 				FE2DC0351CA6559E00D0DAD7 /* DXLoadingComponent.xib in Resources */,
 				FE91477C1D06FFB10041FB99 /* DXRecomSmallImageNoneCell.xib in Resources */,
 				FE2DC0821CA65B3000D0DAD7 /* DropDownRefreshOval4@2x.png in Resources */,
-				FE2F681C1D5B0A750032FB44 /* DXRecommendCell.xib in Resources */,
 				FE2DC0751CA65B3000D0DAD7 /* DropDownRefreshLine1@3x.png in Resources */,
 				FEB429DB1CA0EE7B00157E5F /* refreshing.caf in Resources */,
 				FE2DC0831CA65B3000D0DAD7 /* DropDownRefreshOval4@3x.png in Resources */,
@@ -851,9 +841,7 @@
 				FEB429811CA02E6500157E5F /* TestWebVeiwController.swift in Sources */,
 				FE2DC02E1CA6559100D0DAD7 /* UIBarExtension.swift in Sources */,
 				FEB429871CA02E6500157E5F /* DXSegmentView.swift in Sources */,
-				FE2F681B1D5B0A750032FB44 /* DXRecommendCell.swift in Sources */,
 				FE2F68161D5B07C00032FB44 /* DXRecommendCellData.swift in Sources */,
-				FE2F68181D5B07E70032FB44 /* DXRecomTableDataSource.swift in Sources */,
 				FE15CB331C131CF800FDBAA0 /* AppDelegate.swift in Sources */,
 				FE2DC02C1CA6559100D0DAD7 /* StringExtension.swift in Sources */,
 				FE9147731D06FE630041FB99 /* DXRecomImageNoneCell.swift in Sources */,

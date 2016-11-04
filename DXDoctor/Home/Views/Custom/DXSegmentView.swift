@@ -17,19 +17,31 @@ class DXSegmentView: UIView {
     private var titleHeight : CGFloat = 0
     
     private let kAnimationDuration = 0.15
-    
-    convenience init(titles: [String], iframe: CGRect) {
-        self.init(frame: iframe)
+    private let kHeight:CGFloat = 30
+    convenience init(titles: [String]) {
+        self.init(frame: CGRect.init())
+        let iframe = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: kHeight)
+        self.frame = iframe
+        self.titles = titles
         
-        self.frame = iframe;
-        self.titles = titles;
-
-        titleWidth = frame.size.width / CGFloat(titles.count)
-        titleHeight = frame.size.height
+        var totalWidth: CGFloat = 0
+        let midleWith: CGFloat = 12
+        let marginWith: CGFloat = 8
+        for tlt in titles {
+            let strRect = CGRectFromString(tlt)
+            totalWidth += strRect.width
+        }
+        totalWidth += (midleWith * CGFloat(titles.count) + 2 * marginWith)
+        scrollView.contentSize = CGSize.init(width: totalWidth, height: kHeight)
+        self.addSubview(scrollView)
+        scrollView.backgroundColor = UIColor.red
         
-        createBottomLabels()
-        createTopLabels()
-        createTopButton()
+//        titleWidth = frame.size.width / CGFloat(titles.count)
+//        titleHeight = frame.size.height
+//        
+//        createBottomLabels()
+//        createTopLabels()
+//        createTopButton()
 
     }
     
@@ -37,7 +49,6 @@ class DXSegmentView: UIView {
         
         self.titles = [""]; // 默认
         super.init(frame: frame)
-        self .addSubview(scrollView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,7 +73,7 @@ class DXSegmentView: UIView {
         return CGRect(x: CGFloat(index) * titleWidth, y: 0, width: titleWidth, height: titleHeight);
     }
     
-    // 创建Label
+    // UILabe init
     private func createLabelWithIndex(_ index : Int, textColor : UIColor) -> UILabel {
         let frame = caculateLabelFrameWithIndex(index)
         let tempLabel = UILabel.init(frame: frame)
@@ -73,7 +84,7 @@ class DXSegmentView: UIView {
         return tempLabel
     }
     
-    // 创建下层Label
+    // Bottom level label
     private func createBottomLabels() {
         for index in 0 ..< titles.count {
             let tempLabel = self.createLabelWithIndex(index, textColor: DXSettingManager.manager.themeColor)
@@ -85,9 +96,8 @@ class DXSegmentView: UIView {
     fileprivate var highColorView: UIView?
     fileprivate var topLabelsView: UIView?
     
-    // 创建上层Label
+    // Top level label
     private func createTopLabels() {
-        
         let itemFrame = CGRect(x: 0, y: 0, width: titleWidth, height: titleHeight)
         highLightContainerView = UIView.init(frame: itemFrame)
         highLightContainerView?.clipsToBounds = true

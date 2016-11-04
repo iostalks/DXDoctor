@@ -107,8 +107,9 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     // 初始化选项栏
     func setupSegmentView() {
         topicItems = ["推荐", "专题", "真相", "慢病","一图读懂", "肿瘤" /*, "营养" */]
-        let frame = CGRect(x: 0, y: 64, width: view.bounds.size.width, height: SEGMENT_HEI)
-        segmentView = DXSegmentView.init(titles: topicItems, iframe: frame);
+//        let frame = CGRect(x: 0, y: 64, width: view.bounds.size.width, height: SEGMENT_HEI)
+//        segmentView = DXSegmentView.init(titles: topicItems, iframe: frame);
+        segmentView = DXSegmentView.init(titles: topicItems)
         segmentView!.backgroundColor = UIColor.white
         segmentView!.delegate = self
         view.addSubview(segmentView!)
@@ -329,7 +330,6 @@ extension DXHomeViewController: DXSpecialCellDelegate, DXOtherCelDelegate {
 extension DXHomeViewController {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
         guard scrollView == containerScrollView else {
             return
         }
@@ -349,7 +349,7 @@ extension DXHomeViewController {
 // MARK: 推荐页数据源和代理
 extension DXHomeViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     
-    @objc(collectionView:didSelectItemAtIndexPath:) func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let indexItem = recommendDataList![(indexPath as NSIndexPath).row] as DXItemModel!
         
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -358,7 +358,6 @@ extension DXHomeViewController : UICollectionViewDataSource, UICollectionViewDel
         webViewController.contentURL = (indexItem?.url)!
         self.navigationController?.pushViewController(webViewController, animated: true)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let itemHeight:CGFloat = 210.0
