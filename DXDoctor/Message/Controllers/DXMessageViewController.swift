@@ -77,7 +77,7 @@ class DXMessageViewController: DXBaseViewController, UITableViewDelegate, UITabl
 // MARK: TableView
 extension DXMessageViewController {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
@@ -95,7 +95,7 @@ extension DXMessageViewController {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    @objc(tableView:cellForRowAtIndexPath:) func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch (indexPath as NSIndexPath).section {
             case 0:
                 let cell: DXNewMessageTableViewCell = tableView.dequeueReusableCell(withIdentifier: kNewMessageCellIdentifier, for: indexPath) as! DXNewMessageTableViewCell
@@ -114,7 +114,7 @@ extension DXMessageViewController {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if (indexPath as NSIndexPath).row > 0 {
@@ -129,7 +129,7 @@ extension DXMessageViewController {
     }
     
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return kDefaultRowHeight
     }
     

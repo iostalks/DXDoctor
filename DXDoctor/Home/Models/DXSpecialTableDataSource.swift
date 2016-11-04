@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DXSpecialTableDataSource: NSObject, UITableViewDataSource {
+class DXSpecialTableDataSource: NSObject {
     var dataArray: NSMutableArray = []
     weak var cellDelegate: DXSpecialCellDelegate?
     override init() {
@@ -22,7 +22,7 @@ class DXSpecialTableDataSource: NSObject, UITableViewDataSource {
     }
 }
 
-extension DXSpecialTableDataSource {
+extension DXSpecialTableDataSource : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

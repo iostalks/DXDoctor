@@ -125,17 +125,24 @@ class DXPullToRefreshFooter: UIView {
     
     // MARK: KVO
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard change != nil else {
+            return;
+        }
+        
         if keyPath == "contentSize" {
-            contentSize = ((change![NSKeyValueChangeKey.newKey] as AnyObject).cgSizeValue)!
+            contentSize = (change![NSKeyValueChangeKey.newKey] as AnyObject).cgSizeValue
             if contentSize.height > 0.0 {
                 self.isHidden = false
             }
             self.frame = CGRect(x: associatedScrollView.width / 2 - 200 / 2, y: contentSize.height, width: 200, height: 60)
-            
         }
         
         if keyPath == "contentOffset" {
             let contentOffset = (change![NSKeyValueChangeKey.newKey] as AnyObject).cgPointValue
+            guard (contentOffset != nil) else {
+                return;
+            }
+            
             if contentOffset!.y > (contentSize.height - associatedScrollView.height) {
                 self.progress = max(0.0, min((contentOffset!.y - (contentSize.height - associatedScrollView.height)) / pullDistance, 1.0))
 //                print("progress: \(self.progress)")

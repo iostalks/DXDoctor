@@ -12,7 +12,6 @@ import UIKit
 extension String {
     
     var attributed: NSMutableAttributedString {
-        
         get {
             let attritedStr = NSMutableAttributedString(string: self)
             let paragraphStyle = NSMutableParagraphStyle()
@@ -23,5 +22,4 @@ extension String {
             return attritedStr
         }
     }
-    
 }

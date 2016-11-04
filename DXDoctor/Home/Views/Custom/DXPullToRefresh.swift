@@ -152,6 +152,7 @@ class DXPullToRefresh: UIView {
     
     // MARK: KVO
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+
         if keyPath == "contentOffset" {
             let contentOffset = change![NSKeyValueChangeKey.newKey]
             let offsetY = (contentOffset as AnyObject).cgPointValue.y

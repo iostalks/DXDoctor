@@ -9,7 +9,7 @@
 import UIKit
 
 
-class DXRecomTableDataSource: NSObject, UITableViewDataSource {
+class DXRecomTableDataSource : NSObject {
     
     var tableViewTag: Int?
     
@@ -36,7 +36,7 @@ class DXRecomTableDataSource: NSObject, UITableViewDataSource {
 }
 
 
-extension DXRecomTableDataSource {
+extension DXRecomTableDataSource : UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

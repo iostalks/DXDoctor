@@ -77,7 +77,7 @@ extension DXSearchViewController {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    @objc(tableView:cellForRowAtIndexPath:) func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DXSearchTableViewCell = tableView .dequeueReusableCell(withIdentifier: kSearchCellIdentifier, for: indexPath) as! DXSearchTableViewCell
         let itemData = searchItemsArray[(indexPath as NSIndexPath).row]
         cell.configureCell(itemData)
@@ -86,7 +86,7 @@ extension DXSearchViewController {
     
     // Delegate
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     

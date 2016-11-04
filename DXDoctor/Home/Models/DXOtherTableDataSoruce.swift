@@ -27,7 +27,7 @@ class DXOtherTableDataSoruce: NSObject, UITableViewDataSource {
 }
 
 extension DXOtherTableDataSoruce {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
@@ -35,7 +35,7 @@ extension DXOtherTableDataSoruce {
         return dataArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    @objc(tableView:cellForRowAtIndexPath:) func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DXOtherCell = (tableView.dequeueReusableCell(withIdentifier: kOtherCellIdentifier, for: indexPath) as? DXOtherCell)!;
         
         let dict = dataArray[(indexPath as NSIndexPath).row] as! NSDictionary

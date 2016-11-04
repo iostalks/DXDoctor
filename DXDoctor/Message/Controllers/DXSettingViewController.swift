@@ -29,8 +29,7 @@ class DXSettingViewController: UIViewController, UITableViewDelegate, UITableVie
 
 // MARK: - TableView delegate and data source
 extension DXSettingViewController {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+    @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
     
@@ -56,7 +55,7 @@ extension DXSettingViewController {
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    @objc(tableView:cellForRowAtIndexPath:) func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as! DXSettingTableViewCell
         
@@ -120,7 +119,7 @@ extension DXSettingViewController {
     }
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         
@@ -148,7 +147,7 @@ extension DXSettingViewController {
         
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return kDefaultRowHeight
     }
 }

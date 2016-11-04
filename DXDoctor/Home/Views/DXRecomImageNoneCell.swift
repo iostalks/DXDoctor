@@ -24,7 +24,7 @@ class DXRecomImageNoneCell: UICollectionViewCell {
         contentLabel.attributedText = model.content?.attributed
         auther.attributedText = model.author?.name.attributed
         autherRemarks.attributedText = model.author?.remarks.attributed
-        
+        autherImageView.layer.masksToBounds = true
         
         if let author = model.author {
             if let avaterUrl = URL.init(string: author.avatarURL) {

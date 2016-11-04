@@ -18,7 +18,7 @@ let kRecomdCellIdentifier = "kRecomdCellIdentifier"
 let kSpecialCellIdentifier = "kSpecialCellIdentifier"
 let kOtherCellIdentifier = "kOtherCellIdentifier"
 
-class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrollViewDelegate, UITableViewDelegate,DXRecommendCellDelegate,DXSpecialCellDelegate, DXOtherCelDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrollViewDelegate {
 
     fileprivate let kRecommendCellHeight: CGFloat = 630.0
     fileprivate let kSpecialCellHeight: CGFloat = 224.0
@@ -29,7 +29,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     fileprivate var segmentView: DXSegmentView?
     fileprivate var topicItems: [String] = []
     
-    var recommendDataSource: DXRecomTableDataSource!
+//    var recommendDataSource: DXRecomTableDataSource!
     var specialDataSource: DXSpecialTableDataSource!
     var otherDataSource: DXOtherTableDataSoruce!
     
@@ -67,7 +67,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     }
     
     // Mark: Request
-    @objc fileprivate func requestRecommend() {
+    @objc private func requestRecommend() {
         if (recommendDataList?.count == nil) {
              showLoadingHUD()
         }
@@ -82,10 +82,10 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         }
     }
 
-    // 初始化 TableView 数据源
-    func configDataSourceForTableView() {
-        recommendDataSource = DXRecomTableDataSource() // 不可使用 lazy
-        recommendDataSource.cellDelegate = self
+    // 初始化 专题、真相... 数据源
+    private func configDataSourceForTableView() {
+//        recommendDataSource = DXRecomTableDataSource() // 不可使用 lazy
+//        recommendDataSource.cellDelegate = self
         
         specialDataSource   = DXSpecialTableDataSource()
         specialDataSource.cellDelegate = self
@@ -97,7 +97,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     // MARK: View
     
     // 设置导航栏
-    func setupNaviBar() {
+     private func setupNaviBar() {
         let titleImageView = UIImageView.init(image: UIImage.init(named: "home_dxy_logo"))
         navigationItem.titleView = titleImageView;
         navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: nil)
@@ -131,9 +131,9 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     }
     
     // 推荐页
-    fileprivate let middleGap: CGFloat = 0.5;
-    fileprivate var _collectionView: UICollectionView!
-    fileprivate var collectionView: UICollectionView  {
+    private let middleGap: CGFloat = 0.5;
+    private var _collectionView: UICollectionView!
+    private var collectionView: UICollectionView  {
         get {
             if (_collectionView != nil) {return _collectionView! }
             let layout = UICollectionViewFlowLayout()
@@ -159,8 +159,8 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         }
     }
     
-    fileprivate var _refreshControl: UIRefreshControl!
-    fileprivate var refreshControl: UIRefreshControl {
+    private var _refreshControl: UIRefreshControl!
+    private var refreshControl: UIRefreshControl {
         get {
             if (_refreshControl != nil) {return _refreshControl}
             _refreshControl = UIRefreshControl()
@@ -170,7 +170,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     }
     
     // 专题、真相...
-    func setupTableViews() {
+    private func setupTableViews() {
         
         for index in 0 ..< topicItems.count {
             let tableView = createTableView(index: index)
@@ -195,7 +195,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     }
     
     // Init table view
-    func createTableView(index: Int) -> UITableView? {
+    private func createTableView(index: Int) -> UITableView? {
         if (index == 0) {
             return nil
         }
@@ -249,7 +249,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
 
 // MARK: UITableViewDelegate
 
-extension DXHomeViewController {
+extension DXHomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -275,26 +275,26 @@ extension DXHomeViewController {
 
 }
 
-// MARK: Cell Delegate
+// MARK: 专题，真相等的代理
 
-extension DXHomeViewController {
+extension DXHomeViewController: DXSpecialCellDelegate, DXOtherCelDelegate {
     
     // Recommend
-    func headerViewOnClick(_ cell: DXRecommendCell) {
-        showLoadingWebView(cell)
-    }
-    
-    func leftViewOnClick(_ cell: DXRecommendCell) {
-        showLoadingWebView(cell)
-    }
-    
-    func rightViewOnClick(_ cell: DXRecommendCell) {
-        showLoadingWebView(cell)
-    }
-    
-    func footerViewOnClick(_ cell: DXRecommendCell) {
-        showLoadingWebView(cell)
-    }
+//    func headerViewOnClick(_ cell: DXRecommendCell) {
+//        showLoadingWebView(cell)
+//    }
+//    
+//    func leftViewOnClick(_ cell: DXRecommendCell) {
+//        showLoadingWebView(cell)
+//    }
+//    
+//    func rightViewOnClick(_ cell: DXRecommendCell) {
+//        showLoadingWebView(cell)
+//    }
+//    
+//    func footerViewOnClick(_ cell: DXRecommendCell) {
+//        showLoadingWebView(cell)
+//    }
     
     // Special
     func specialCellOnClick(_ cell: DXSpecialCell) {
@@ -307,16 +307,16 @@ extension DXHomeViewController {
     }
     
     // Common
-    func showLoadingWebView(_ cell: DXRecommendCell) {
-        
-        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let recommHeaderVC = mainStoryboard.instantiateViewController(withIdentifier: "DXWebViewController") as! DXWebViewController;
-        
-        recommHeaderVC.hidesBottomBarWhenPushed = true
-        recommHeaderVC.contentURL = (cell.dataModel?.headerUrl)!
-        self.navigationController?.pushViewController(recommHeaderVC, animated: true)
-        
-    }
+//    func showLoadingWebView(_ cell: DXRecommendCell) {
+//        
+//        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+//        let recommHeaderVC = mainStoryboard.instantiateViewController(withIdentifier: "DXWebViewController") as! DXWebViewController;
+//        
+//        recommHeaderVC.hidesBottomBarWhenPushed = true
+//        recommHeaderVC.contentURL = (cell.dataModel?.headerUrl)!
+//        self.navigationController?.pushViewController(recommHeaderVC, animated: true)
+//        
+//    }
     
     func showTestWebView() {
         let testVC = TestWebVeiwController()
@@ -347,9 +347,9 @@ extension DXHomeViewController {
 }
 
 // MARK: 推荐页数据源和代理
-extension DXHomeViewController {
+extension DXHomeViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    @objc(collectionView:didSelectItemAtIndexPath:) func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let indexItem = recommendDataList![(indexPath as NSIndexPath).row] as DXItemModel!
         
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -387,25 +387,25 @@ extension DXHomeViewController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell!
         let indexItem = recommendDataList![(indexPath as NSIndexPath).row] as DXItemModel!
-            switch indexItem?.showType {
+            switch indexItem!.showType {
             case .image:
              
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DXRecomImageCell", for: indexPath)
                 if let _cell = cell as? DXRecomImageCell {
-                    _cell.configWithModel(indexItem)
+                    _cell.configWithModel(indexItem!)
                 }
                 
             case .imageNone:
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DXRecomImageNoneCell", for: indexPath)
                 if let _cell = cell as? DXRecomImageNoneCell {
-                    _cell.configWithModel(indexItem)
+                    _cell.configWithModel(indexItem!)
                 }
 
             case .smallImageNone:
                 
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DXRecomSmallImageNoneCell", for: indexPath)
                 if let _cell = cell as? DXRecomSmallImageNoneCell {
-                    _cell.configWithModel(indexItem)
+                    _cell.configWithModel(indexItem!)
                 }
             }
         cell.contentView.backgroundColor = UIColor.lightGray

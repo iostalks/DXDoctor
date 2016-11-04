@@ -10,12 +10,13 @@ import UIKit
 
 class DXSegmentView: UIView {
 
-    var titles: [String]
     weak var delegate: DXSegmentViewDelegate?
-    var titleWidth : CGFloat = 0
-    var titleHeight : CGFloat = 0
+
+    private var titles: [String]
+    private var titleWidth : CGFloat = 0
+    private var titleHeight : CGFloat = 0
     
-    let kAnimationDuration = 0.15
+    private let kAnimationDuration = 0.15
     
     convenience init(titles: [String], iframe: CGRect) {
         self.init(frame: iframe)
@@ -36,19 +37,33 @@ class DXSegmentView: UIView {
         
         self.titles = [""]; // 默认
         super.init(frame: frame)
+        self .addSubview(scrollView)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: View
+    private var _scrollView: UIScrollView!
+    private var scrollView: UIScrollView {
+        if (_scrollView == nil) {
+            _scrollView = UIScrollView.init(frame: self.frame)
+//            _scrollView.delegate = self
+            _scrollView.alwaysBounceHorizontal = true
+            _scrollView.alwaysBounceVertical = false
+//            _scrollView
+        }
+        return _scrollView
+    }
+    
     // 获取Label frame
-    func caculateLabelFrameWithIndex(_ index: Int) -> CGRect {
+    private func caculateLabelFrameWithIndex(_ index: Int) -> CGRect {
         return CGRect(x: CGFloat(index) * titleWidth, y: 0, width: titleWidth, height: titleHeight);
     }
     
     // 创建Label
-    func createLabelWithIndex(_ index : Int, textColor : UIColor) -> UILabel {
+    private func createLabelWithIndex(_ index : Int, textColor : UIColor) -> UILabel {
         let frame = caculateLabelFrameWithIndex(index)
         let tempLabel = UILabel.init(frame: frame)
         tempLabel.text = titles[index]
@@ -59,7 +74,7 @@ class DXSegmentView: UIView {
     }
     
     // 创建下层Label
-    func createBottomLabels() {
+    private func createBottomLabels() {
         for index in 0 ..< titles.count {
             let tempLabel = self.createLabelWithIndex(index, textColor: DXSettingManager.manager.themeColor)
             addSubview(tempLabel)
@@ -71,7 +86,7 @@ class DXSegmentView: UIView {
     fileprivate var topLabelsView: UIView?
     
     // 创建上层Label
-    func createTopLabels() {
+    private func createTopLabels() {
         
         let itemFrame = CGRect(x: 0, y: 0, width: titleWidth, height: titleHeight)
         highLightContainerView = UIView.init(frame: itemFrame)

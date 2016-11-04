@@ -32,6 +32,7 @@ class DXRecomImageCell: UICollectionViewCell {
             
         }
         
+        autherImageView.layer.masksToBounds = true
         if let author = model.author {
             if let avaterUrl = URL.init(string: author.avatarURL) {
                 autherImageView.setImageWith(avaterUrl, placeholder: nil)

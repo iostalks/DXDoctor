@@ -35,7 +35,7 @@ class DXTabBarController: UITabBarController {
         self.viewControllers = [homeNavigation, searchNavigation, messageNavigation]
     }
     
-    fileprivate func createNavigationController(_ rootViewController: UIViewController) -> UINavigationController {
+    private func createNavigationController(_ rootViewController: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.barTintColor = UIColor.white
         navigationController.navigationBar.tintColor = DXSettingManager.manager.themeColor
