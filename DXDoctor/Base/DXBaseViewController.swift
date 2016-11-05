@@ -78,7 +78,6 @@ class DXBaseViewController: UIViewController {
             self.loadingView?.removeFromSuperview()
             self.loadingView = nil
         }
-    
     }
 }
 

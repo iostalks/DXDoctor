@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		003EB29F51190CC596A0D808 /* Pods_DXDoctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502442EBED4F61A66A83B341 /* Pods_DXDoctor.framework */; };
-		FE0850651DCDA84A005FF51B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = FE0850641DCDA84A005FF51B /* README.md */; };
 		FE15CB331C131CF800FDBAA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15CB321C131CF800FDBAA0 /* AppDelegate.swift */; };
 		FE15CB3A1C131CF800FDBAA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE15CB391C131CF800FDBAA0 /* Assets.xcassets */; };
 		FE15CB3D1C131CF800FDBAA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE15CB3B1C131CF800FDBAA0 /* LaunchScreen.storyboard */; };
@@ -121,7 +120,6 @@
 		38F51B013A099D3A569CDA8B /* Pods-DXDoctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DXDoctor.release.xcconfig"; path = "Pods/Target Support Files/Pods-DXDoctor/Pods-DXDoctor.release.xcconfig"; sourceTree = "<group>"; };
 		502442EBED4F61A66A83B341 /* Pods_DXDoctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DXDoctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A75BEBA619B3D1B3701956 /* Pods-DXDoctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DXDoctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DXDoctor/Pods-DXDoctor.debug.xcconfig"; sourceTree = "<group>"; };
-		FE0850641DCDA84A005FF51B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FE15CB2F1C131CF800FDBAA0 /* DXDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DXDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE15CB321C131CF800FDBAA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE15CB391C131CF800FDBAA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,7 +295,6 @@
 		FE15CB311C131CF800FDBAA0 /* DXDoctor */ = {
 			isa = PBXGroup;
 			children = (
-				FE0850641DCDA84A005FF51B /* README.md */,
 				FE15CB391C131CF800FDBAA0 /* Assets.xcassets */,
 				FE21C4251CA7A3DF0029A9BB /* Main.storyboard */,
 				FEB429BB1CA02EE400157E5F /* Managers */,
@@ -865,7 +862,6 @@
 				FED1054F1CB16EDE00B24E4D /* DXSettingViewController.swift in Sources */,
 				FE2DC0361CA6559E00D0DAD7 /* DXLoadingHUD.swift in Sources */,
 				FE4E83D41DCD8B5A00217459 /* DXRecomSmallImageNoneCell.swift in Sources */,
-				FE0850651DCDA84A005FF51B /* README.md in Sources */,
 				FE91469D1D05133F0041FB99 /* DXItemModel.swift in Sources */,
 				FE4E83D21DCD8B5A00217459 /* DXRecomImageNoneCell.swift in Sources */,
 				FE21C4221CA7A34B0029A9BB /* DXTabBarController.swift in Sources */,
