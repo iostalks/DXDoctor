@@ -62,7 +62,7 @@ class DXSearchViewController: DXBaseViewController, UITableViewDelegate, UITable
         print("Scan")
     }
     
-    override func askDoctorButtonItemOnTapped(_ sender: UIButton) {
+    override func askDoctorButtonItemOnTapped(_ sender: UIBarButtonItem) {
         let askDoctorVC = DXAskDoctorViewController()
         askDoctorVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(askDoctorVC, animated: true)

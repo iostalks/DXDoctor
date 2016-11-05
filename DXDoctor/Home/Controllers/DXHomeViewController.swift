@@ -66,8 +66,8 @@ class DXHomeViewController: DXBaseViewController {
         navigationController?.navigationBar.showBottomHairline()
     }
     
-    // Mark: Request
-    @objc private func requestRecommend() {
+    // MARK: Request
+    func requestRecommend() {
         if (recommendDataList?.count == nil) {
              showLoadingHUD()
         }
@@ -92,6 +92,13 @@ class DXHomeViewController: DXBaseViewController {
         
         otherDataSource     = DXOtherTableDataSoruce()
         otherDataSource.cellDelegate = self
+    }
+    
+    // MARK: Action
+    override func askDoctorButtonItemOnTapped(_ sender: UIBarButtonItem) {
+        let askDoctorVC = DXAskDoctorViewController()
+        askDoctorVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(askDoctorVC, animated: true)
     }
     
     // MARK: View
@@ -299,13 +306,6 @@ extension DXHomeViewController: SegmentScrollViewDelegate {
     func segmentScrollView(_ segmentView: DXSegmentScrollView, tapAtIndex index: Int) {
         containerScrollView.setContentOffset(CGPoint(x: CGFloat(index) * view.width, y: 0), animated: true)
     }
-
-    override func askDoctorButtonItemOnTapped(_ sender: UIButton) {
-        
-        let askDoctorVC = DXAskDoctorViewController()
-        askDoctorVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(askDoctorVC, animated: true)
-    }
 }
 
 // MARK: 推荐页数据源和代理
@@ -351,7 +351,6 @@ extension DXHomeViewController : UICollectionViewDataSource, UICollectionViewDel
         let indexItem = recommendDataList![(indexPath as NSIndexPath).row] as DXItemModel!
             switch indexItem!.showType {
             case .image:
-             
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DXRecomImageCell", for: indexPath)
                 if let _cell = cell as? DXRecomImageCell {
                     _cell.configWithModel(indexItem!)
@@ -364,7 +363,6 @@ extension DXHomeViewController : UICollectionViewDataSource, UICollectionViewDel
                 }
 
             case .smallImageNone:
-                
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DXRecomSmallImageNoneCell", for: indexPath)
                 if let _cell = cell as? DXRecomSmallImageNoneCell {
                     _cell.configWithModel(indexItem!)

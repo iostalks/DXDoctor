@@ -67,7 +67,7 @@ class DXMessageViewController: DXBaseViewController, UITableViewDelegate, UITabl
         navigationController?.pushViewController(meVC, animated: true)
     }
     
-    override func askDoctorButtonItemOnTapped(_ sender: UIButton) {
+    override func askDoctorButtonItemOnTapped(_ sender: UIBarButtonItem) {
         let askDoctorVC = DXAskDoctorViewController()
         askDoctorVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(askDoctorVC, animated: true)

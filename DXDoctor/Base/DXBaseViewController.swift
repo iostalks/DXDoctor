@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
+class DXBaseViewController: UIViewController {
 
     fileprivate weak var loadingView: DXLoadingHUD?
     internal var askDoctorView: DXAskDoctorView?
@@ -31,14 +31,21 @@ class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
     
     // 问问医生图标
     func setUpNavigationBar() {
-        
-        let _askDoctorView = DXAskDoctorView.init(frame: CGRect(x: 0, y: 0, width: 46, height: 46))
-        _askDoctorView.delegate = self
-        
-        let rightButtonItem = UIBarButtonItem.init(customView: _askDoctorView)
+//        let _askDoctorView = DXAskDoctorView.init(frame: CGRect(x: 0, y: 0, width: 46, height: 46))
+//        _askDoctorView.delegate = self
+//        let rightButtonItem = UIBarButtonItem.init(customView: _askDoctorView)
+//        self.askDoctorView = _askDoctorView
+
+        let askImage = UIImage(named: "V5TopAsk");
+        let askButton = UIButton.init(type: .custom)
+        askButton.frame = CGRect.init(x: 0, y: 0, width: 46, height: 46)
+        askButton.setImage(askImage, for: .normal)
+        askButton.addTarget(self, action: #selector(DXBaseViewController.askDoctorButtonItemOnTapped), for: .touchUpInside)
+        let rightButtonItem = UIBarButtonItem.init(customView: askButton)
+        // This way has a bug?
+//        let rightButtonItem = UIBarButtonItem.init(image: askImage, style: .plain, target: self, action: ))
         navigationItem.rightBarButtonItem = rightButtonItem;
         
-        self.askDoctorView = _askDoctorView
     }
     
     // MARK: HUD
@@ -76,7 +83,7 @@ class DXBaseViewController: UIViewController, DXAskDoctorViewDelegate {
 }
 
 extension DXBaseViewController {
-    func askDoctorButtonItemOnTapped(_ sender: UIButton) {
+    func askDoctorButtonItemOnTapped(_ sender: UIBarButtonItem) {
         // Subclass implement
     }
 }

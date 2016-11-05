@@ -17,16 +17,16 @@ class DXTabBarController: UITabBarController {
         
         let homeVC = DXHomeViewController()
         homeVC.tabBarItem.title = "首页"
-        homeVC.tabBarItem.image = UIImage(named: "tab_home")        
-        
+        homeVC.tabBarItem.image = UIImage(named: "V5FootHome")
+        homeVC.tabBarItem.selectedImage = UIImage(named: "V5FootHomeSel")
         let searchVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DXSearchViewController");
         searchVC.tabBarItem.title = "搜索"
-        searchVC.tabBarItem.image = UIImage.init(named: "tab_search")
-        
+        searchVC.tabBarItem.image = UIImage(named: "V5FootSearch")
+        searchVC.tabBarItem.selectedImage = UIImage(named: "V5FootSearchSel")
         let messageVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DXMessageViewController")
         messageVC.tabBarItem.title = "消息"
-        messageVC.tabBarItem.image = UIImage(named: "tab_message")
-        
+        messageVC.tabBarItem.image = UIImage(named: "V5FootInfo")
+        messageVC.tabBarItem.selectedImage = UIImage(named: "V5FootInfoSel")
         let homeNavigation = createNavigationController(homeVC)
         homeNavigation.navigationBar.hideBottomHairline()
         let searchNavigation = createNavigationController(searchVC)
