@@ -18,15 +18,14 @@ let kRecomdCellIdentifier = "kRecomdCellIdentifier"
 let kSpecialCellIdentifier = "kSpecialCellIdentifier"
 let kOtherCellIdentifier = "kOtherCellIdentifier"
 
-class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrollViewDelegate {
+class DXHomeViewController: DXBaseViewController {
 
     fileprivate let kRecommendCellHeight: CGFloat = 630.0
     fileprivate let kSpecialCellHeight: CGFloat = 224.0
     fileprivate let kOtherCellHeight: CGFloat = 89.0
     
-    fileprivate let SEGMENT_HEI: CGFloat = 30.0;
     fileprivate var containerScrollView: UIScrollView!
-    fileprivate var segmentView: DXSegmentView?
+    fileprivate var segmentScorllView: DXSegmentScrollView!
     fileprivate var topicItems: [String] = []
     
 //    var recommendDataSource: DXRecomTableDataSource!
@@ -44,7 +43,8 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         title = "首页"
-        
+        self.automaticallyAdjustsScrollViewInsets = false
+    
         setupNaviBar()
         setupSegmentView()
         setupScrollView()
@@ -84,7 +84,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
 
     // 初始化 专题、真相... 数据源
     private func configDataSourceForTableView() {
-//        recommendDataSource = DXRecomTableDataSource() // 不可使用 lazy
+//        recommendDataSource = DXRecomTableDataSource()
 //        recommendDataSource.cellDelegate = self
         
         specialDataSource   = DXSpecialTableDataSource()
@@ -106,37 +106,35 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
     
     // 初始化选项栏
     func setupSegmentView() {
-        topicItems = ["推荐", "专题", "真相", "慢病","一图读懂", "肿瘤" /*, "营养" */]
-//        let frame = CGRect(x: 0, y: 64, width: view.bounds.size.width, height: SEGMENT_HEI)
-//        segmentView = DXSegmentView.init(titles: topicItems, iframe: frame);
-        segmentView = DXSegmentView.init(titles: topicItems)
-        segmentView!.backgroundColor = UIColor.white
-        segmentView!.delegate = self
-        view.addSubview(segmentView!)
+        topicItems = ["推荐", "专题", "真相", "两性", "不孕不育", "一图读懂", "肿瘤", "慢病", "营养", "母婴"]
+        segmentScorllView = DXSegmentScrollView.init(titles: topicItems)
+        segmentScorllView.segmentDelegate = self;
+        view.addSubview(segmentScorllView)
     }
     
-    // 初始化左右滚动内容视图
+    // 初始化左右滚动的内容视图
     func setupScrollView() {
-        let originY = (segmentView?.height)! + (segmentView?.y)!
+        let originY = segmentScorllView.bottom
         containerScrollView = UIScrollView.init(frame: CGRect.zero)
         containerScrollView.frame           = CGRect(x: 0, y: originY, width: view.width, height: view.height - originY)
         containerScrollView.contentSize     = CGSize(width: CGFloat(topicItems.count) * view.width, height: (containerScrollView.height));
         containerScrollView.backgroundColor = DXSettingManager.manager.beigeWhiteColor
         containerScrollView.isPagingEnabled   = true;
-        containerScrollView.bounces         = false
+        containerScrollView.bounces         = true
         containerScrollView.delegate        = self;
         containerScrollView.showsVerticalScrollIndicator = false
         containerScrollView.showsHorizontalScrollIndicator = false
         view.addSubview(containerScrollView)
         
+        containerScrollView.addObserver(self, forKeyPath: "contentOffset", options: [.old,.new], context: nil)
     }
     
-    // 推荐页
+    // 初始化推荐页
     private let middleGap: CGFloat = 0.5;
     private var _collectionView: UICollectionView!
     private var collectionView: UICollectionView  {
         get {
-            if (_collectionView != nil) {return _collectionView! }
+            if (_collectionView != nil) {return _collectionView }
             let layout = UICollectionViewFlowLayout()
             layout.minimumLineSpacing = middleGap
             layout.minimumInteritemSpacing = 0
@@ -160,6 +158,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         }
     }
     
+    // 初始化默认刷新控件
     private var _refreshControl: UIRefreshControl!
     private var refreshControl: UIRefreshControl {
         get {
@@ -209,7 +208,7 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         tableView.allowsSelection = false
         containerScrollView.addSubview(tableView)
         
-        // 初始化下拉刷新控件
+        // 初始化自定义下拉刷新控件
         let pullRefreshView = DXPullToRefresh.init(scrollView: tableView, hasNavigationBar: false)
         pullRefreshView.addRefreshingBlock({ () -> (Void) in
             
@@ -236,24 +235,23 @@ class DXHomeViewController: DXBaseViewController, DXSegmentViewDelegate, UIScrol
         return tableView
     }
     
-    // MARK: DXAskdoctorViewDelegate
-    override func askDoctorButtonItemOnTapped(_ sender: UIButton) {
-        
-        let askDoctorVC = DXAskDoctorViewController()
-        askDoctorVC.hidesBottomBarWhenPushed = true
-        
-        self.navigationController?.pushViewController(askDoctorVC, animated: true)
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentOffset" {
+            let newOffset = change![NSKeyValueChangeKey.newKey] as! CGPoint
+            let newX = newOffset.x
+            guard (newX > 0 && newX < CGFloat(topicItems.count - 1) * view.width) else {
+                return;
+            }
+            let progress = newX / view.width
+            segmentScorllView.labelTricksProgress(progress)
+        }
     }
-
 }
 
-
 // MARK: UITableViewDelegate
-
 extension DXHomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -273,29 +271,10 @@ extension DXHomeViewController: UITableViewDelegate {
             return kOtherCellHeight
         }
     }
-
 }
 
 // MARK: 专题，真相等的代理
-
 extension DXHomeViewController: DXSpecialCellDelegate, DXOtherCelDelegate {
-    
-    // Recommend
-//    func headerViewOnClick(_ cell: DXRecommendCell) {
-//        showLoadingWebView(cell)
-//    }
-//    
-//    func leftViewOnClick(_ cell: DXRecommendCell) {
-//        showLoadingWebView(cell)
-//    }
-//    
-//    func rightViewOnClick(_ cell: DXRecommendCell) {
-//        showLoadingWebView(cell)
-//    }
-//    
-//    func footerViewOnClick(_ cell: DXRecommendCell) {
-//        showLoadingWebView(cell)
-//    }
     
     // Special
     func specialCellOnClick(_ cell: DXSpecialCell) {
@@ -307,18 +286,6 @@ extension DXHomeViewController: DXSpecialCellDelegate, DXOtherCelDelegate {
         showTestWebView()
     }
     
-    // Common
-//    func showLoadingWebView(_ cell: DXRecommendCell) {
-//        
-//        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-//        let recommHeaderVC = mainStoryboard.instantiateViewController(withIdentifier: "DXWebViewController") as! DXWebViewController;
-//        
-//        recommHeaderVC.hidesBottomBarWhenPushed = true
-//        recommHeaderVC.contentURL = (cell.dataModel?.headerUrl)!
-//        self.navigationController?.pushViewController(recommHeaderVC, animated: true)
-//        
-//    }
-    
     func showTestWebView() {
         let testVC = TestWebVeiwController()
         testVC.hidesBottomBarWhenPushed = true
@@ -326,24 +293,19 @@ extension DXHomeViewController: DXSpecialCellDelegate, DXOtherCelDelegate {
     }
 }
 
-// MARK: DXSegmentViewDelegate
-extension DXHomeViewController {
+// MARK: segmentScrollViewDelegate
+extension DXHomeViewController: SegmentScrollViewDelegate {
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard scrollView == containerScrollView else {
-            return
-        }
-        
-        if (!scrollView.isTracking) {
-            let curPage: Int = Int(scrollView.contentOffset.x / view.width)
-            segmentView?.topicItemTappedAtIndex(curPage)
-        }
-    }
-    
-    func segmentItemOnClickedAtIndex(_ index: Int) {
+    func segmentScrollView(_ segmentView: DXSegmentScrollView, tapAtIndex index: Int) {
         containerScrollView.setContentOffset(CGPoint(x: CGFloat(index) * view.width, y: 0), animated: true)
     }
 
+    override func askDoctorButtonItemOnTapped(_ sender: UIButton) {
+        
+        let askDoctorVC = DXAskDoctorViewController()
+        askDoctorVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(askDoctorVC, animated: true)
+    }
 }
 
 // MARK: 推荐页数据源和代理
@@ -375,6 +337,7 @@ extension DXHomeViewController : UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
+    // Data Souce
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }

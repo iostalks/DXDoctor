@@ -20,7 +20,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 class DXPullToRefresh: UIView {
-
     
     var refreshingBlock: (()->(Void))?
     
@@ -65,7 +64,6 @@ class DXPullToRefresh: UIView {
             }
         }
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
