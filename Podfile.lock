@@ -1,23 +1,39 @@
 PODS:
-  - Kingfisher (3.1.4)
-  - SnapKit (0.18.0)
+  - Kingfisher (3.10.1)
+  - SnapKit (3.2.0)
   - SVProgressHUD (1.1.3)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
-  - Kingfisher
-  - SnapKit
+  - Kingfisher (from `https://github.com/onevcat/Kingfisher`, branch `swift4`)
+  - SnapKit (from `https://github.com/SnapKit/SnapKit`, branch `swift-4`)
   - SVProgressHUD (~> 1.1.3)
   - YYKit
 
+EXTERNAL SOURCES:
+  Kingfisher:
+    :branch: swift4
+    :git: https://github.com/onevcat/Kingfisher
+  SnapKit:
+    :branch: swift-4
+    :git: https://github.com/SnapKit/SnapKit
+
+CHECKOUT OPTIONS:
+  Kingfisher:
+    :commit: 54087b54da5cf405659769caee26aa304c18f4a1
+    :git: https://github.com/onevcat/Kingfisher
+  SnapKit:
+    :commit: d31148f449abe819fd1a58d5e07e94874c7e6003
+    :git: https://github.com/SnapKit/SnapKit
+
 SPEC CHECKSUMS:
-  Kingfisher: 6c67e3e57f2d81a9cfdfa25052cd86f33ceac9bb
-  SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
+  Kingfisher: 5225d74cc1575305780bfe579836bd525585ce5c
+  SnapKit: c71c530b73cedd2a8b998098687001baff265086
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: ecf072e329f778987e7a44dbd74a67298e6e10d7
+PODFILE CHECKSUM: 45a355d44d44f45f59975c158c325070e6286425
 
 COCOAPODS: 1.2.1
