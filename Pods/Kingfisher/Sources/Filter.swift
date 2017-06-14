@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 2016/08/31.
 //
-//  Copyright (c) 2016 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -78,9 +78,9 @@ public struct Filter {
     public typealias ColorElement = (CGFloat, CGFloat, CGFloat, CGFloat)
     
     /// Color control filter which will apply color control change to images.
-    public static var colorControl: (ColorElement) -> Filter = {
-        brightness, contrast, saturation, inputEV in
-        Filter { input in
+    public static var colorControl: (ColorElement) -> Filter = { arg -> Filter in
+        let (brightness, contrast, saturation, inputEV) = arg
+        return Filter { input in
             let paramsColor = [kCIInputBrightnessKey: brightness,
                                kCIInputContrastKey: contrast,
                                kCIInputSaturationKey: saturation]
@@ -121,7 +121,7 @@ extension Kingfisher where Base: Image {
         #if os(macOS)
             return fixedForRetinaPixel(cgImage: result, to: size)
         #else
-            return Image(cgImage: result)
+            return Image(cgImage: result, scale: base.scale, orientation: base.imageOrientation)
         #endif
     }
 
