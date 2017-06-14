@@ -60,7 +60,7 @@ class DXMessageViewController: DXBaseViewController, UITableViewDelegate, UITabl
     }
     
     // MARK: Action
-    func barButtonItemOnTapped() {
+    @objc func barButtonItemOnTapped() {
         let meStroryBoard = UIStoryboard.init(name: "Message", bundle: nil)
         let meVC = meStroryBoard.instantiateViewController(withIdentifier: "DXSettingViewController")
         meVC.hidesBottomBarWhenPushed = true

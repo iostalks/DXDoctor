@@ -37,7 +37,7 @@ class DXSegmentScrollView: UIScrollView {
         var totalWidth: CGFloat = 0
         for tlt in titles {
             let myString: NSString = tlt as NSString
-            let size = myString.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: lableFontSize)])
+            let size = myString.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: lableFontSize)])
             let labelWidth = size.width + labelMarginWith * 2
             totalWidth += (labelWidth + labelMiddleWith)
         }
@@ -89,7 +89,7 @@ class DXSegmentScrollView: UIScrollView {
     }
     
     // Action
-    func topicItemTappedAtIndex(_ sender: UIButton) {
+    @objc func topicItemTappedAtIndex(_ sender: UIButton) {
         if let idelegate = self.segmentDelegate {
             idelegate.segmentScrollView(self, tapAtIndex: sender.tag)
         }
@@ -153,13 +153,13 @@ class DXSegmentScrollView: UIScrollView {
         for idx in 0 ..< index {
             let title = titles[idx]
             let myString: NSString = title as NSString
-            let size = myString.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: lableFontSize)])
+            let size = myString.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: lableFontSize)])
             left += (size.width + labelMarginWith * 2 + labelMiddleWith)
         }
         
         let currentTitle = titles[index]
         let myString: NSString = currentTitle as NSString
-        let size = myString.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: lableFontSize)])
+        let size = myString.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: lableFontSize)])
         let originX = CGFloatPixelCeil(left + labelMiddleWith / 2)
         let lWidth = CGFloatPixelCeil(size.width + labelMarginWith * 2)
         let lHeight = CGFloatPixelCeil(size.height) + 4

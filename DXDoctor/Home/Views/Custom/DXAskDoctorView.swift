@@ -96,7 +96,7 @@ class DXAskDoctorView: UIView {
         return groupAnima
     }
 
-    func askDoctorButtonItemOnClick(_ sender: UIButton) {
+    @objc func askDoctorButtonItemOnClick(_ sender: UIButton) {
         delegate?.askDoctorButtonItemOnTapped(sender)
     }
     

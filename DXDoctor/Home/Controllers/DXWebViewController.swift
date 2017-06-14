@@ -49,7 +49,7 @@ class DXWebViewController: DXBaseViewController, UIWebViewDelegate {
     }
     
     // Loading 后台唤醒
-    func reweakLoding() {
+    @objc func reweakLoding() {
         configWebView()
     }
     

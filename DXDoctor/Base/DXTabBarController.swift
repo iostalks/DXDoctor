@@ -39,7 +39,7 @@ class DXTabBarController: UITabBarController {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.barTintColor = UIColor.white
         navigationController.navigationBar.tintColor = DXSettingManager.manager.themeColor
-        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue : UIColor.black]
         return navigationController
     }
 

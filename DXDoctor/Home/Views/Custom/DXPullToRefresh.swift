@@ -133,7 +133,7 @@ class DXPullToRefresh: UIView {
         refreshImageView?.transform = CGAffineTransform.identity
         
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotationAnimation.toValue = 2 * M_PI
+        rotationAnimation.toValue = 2 * Double.pi
         rotationAnimation.duration = 1.0
         rotationAnimation.autoreverses = false
         rotationAnimation.repeatCount = HUGE

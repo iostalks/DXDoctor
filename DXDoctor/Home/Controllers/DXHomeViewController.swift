@@ -67,7 +67,7 @@ class DXHomeViewController: DXBaseViewController {
     }
     
     // MARK: Request
-    func requestRecommend() {
+    @objc func requestRecommend() {
         if (recommendDataList?.count == nil) {
              showLoadingHUD()
         }

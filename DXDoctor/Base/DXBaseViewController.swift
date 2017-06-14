@@ -82,7 +82,7 @@ class DXBaseViewController: UIViewController {
 }
 
 extension DXBaseViewController {
-    func askDoctorButtonItemOnTapped(_ sender: UIBarButtonItem) {
+    @objc func askDoctorButtonItemOnTapped(_ sender: UIBarButtonItem) {
         // Subclass implement
     }
 }
