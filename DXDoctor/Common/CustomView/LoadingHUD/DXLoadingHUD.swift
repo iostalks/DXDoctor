@@ -69,18 +69,18 @@ class DXLoadingHUD: UIView {
     // Linear旋转
     fileprivate func transformRotate() -> CABasicAnimation {
         let anim = CABasicAnimation(keyPath: "transform.rotation")
-        anim.byValue = M_PI * 2
+        anim.byValue = Double.pi * 2
         anim.duration = 1
         anim.repeatCount = HUGE
         anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         
         return anim
     }
-
+    
     // EaseInEaseOut旋转
     fileprivate func coolTransformRotate() -> CABasicAnimation {
         let anim = CABasicAnimation(keyPath: "transform.rotation")
-        anim.byValue = M_PI * 2
+        anim.byValue = Double.pi * 2
         anim.duration = kRotateDuration
         anim.repeatCount = HUGE
         anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)

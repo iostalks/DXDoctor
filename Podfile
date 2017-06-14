@@ -4,7 +4,7 @@ use_frameworks!
 
 def pods
 
-pod 'SnapKit', '~> 0.18.0'
+pod 'SnapKit'
 pod 'SVProgressHUD', '~> 1.1.3'
 pod 'Kingfisher'
 pod 'YYKit'
