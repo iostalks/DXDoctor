@@ -7,16 +7,17 @@
 //
 
 import UIKit
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
+
+//fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+//  switch (lhs, rhs) {
+//  case let (l?, r?):
+//    return l < r
+//  case (nil, _?):
+//    return true
+//  default:
+//    return false
+//  }
+//}
 
 
 class DXPullToRefresh: UIView {
@@ -36,17 +37,13 @@ class DXPullToRefresh: UIView {
     
         didSet {
             let diff = fabs((associatedScrollView?.contentOffset.y)! + originOffset) - pullDistance
-//            print("diff :\(diff)")
             if diff > 0 {
-                
                 if associatedScrollView?.isTracking == false {
-                    
                     if !noTracking {
                         noTracking = true
                         
                         DXAudioManager.manager.playRefreshPullAudio()
                         startAnimation()
-//                        print("\(associatedScrollView.contentOffset.y)")
                         UIView.animate(withDuration: 0.3, animations: { () -> Void in
                             self.associatedScrollView?.contentInset = UIEdgeInsetsMake(self.pullDistance + self.originOffset, 0, 0, 0)
                             }, completion: { (_) -> Void in
@@ -83,7 +80,6 @@ class DXPullToRefresh: UIView {
         
         setUp()
         
-//        let options = .New | .Old why can't?
         associatedScrollView?.addObserver(self, forKeyPath:"contentOffset", options:.new, context:nil)
         associatedScrollView?.insertSubview(self, at: 0)
     }

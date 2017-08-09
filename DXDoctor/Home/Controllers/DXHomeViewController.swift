@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum DXHomeTableViewType: Int{
+enum DXHomeTableViewType: Int {
     case recommend = 0
     case special
     case other
@@ -207,7 +207,8 @@ class DXHomeViewController: DXBaseViewController {
             return nil
         }
         
-        let tableView = UITableView.init(frame: CGRect(x: CGFloat(index) * view.width, y: 0, width: containerScrollView.width, height: (containerScrollView.height)))
+        let tableView = UITableView(frame: CGRect(x: CGFloat(index) * view.width, y: 0,
+                                                  width: containerScrollView.width, height: (containerScrollView.height)))
         tableView.delegate = self
         tableView.tag = index
         tableView.separatorStyle = .none

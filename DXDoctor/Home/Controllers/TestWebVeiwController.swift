@@ -23,12 +23,10 @@ class TestWebVeiwController: DXBaseViewController, UIWebViewDelegate {
         webView?.delegate = self
         self.view.addSubview(webView!)
     
-        
         let url: URL? = URL.init(string: contentURL);
         if url != nil {
             let request = URLRequest.init(url: url!)
             webView?.loadRequest(request)
-            
         }
         
         self.showLoadingHUD()
