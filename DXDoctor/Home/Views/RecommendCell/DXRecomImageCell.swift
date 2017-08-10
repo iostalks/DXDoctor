@@ -12,8 +12,8 @@ import UIKit
 import Kingfisher
 import YYKit
 
-class DXRecomImageCell: UICollectionViewCell {
 
+class DXRecomImageCell: BaseCollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var autherImageView: UIImageView!
@@ -21,29 +21,24 @@ class DXRecomImageCell: UICollectionViewCell {
     @IBOutlet weak var autherRemarksLabel: UILabel!
     var url: URL?
     
-    func configWithModel(_ model: DXItemModel) {
+    override func configure(with model: DXItemModel) {
         titleLabel.attributedText = model.title.attributed
         auther.attributedText = model.author?.name.attributed
         autherRemarksLabel.attributedText = model.author?.remarks.attributed;
         
-        if let url = URL.init(string: model.cover!) {
+        if let cover = model.cover, let url = URL(string: cover) {
             backgroundImageView.setImageWith(url, placeholder: nil)
-        }else {
-            
         }
         
         autherImageView.layer.masksToBounds = true
         if let author = model.author {
-            if let avaterUrl = URL.init(string: author.avatarURL) {
+            if let avaterUrl = URL(string: author.avatarURL) {
                 autherImageView.setImageWith(avaterUrl, placeholder: nil)
-            }else {
+            } else {
                 autherImageView.image = UIImage.init(named: "home_doctor_icon")
             }
-        }else {
+        } else {
             // 无作者
-//            print("no author")
         }
-
     }
-
 }

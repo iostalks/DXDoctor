@@ -12,16 +12,38 @@ public enum DXItemShowType: Int{
     case image      = 1
     case imageNone  = 2
     case smallImageNone = 8
+    
+    var size: CGSize {
+        let width = UIScreen.main.bounds.width
+        let height: CGFloat = 210.0
+        switch self {
+        case .smallImageNone:
+            return CGSize(width: width / 2, height: height)
+        default:
+            return CGSize(width: width, height: height)
+        }
+    }
+    
+    var cellIdentifier: String {
+        switch self {
+        case .image:
+            return DXRecomImageCell.defaultReuseIdentifier
+        case .imageNone:
+            return DXRecomImageNoneCell.defaultReuseIdentifier
+        case .smallImageNone:
+            return DXRecomSmallImageNoneCell.defaultReuseIdentifier
+        }
+    }
 }
 
 struct DXAuthor {
-    var identifier: Int
-    var name: String
-    var url: String
-    var avatarURL: String
-    var remarks: String
+    let identifier: Int
+    let name: String
+    let url: String
+    let avatarURL: String
+    let remarks: String
     
-    internal init?(authorDict: [String : AnyObject]) {
+    init?(authorDict: [String : AnyObject]) {
         guard let iden = authorDict["id"] as? Int,
             let name = authorDict["name"] as? String,
             let url = authorDict["url"] as? String,
@@ -38,26 +60,24 @@ struct DXAuthor {
         if !avatarURL.hasPrefix(http) {
             let avatorUrl = http + avatarURL
             self.avatarURL = avatorUrl
-        }else {
+        } else {
             self.avatarURL = avatarURL
         }
     }
 }
 
 public struct DXItemModel {
-    var title: String
-    var url: String
-    var from: String
-    var showType: DXItemShowType
+    let title: String
+    let url: String
+    let from: String
+    let showType: DXItemShowType
     
     var author: DXAuthor?
     var content: String?
     var tagsStr: String?
     var cover: String?
     
-
-    public init?(json: [String : AnyObject]) {
-        
+    init?(json: [String : AnyObject]) {
         guard let title = json["title"] as? String,
             let url = json["url"] as? String,
             let from = json["from"] as? String,
@@ -67,8 +87,8 @@ public struct DXItemModel {
             return nil;
         }
         self.title = title
-        self.url   = url
-        self.from    = from
+        self.url = url
+        self.from  = from
         self.showType = showType
         
         self.content = json["content"] as? String
@@ -76,7 +96,7 @@ public struct DXItemModel {
         self.cover   = json["cover"] as? String
         
         if let authorDict = json["author"] as? [String : AnyObject] {
-            self.author = DXAuthor.init(authorDict: authorDict)
+            self.author = DXAuthor(authorDict: authorDict)
         }
     }
 }
