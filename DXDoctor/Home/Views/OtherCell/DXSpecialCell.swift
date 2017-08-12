@@ -12,8 +12,7 @@ protocol DXSpecialCellDelegate: class {
    func specialCellOnClick(_ cell: DXSpecialCell)
 }
 
-
-class DXSpecialCell: UITableViewCell {
+class DXSpecialCell: UITableViewCell, Reusable {
     
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,21 +22,7 @@ class DXSpecialCell: UITableViewCell {
     
     weak var delegate: DXSpecialCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     @IBAction func specialCellOnTouched(_ sender: AnyObject) {
-        
-        if (delegate != nil) {
-            delegate?.specialCellOnClick(self)
-        }
+        delegate?.specialCellOnClick(self)
     }
 }

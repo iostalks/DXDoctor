@@ -8,17 +8,15 @@
 
 import UIKit
 
-class DXRecomSmallImageNoneCell: UICollectionViewCell {
+class DXRecomSmallImageNoneCell: BaseCollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!
     
-    func configWithModel(_ model: DXItemModel) {
+    override func configure(with model: DXItemModel) {
         titleLabel.attributedText = model.title.attributed
         contentLabel.attributedText = model.content?.attributed
         tagLabel.text = model.tagsStr
-        
     }
-
 }

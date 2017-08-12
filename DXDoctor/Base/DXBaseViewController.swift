@@ -17,7 +17,7 @@ class DXBaseViewController: UIViewController {
         
         super.viewDidLoad()
         
-        setUpNavigationBar()
+        setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +30,7 @@ class DXBaseViewController: UIViewController {
     }
     
     // 问问医生图标
-    func setUpNavigationBar() {
+    func setupNavigationBar() {
 //        let _askDoctorView = DXAskDoctorView.init(frame: CGRect(x: 0, y: 0, width: 46, height: 46))
 //        _askDoctorView.delegate = self
 //        let rightButtonItem = UIBarButtonItem.init(customView: _askDoctorView)

@@ -29,14 +29,12 @@ class DXSettingViewController: UIViewController, UITableViewDelegate, UITableVie
 
 // MARK: - TableView delegate and data source
 extension DXSettingViewController {
-    @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        let data = DXMeData.cellTitleName
-
         switch section {
         case 0:
             return cellData.baseArray.count
@@ -54,8 +52,7 @@ extension DXSettingViewController {
         }
     }
     
-    
-    @objc(tableView:cellForRowAtIndexPath:) func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as! DXSettingTableViewCell
         
@@ -141,10 +138,6 @@ extension DXSettingViewController {
         default:
             print("Sectino: \((indexPath as NSIndexPath).section), Row: \((indexPath as NSIndexPath).row)")
         }
-        
-        
-        
-        
     }
     
     @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

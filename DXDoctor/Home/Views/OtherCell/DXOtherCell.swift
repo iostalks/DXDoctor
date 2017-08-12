@@ -8,38 +8,22 @@
 
 import UIKit
 
-protocol DXOtherCelDelegate: class {
+protocol DXOtherCelDelegate: NSObjectProtocol {
     func otherCellOnClick(_ cell: DXOtherCell)
 }
 
-class DXOtherCell: UITableViewCell {
-
+class DXOtherCell: UITableViewCell, Reusable {
     @IBOutlet weak var titleLab: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     
     weak var delegate: DXOtherCelDelegate?
     
-    func configCell(data _data: DXOtherCellData) {
-        titleLab.text = _data.title
-        iconImageView.image = UIImage.init(named: _data.imageName!)
+    func configCell(_ model: OtherCellModel) {
+        titleLab.text = model.title
+        iconImageView.image = UIImage(named: model.imageName)
     }
     
     @IBAction func otherCellOnTouched(_ sender: AnyObject) {
-        
-        if (delegate != nil) {
-            delegate?.otherCellOnClick(self)
-        }
+        delegate?.otherCellOnClick(self)
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

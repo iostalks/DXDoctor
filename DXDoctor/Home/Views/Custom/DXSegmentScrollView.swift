@@ -14,24 +14,20 @@ protocol SegmentScrollViewDelegate: NSObjectProtocol {
 }
 
 class DXSegmentScrollView: UIScrollView {
-    
     weak var segmentDelegate: SegmentScrollViewDelegate?
-    let kSegmentViewHeight: CGFloat = 36.0
+    private var titles = [String]()
 
-    private var titles: [String]
-    
-//    private let kHeight: CGFloat = 30
+    static let kSegmentViewHeight: CGFloat = 36.0
     private let kAnimationDuration = 0.2
-    
     private let lableFontSize: CGFloat = 13
-    
     private let labelMiddleWith: CGFloat = 16 // label middle gap
     private let labelMarginWith: CGFloat = 8  // label margin
     
     convenience init(titles: [String]) {
-        self.init(frame: CGRect.zero)
-        let iframe = CGRect.init(x: 0, y: 64, width: UIScreen.main.bounds.size.width, height: kSegmentViewHeight)
-        self.frame = iframe
+        let iframe = CGRect(x: 0, y: 64,
+                            width: UIScreen.main.bounds.width,
+                            height: DXSegmentScrollView.kSegmentViewHeight)
+        self.init(frame: iframe)
         self.titles = titles
         
         var totalWidth: CGFloat = 0
@@ -41,9 +37,10 @@ class DXSegmentScrollView: UIScrollView {
             let labelWidth = size.width + labelMarginWith * 2
             totalWidth += (labelWidth + labelMiddleWith)
         }
-        self.contentSize = CGSize.init(width: CGFloatPixelCeil(totalWidth), height: kSegmentViewHeight)
-        self.showsVerticalScrollIndicator = false
-        self.showsHorizontalScrollIndicator = false
+        contentSize = CGSize(width: CGFloatPixelCeil(totalWidth),
+                             height: DXSegmentScrollView.kSegmentViewHeight)
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
         
         createBottomLabels()
         createBottomButton()
@@ -51,7 +48,6 @@ class DXSegmentScrollView: UIScrollView {
     }
     
     override init(frame: CGRect) {
-        titles = [""]
         super.init(frame: frame)
     }
     
@@ -105,18 +101,18 @@ class DXSegmentScrollView: UIScrollView {
         }
     }
     
-    private var topContainerView: UIView! // 颜色移动视图容器
-    private var highColorView: UIView!
-    private var topLabelsView: UIView!
+    private var topContainerView = UIView() // 颜色移动视图容器
+    private var highColorView = UIView()
+    private var topLabelsView = UIView()
     
     // Top level label
     private func createTopLabels() {
         let itemFrame = caculateLabelFrameWithIndex(0) // 默认取第一次标签的Frame
-        topContainerView = UIView.init(frame: itemFrame)
+        topContainerView = UIView(frame: itemFrame)
         topContainerView.clipsToBounds = true
         topContainerView.backgroundColor = UIColor.clear
         
-        highColorView = UIView.init(frame: topContainerView.bounds)
+        highColorView = UIView(frame: topContainerView.bounds)
         highColorView.backgroundColor  = DXSettingManager.manager.themeColor
         highColorView.layer.cornerRadius = 5.0
         topContainerView.addSubview(highColorView)
@@ -134,7 +130,7 @@ class DXSegmentScrollView: UIScrollView {
         addSubview(topContainerView)
     }
     
-    // Get button 
+    // Crate buttons
     func createBottomButton() {
         for index in 0 ..< titles.count {
             let topButton = UIButton(type: .custom)
@@ -163,14 +159,14 @@ class DXSegmentScrollView: UIScrollView {
         let originX = CGFloatPixelCeil(left + labelMiddleWith / 2)
         let lWidth = CGFloatPixelCeil(size.width + labelMarginWith * 2)
         let lHeight = CGFloatPixelCeil(size.height) + 4
-        let originY = CGFloatPixelCeil((kSegmentViewHeight - lHeight) / 2)
+        let originY = CGFloatPixelCeil((DXSegmentScrollView.kSegmentViewHeight - lHeight) / 2)
         return CGRect(x: originX, y: originY, width: lWidth, height: lHeight);
     }
     
     // Get label
     private func createLabelWithIndex(_ index : Int, textColor : UIColor) -> UILabel {
         let frame = caculateLabelFrameWithIndex(index)
-        let tempLabel = UILabel.init(frame: frame)
+        let tempLabel = UILabel(frame: frame)
         tempLabel.text = titles[index]
         tempLabel.textColor = textColor
         tempLabel.font = UIFont.systemFont(ofSize: lableFontSize)
