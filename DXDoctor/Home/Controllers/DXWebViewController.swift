@@ -20,7 +20,6 @@ class DXWebViewController: DXBaseViewController, UIWebViewDelegate {
         configWebView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(DXWebViewController.reweakLoding), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -29,22 +28,14 @@ class DXWebViewController: DXBaseViewController, UIWebViewDelegate {
     }
     
     func configWebView() {
-        
-        let url: URL? = URL.init(string: contentURL);
-        if url != nil {
+        if let url: URL = URL(string: contentURL) {
             self.showLoadingHUD()
             
-            let delayInSeconds: UInt64 = 1
-            let popTime = DispatchTime.now() + Double(Int64(NSEC_PER_SEC * delayInSeconds)) / Double(NSEC_PER_SEC);
-            
+            let popTime = DispatchTime.now() + 1
             DispatchQueue.main.asyncAfter(deadline: popTime, execute: { () -> Void in
-                
-                let request = URLRequest.init(url: url!)
+                let request = URLRequest(url: url)
                 self.webView?.loadRequest(request)
             })
-        
-        
-           
         }
     }
     
@@ -52,7 +43,6 @@ class DXWebViewController: DXBaseViewController, UIWebViewDelegate {
     @objc func reweakLoding() {
         configWebView()
     }
-    
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)

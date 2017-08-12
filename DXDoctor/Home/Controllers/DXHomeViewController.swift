@@ -8,23 +8,6 @@
 
 import UIKit
 
-enum DXHomeTableViewType: Int {
-    case recommend
-    case special
-    case other
-    
-    var cellHeight: CGFloat {
-        switch self {
-        case .recommend:
-            return 630.0
-        case .special:
-            return 224.0
-        case .other:
-            return 89.0
-        }
-    }
-}
-
 class DXHomeViewController: DXBaseViewController {
     fileprivate let topics = ["推荐", "专题", "真相", "两性", "不孕不育", "一图读懂", "肿瘤", "慢病", "营养", "母婴"]
     fileprivate let specialDataSource = SpecialTableDataSource()
@@ -36,13 +19,11 @@ class DXHomeViewController: DXBaseViewController {
         return segment
     } ()
     
-    @objc
-    fileprivate lazy var containerScrollView: UIScrollView = { [unowned self] in
+    @objc private lazy var containerScrollView: UIScrollView = { [unowned self] in
         let container = UIScrollView()
         container.backgroundColor = DXColor.theme.color()
-        container.isPagingEnabled = true;
-        container.bounces = true
-        container.delegate = self;
+        container.isPagingEnabled = true
+        container.delegate = self
         container.showsVerticalScrollIndicator = false
         container.showsHorizontalScrollIndicator = false
         return container
@@ -54,14 +35,14 @@ class DXHomeViewController: DXBaseViewController {
         return refresh
     } ()
     
-    private lazy var collectionView: UICollectionView  = { [unowned self] in
+    private lazy var collectionView: UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0.5
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: containerScrollView.bounds, collectionViewLayout: layout)
-        collectionView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
-        collectionView.dataSource = self // datasource class no effect
-        collectionView.delegate = self;
+        collectionView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0)
+        collectionView.dataSource = self 
+        collectionView.delegate = self
         collectionView.backgroundColor = UIColor.white
         collectionView.registerNib(DXRecomImageCell.self)
         collectionView.registerNib(DXRecomImageNoneCell.self)
@@ -76,9 +57,8 @@ class DXHomeViewController: DXBaseViewController {
         view.backgroundColor = UIColor.white
         automaticallyAdjustsScrollViewInsets = false
         title = "首页"
-
-        setup()
         
+        setup()
         requestRecommend()
     }
     
@@ -92,8 +72,7 @@ class DXHomeViewController: DXBaseViewController {
         navigationController?.navigationBar.showBottomHairline()
     }
     
-    // MARK: - Request
-    
+    // MARK: Request
     @objc func requestRecommend() {
         if (recommendDataList.count == 0) {
              showLoadingHUD()
@@ -116,8 +95,7 @@ class DXHomeViewController: DXBaseViewController {
         self.navigationController?.pushViewController(askDoctorVC, animated: true)
     }
     
-    // MARK: - Setup
-    
+    // MARK: Setup
     func setup() {
         setupNaviBar()
         view.addSubview(segmentScrollView)
@@ -172,7 +150,7 @@ class DXHomeViewController: DXBaseViewController {
         }
     }
     
-    // Init table view
+    // 初始化 TableView
     private func tableview(at index: Int) -> UITableView {
         let origin = CGPoint(x: view.width * CGFloat(index), y: 0)
         let size = containerScrollView.size
@@ -182,7 +160,6 @@ class DXHomeViewController: DXBaseViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = DXColor.beige.color()
         tableView.allowsSelection = false
-//        containerScrollView.addSubview(tableView)
         
         // 下拉刷新
         let pullRefreshView = DXPullToRefresh(scrollView: tableView, hasNavigationBar: false)
@@ -210,8 +187,7 @@ class DXHomeViewController: DXBaseViewController {
         return tableView
     }
     
-    // MARK: - KVO
-    
+    // MARK: KVO
     override func observeValue(forKeyPath keyPath: String?,
                                of object: Any?,
                                change: [NSKeyValueChangeKey : Any]?,
@@ -240,11 +216,12 @@ extension DXHomeViewController: UITableViewDelegate {
     }
 }
 
-// MARK: 专题，真相等的代理
+// MARK:- 专题，真相等的代理
 extension DXHomeViewController: DXSpecialCellDelegate, DXOtherCelDelegate {
     func specialCellOnClick(_ cell: DXSpecialCell) {
         showTestWebView()
     }
+    
     func otherCellOnClick(_ cell: DXOtherCell) {
         showTestWebView()
     }
@@ -256,15 +233,15 @@ extension DXHomeViewController: DXSpecialCellDelegate, DXOtherCelDelegate {
     }
 }
 
-// MARK: segmentScrollViewDelegate
+// MARK:- SegmentScrollViewDelegate
 extension DXHomeViewController: SegmentScrollViewDelegate {
     func segmentScrollView(_ segmentView: DXSegmentScrollView, tapAtIndex index: Int) {
         containerScrollView.setContentOffset(CGPoint(x: CGFloat(index) * view.width, y: 0), animated: true)
     }
 }
 
-// MARK: 推荐页数据源和代理
-extension DXHomeViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+// MARK:- 推荐页数据源和代理
+extension DXHomeViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recommendDataList.count
     }
@@ -289,10 +266,29 @@ extension DXHomeViewController : UICollectionViewDataSource, UICollectionViewDel
         self.navigationController?.pushViewController(webViewController, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let item = recommendDataList[indexPath.row] else {
             return .zero
         }
         return item.showType.size
+    }
+}
+
+enum DXHomeTableViewType: Int {
+    case recommend
+    case special
+    case other
+    
+    var cellHeight: CGFloat {
+        switch self {
+        case .recommend:
+            return 630.0
+        case .special:
+            return 224.0
+        case .other:
+            return 89.0
+        }
     }
 }

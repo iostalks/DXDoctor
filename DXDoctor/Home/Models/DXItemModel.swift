@@ -15,7 +15,7 @@ public enum DXItemShowType: Int{
     
     var size: CGSize {
         let width = UIScreen.main.bounds.width
-        let height: CGFloat = 210.0
+        let height: CGFloat = 210.0 * (UIScreen.main.bounds.width / 375.0)
         switch self {
         case .smallImageNone:
             return CGSize(width: width / 2, height: height)
