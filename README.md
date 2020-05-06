@@ -1,8 +1,7 @@
 # DXDoctor
 模仿丁香园产品「丁香医生」5.0 Swift 版
 
-- 编译环境： Xcode 9 Beta
-- 测试设备：iPhone6s iOS10.3.2
+- 编译环境： Xcode 11.4.1
 
 该项目为学习 Swift 语言的实践项目，基于 Storyboard 搭建界面框架，Xib创建视图，代码实现控件，持续更新中。资源文件来自于「丁香医生.ipa」
 
