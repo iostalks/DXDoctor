@@ -9,44 +9,26 @@
 /// 加载测试，查看loading动画类
 
 import UIKit
+import WebKit
 
-class TestWebVeiwController: DXBaseViewController, UIWebViewDelegate {
+class TestWebVeiwController: DXBaseViewController {
 
     var contentURL: String = " "
-    var webView: UIWebView?
+    var webView: WKWebView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
       
-        webView = UIWebView.init(frame: self.view.bounds)
-        webView?.delegate = self
+        webView = WKWebView(frame: self.view.bounds)
         self.view.addSubview(webView!)
     
         let url: URL? = URL.init(string: contentURL);
         if url != nil {
             let request = URLRequest.init(url: url!)
-            webView?.loadRequest(request)
+            webView?.load(request)
         }
         
-        self.showLoadingHUD()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-    }
-}
-
-// MARK: UIWebViewDelegate
-extension TestWebVeiwController {
-    
-    func webViewDidStartLoad(_ webView: UIWebView) {
-    }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-//        self.hideLoadingHUD(animation: false)
-    }
-    
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+//        self.showLoadingHUD()
     }
 }
