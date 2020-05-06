@@ -24,7 +24,8 @@ class DXSegmentScrollView: UIScrollView {
     private let labelMarginWith: CGFloat = 8  // label margin
     
     convenience init(titles: [String]) {
-        let iframe = CGRect(x: 0, y: 64,
+        let barHeight: CGFloat = UIScreen.main.bounds.height >= 812 ? 88 : 64;
+        let iframe = CGRect(x: 0, y: barHeight,
                             width: UIScreen.main.bounds.width,
                             height: DXSegmentScrollView.kSegmentViewHeight)
         self.init(frame: iframe)
@@ -74,7 +75,6 @@ class DXSegmentScrollView: UIScrollView {
         let currentWidth = labelFrame.width
         let nextLabelFrame = caculateLabelFrameWithIndex(Int(ceil))
         let widthOffset = nextLabelFrame.width - currentWidth
-//        print(widthOffset, delta, ceil)
         let labelWidth = currentWidth + widthOffset * delta
         topContainerView.width = labelWidth
         highColorView.width = labelWidth

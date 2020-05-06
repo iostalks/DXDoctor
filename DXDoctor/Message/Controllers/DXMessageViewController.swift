@@ -39,7 +39,7 @@ class DXMessageViewController: DXBaseViewController, UITableViewDelegate, UITabl
         buttonItem.layer.masksToBounds = true
         buttonItem.adjustsImageWhenHighlighted = false
         buttonItem.addTarget(self, action: #selector(DXMessageViewController.barButtonItemOnTapped), for: .touchUpInside)
-        let leftItem = UIBarButtonItem.init(customView: buttonItem)
+        let leftItem = UIBarButtonItem(customView: buttonItem)
         navigationItem.leftBarButtonItem = leftItem
     }
     

@@ -121,7 +121,7 @@ class DXHomeViewController: DXBaseViewController {
     
     // 设置导航栏
      private func setupNaviBar() {
-        let titleImageView = UIImageView.init(image: UIImage(named: "home_dxy_logo"))
+        let titleImageView = UIImageView(image: UIImage(named: "home_dxy_logo"))
         navigationItem.titleView = titleImageView;
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: nil)
     }
