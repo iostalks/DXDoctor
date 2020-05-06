@@ -9,7 +9,6 @@
 import UIKit
 
 class DXLoadingComponent: UIView {
-
     @IBOutlet weak var refreshOval1: UIImageView!
     @IBOutlet weak var refreshOval2: UIImageView!
     @IBOutlet weak var refreshOval3: UIImageView!

@@ -21,7 +21,7 @@ class DXMessageModel: NSObject {
     }
     
     init(dictModel: NSDictionary) {
-        self.title = dictModel.value(forKey: PropertyKey.titleKey) as! String
+        self.title = dictModel.value(forKey: PropertyKey.titleKey) as? String
         self.tag   = dictModel.value(forKey: PropertyKey.tagKey) as! String
         self.URL   = dictModel.value(forKey: PropertyKey.urlKey) as! String
     }

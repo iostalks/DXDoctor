@@ -17,7 +17,7 @@ extension String {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 6
             
-            attritedStr.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, self.characters.count))
+            attritedStr.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, self.count))
             
             return attritedStr
         }

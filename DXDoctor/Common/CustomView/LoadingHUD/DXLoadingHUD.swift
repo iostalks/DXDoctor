@@ -8,11 +8,6 @@
 
 import UIKit
 
-//enum AnimationType{
-//    case Default
-//    case Cool
-//}
-
 class DXLoadingHUD: UIView {
 
     fileprivate var animationView: UIView?
@@ -26,29 +21,7 @@ class DXLoadingHUD: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    deinit {
-//        print("loading view deinit")
-    }
-    
-    // 无圆点缩放效果
-//    private func defaultView() -> UIView {
-//        
-//        let animationView = UIView.init(frame: CGRectMake(0, 0, 39, 38))
-//        animationView.backgroundColor = UIColor.clearColor()
-//        var center = animationView.center;
-//        center = self.center
-//        animationView.center = center
-//        animationView.layer.addAnimation(transformRotate(), forKey: "transformRotate")
-//
-//        let imageView = UIImageView(image: UIImage(named: "Networkloading"))
-//        imageView.frame = CGRectMake(-1, 1, 39, 38)
-//        animationView.addSubview(imageView)
-//        
-//        return animationView
-//    }
 
-    
     fileprivate func coolView() -> UIView {
         let coolView: DXLoadingComponent = Bundle.main.loadNibNamed("DXLoadingComponent", owner: self, options: nil)!.first as! DXLoadingComponent
         coolView.backgroundColor = UIColor.clear

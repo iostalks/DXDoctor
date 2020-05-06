@@ -55,7 +55,7 @@ class DXHomeViewController: DXBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        automaticallyAdjustsScrollViewInsets = false
+//        automaticallyAdjustsScrollViewInsets = false
         title = "首页"
         
         setup()

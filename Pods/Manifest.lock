@@ -1,39 +1,36 @@
 PODS:
-  - Kingfisher (3.10.1)
-  - SnapKit (3.2.0)
+  - Kingfisher (5.13.4):
+    - Kingfisher/Core (= 5.13.4)
+  - Kingfisher/Core (5.13.4)
+  - SnapKit (5.0.1)
   - SVProgressHUD (1.1.3)
+  - SwiftHEXColors (1.4.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
-  - Kingfisher (from `https://github.com/onevcat/Kingfisher`, branch `swift4`)
-  - SnapKit (from `https://github.com/SnapKit/SnapKit`, branch `swift-4`)
+  - Kingfisher (= 5.13.4)
+  - SnapKit (= 5.0.1)
   - SVProgressHUD (~> 1.1.3)
+  - SwiftHEXColors
   - YYKit
 
-EXTERNAL SOURCES:
-  Kingfisher:
-    :branch: swift4
-    :git: https://github.com/onevcat/Kingfisher
-  SnapKit:
-    :branch: swift-4
-    :git: https://github.com/SnapKit/SnapKit
-
-CHECKOUT OPTIONS:
-  Kingfisher:
-    :commit: 54087b54da5cf405659769caee26aa304c18f4a1
-    :git: https://github.com/onevcat/Kingfisher
-  SnapKit:
-    :commit: d31148f449abe819fd1a58d5e07e94874c7e6003
-    :git: https://github.com/SnapKit/SnapKit
+SPEC REPOS:
+  trunk:
+    - Kingfisher
+    - SnapKit
+    - SVProgressHUD
+    - SwiftHEXColors
+    - YYKit
 
 SPEC CHECKSUMS:
-  Kingfisher: 5225d74cc1575305780bfe579836bd525585ce5c
-  SnapKit: c71c530b73cedd2a8b998098687001baff265086
+  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SwiftHEXColors: c5baa53cf2412ce6391633ce74999437cc025efc
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 45a355d44d44f45f59975c158c325070e6286425
+PODFILE CHECKSUM: 0330bb2c5fbacd840973f9cf90d23b4c8e03500e
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.8.4

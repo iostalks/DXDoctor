@@ -2,7 +2,7 @@
 //  Reusable.swift
 //  DXDoctor
 //
-//  Created by bong on 2017/8/9.
+//  Created by Jone on 2017/8/9.
 //  Copyright © 2017年 Jone. All rights reserved.
 //
 

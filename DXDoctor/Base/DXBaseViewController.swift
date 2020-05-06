@@ -42,8 +42,6 @@ class DXBaseViewController: UIViewController {
         askButton.setImage(askImage, for: .normal)
         askButton.addTarget(self, action: #selector(DXBaseViewController.askDoctorButtonItemOnTapped), for: .touchUpInside)
         let rightButtonItem = UIBarButtonItem.init(customView: askButton)
-        // This way has a bug?
-//        let rightButtonItem = UIBarButtonItem.init(image: askImage, style: .plain, target: self, action: ))
         navigationItem.rightBarButtonItem = rightButtonItem;
         
     }
