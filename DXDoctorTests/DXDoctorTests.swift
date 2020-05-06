@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import DXDoctor
+//@testable import DXDoctor
 
 class DXDoctorTests: XCTestCase {
     
